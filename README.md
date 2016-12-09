@@ -18,3 +18,19 @@
 [build]: https://travis-ci.org/CQASO/cqaso-utils
 [coveralls-badge]: https://img.shields.io/coveralls/CQASO/cqaso-utils.svg?style=flat-square
 [coveralls]: https://coveralls.io/github/CQASO/cqaso-utils
+
+## 单元测试介绍
+
+之前写过的测试都是针对简单的工具方法，用的 mocha + chai 写。本工具库需要一个浏览器环境，于是选择 Karma + phamtonjs 环境，因为涉及到了 Babel 和 commonjs 模块系统，于是用webpack做babel+commonjs编译。
+
+### 测试环境
+
+- PhantomJS
+- Chrome
+- Firefox
+
+### 使用
+
+> npm test
+
+> open coverage/lcov-report/index.html
