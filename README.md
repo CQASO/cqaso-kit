@@ -27,7 +27,6 @@
 
 > open coverage/lcov-report/index.html
 
-
 [build-badge]: https://img.shields.io/travis/CQASO/cqaso-utils/master.svg?style=flat-square
 [build]: https://travis-ci.org/CQASO/cqaso-utils
 [coveralls-badge]: https://img.shields.io/coveralls/CQASO/cqaso-utils.svg?style=flat-square
