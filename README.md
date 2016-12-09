@@ -10,14 +10,6 @@
 - 所有模块都要完整测试，覆盖率不少于80%
 - 提升模块意识，每个模块不超过300行，代码语义化，声明变量语义化，规范化。
 
-## 相关文档
-
-[cqaso-utils 单元测试介绍](./test/README.md)
-
-[build-badge]: https://img.shields.io/travis/CQASO/cqaso-utils/master.svg?style=flat-square
-[build]: https://travis-ci.org/CQASO/cqaso-utils
-[coveralls-badge]: https://img.shields.io/coveralls/CQASO/cqaso-utils.svg?style=flat-square
-[coveralls]: https://coveralls.io/github/CQASO/cqaso-utils
 
 ## 单元测试介绍
 
@@ -34,3 +26,9 @@
 > npm test
 
 > open coverage/lcov-report/index.html
+
+
+[build-badge]: https://img.shields.io/travis/CQASO/cqaso-utils/master.svg?style=flat-square
+[build]: https://travis-ci.org/CQASO/cqaso-utils
+[coveralls-badge]: https://img.shields.io/coveralls/CQASO/cqaso-utils.svg?style=flat-square
+[coveralls]: https://coveralls.io/github/CQASO/cqaso-utils
