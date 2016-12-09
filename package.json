@@ -2,7 +2,7 @@
   "scripts": {
     "build": "lerna run build --concurrency",
     "test": "lerna run test --concurrency",
-    "start": "learn boostrap",
+    "start": "lerna bootstrap",
     "publish": "lerna publish"
   },
   "devDependencies": {
