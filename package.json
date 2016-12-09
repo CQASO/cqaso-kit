@@ -1,7 +1,9 @@
 {
   "scripts": {
     "build": "lerna run build --concurrency",
-    "test": "lerna run test --concurrency"
+    "test": "lerna run test --concurrency",
+    "start": "learn boostrap",
+    "publish": "lerna publish"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
