@@ -1,6 +1,6 @@
 {
   "name": "cqaso-kit-transition",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/transition.js",
   "minified:main": "dist/transition.min.js",
   "amdName": "css.js",
@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "lodash.assign": "^4.2.0",
-    "cqaso-kit-autoprefixer": "0.0.0",
-    "cqaso-kit-css": "0.0.0",
+    "cqaso-kit-autoprefixer": "^0.0.1",
+    "cqaso-kit-css": "^0.0.1"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0"
