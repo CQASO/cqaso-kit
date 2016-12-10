@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/assets/";
+/******/ 	__webpack_require__.p = "/cqaso-kit/assets/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -71,23 +71,17 @@
 	
 	var _ui2 = _interopRequireDefault(_ui);
 	
-	var _tracking_acts = __webpack_require__(528);
-	
-	var _dateFns = __webpack_require__(641);
+	var _dateFns = __webpack_require__(639);
 	
 	var _dateFns2 = _interopRequireDefault(_dateFns);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_routes2.default.start(function (routeData, routeEvenType) {
-	  // Ignore initial update event, since it's already handled by Segment
-	  if (routeEvenType !== 'synthetic') {
-	    (0, _tracking_acts.trackPageView)();
-	  }
+	/* injects from baggage-loader */
 	
+	_routes2.default.start(function (routeData, routeEvenType) {
 	  _reactDom2.default.render(_react2.default.createElement(_ui2.default, { routeData: routeData }), document.getElementById('canvas'));
 	});
-	/* injects from baggage-loader */
 	
 	window.dateFns = _dateFns2.default;
 
@@ -27818,6 +27812,7 @@
 	    _classCallCheck(this, Router);
 	
 	    this.routes = Matcher.flatten(routes);
+	    console.log(this.routes);
 	  }
 	
 	  /**
@@ -30610,19 +30605,19 @@
 	
 	var _classnames2 = _interopRequireDefault(_classnames);
 	
-	var _features = __webpack_require__(538);
+	var _features = __webpack_require__(537);
 	
 	var _features2 = _interopRequireDefault(_features);
 	
-	var _docs = __webpack_require__(548);
+	var _docs = __webpack_require__(547);
 	
 	var _docs2 = _interopRequireDefault(_docs);
 	
-	var _doc = __webpack_require__(558);
+	var _doc = __webpack_require__(556);
 	
 	var _doc2 = _interopRequireDefault(_doc);
 	
-	var _docs3 = __webpack_require__(549);
+	var _docs3 = __webpack_require__(548);
 	
 	var _docs4 = _interopRequireDefault(_docs3);
 	
@@ -30635,9 +30630,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	/* injects from baggage-loader */
-	__webpack_require__(637);
+	__webpack_require__(635);
 	
-	__webpack_require__(639);
+	__webpack_require__(637);
 	
 	var Ui = function (_React$Component) {
 	  _inherits(Ui, _React$Component);
@@ -30746,11 +30741,11 @@
 	
 	var _getting_started2 = _interopRequireDefault(_getting_started);
 	
-	var _logo = __webpack_require__(533);
+	var _logo = __webpack_require__(532);
 	
 	var _logo2 = _interopRequireDefault(_logo);
 	
-	var _github_logo = __webpack_require__(534);
+	var _github_logo = __webpack_require__(533);
 	
 	var _github_logo2 = _interopRequireDefault(_github_logo);
 	
@@ -30763,7 +30758,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	/* injects from baggage-loader */
-	__webpack_require__(535);
+	__webpack_require__(534);
 	
 	var Promo = function (_React$Component) {
 	  _inherits(Promo, _React$Component);
@@ -30790,7 +30785,7 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'promo-logo_name' },
-	              'date-fns'
+	              'CQASO'
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -30874,9 +30869,7 @@
 	
 	var _code2 = _interopRequireDefault(_code);
 	
-	var _tracking_acts = __webpack_require__(528);
-	
-	var _version = __webpack_require__(529);
+	var _version = __webpack_require__(528);
 	
 	var _version2 = _interopRequireDefault(_version);
 	
@@ -30889,7 +30882,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	/* injects from baggage-loader */
-	__webpack_require__(531);
+	__webpack_require__(530);
 	
 	var NPM_INSTALL_EXAMPLE = 'npm install date-fns --save';
 	var NPM_SIMPLE_EXAMPLE = 'var isToday = require(\'date-fns/is_today\')\nisToday(new Date())\n//=> true';
@@ -31046,7 +31039,6 @@
 	  }, {
 	    key: '_changeSource',
 	    value: function _changeSource(source, e) {
-	      (0, _tracking_acts.trackAction)('Changed Installation Source', { source: source });
 	      e.preventDefault();
 	      this.setState({ source: source });
 	    }
@@ -41461,29 +41453,6 @@
 
 /***/ },
 /* 528 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.trackPageView = trackPageView;
-	exports.trackAction = trackAction;
-	function trackPageView() {
-	  if (window.analytics && window.analytics.page) {
-	    window.analytics.page();
-	  }
-	}
-	
-	function trackAction(actionName, payload) {
-	  if (window.analytics && window.analytics.track) {
-	    window.analytics.track(actionName, payload);
-	  }
-	}
-
-/***/ },
-/* 529 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41492,7 +41461,7 @@
 	  value: true
 	});
 	
-	var _package = __webpack_require__(530);
+	var _package = __webpack_require__(529);
 	
 	var _package2 = _interopRequireDefault(_package);
 	
@@ -41504,7 +41473,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 530 */
+/* 529 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -41593,13 +41562,13 @@
 	};
 
 /***/ },
-/* 531 */
+/* 530 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(532);
+	var content = __webpack_require__(531);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(525)(content, {});
@@ -41619,7 +41588,7 @@
 	}
 
 /***/ },
-/* 532 */
+/* 531 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(524)();
@@ -41633,25 +41602,25 @@
 
 
 /***/ },
-/* 533 */
+/* 532 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "15467fd64902d153646329b6ddd01b13.svg";
 
 /***/ },
-/* 534 */
+/* 533 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "b6caace86f061e5c4be87c193a51335f.svg";
 
 /***/ },
-/* 535 */
+/* 534 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(536);
+	var content = __webpack_require__(535);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(525)(content, {});
@@ -41671,7 +41640,7 @@
 	}
 
 /***/ },
-/* 536 */
+/* 535 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(524)();
@@ -41679,19 +41648,19 @@
 	
 	
 	// module
-	exports.push([module.id, ".promo {\n  width: 100%;\n  color: white;\n  background: #5a0530;\n  background-image: url(" + __webpack_require__(537) + ");\n  background-size: cover;\n  background-position: top center;\n  height: 100vh;\n  overflow-y: auto;\n}\n\n.promo-inner {\n  background: -webkit-linear-gradient(rgba(118, 10, 61, 0.7), #4c042b);\n  background: linear-gradient(rgba(118, 10, 61, 0.7), #4c042b);\n  padding: 30px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  min-height: 100vh;\n}\n\n.promo-logo {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  height: 33px;\n}\n\n.promo-logo_image {\n  width: 40px;\n}\n\n.promo-logo_name {\n  font-size: 35px;\n  color: #FFF;\n  font-weight: 400;\n  margin-left: 10px;\n  position: relative;\n  top: -1px;\n}\n\n.promo-header {\n  text-align: center;\n  color: #FBD7A1;\n  font-size: 20px;\n  margin-top: 30px;\n  font-weight: 300;\n}\n\n.promo-text {\n  font-size: 16px;\n  line-height: 22px;\n  font-weight: 200;\n  text-align: center;\n  margin-top: 10px;\n  color: #FFE9C9;\n}\n\n.promo-toptal_logo {\n  height: 20px;\n  margin-left: 5px;\n}\n\n.promo-links {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.promo-github_logo {\n  opacity: .5;\n}\n\n.promo-github_logo:hover {\n  opacity: .8;\n}\n", ""]);
+	exports.push([module.id, ".promo {\n  width: 100%;\n  color: white;\n  background: #5a0530;\n  background-image: url(" + __webpack_require__(536) + ");\n  background-size: cover;\n  background-position: top center;\n  height: 100vh;\n  overflow-y: auto;\n}\n\n.promo-inner {\n  background: -webkit-linear-gradient(rgba(118, 10, 61, 0.7), #4c042b);\n  background: linear-gradient(rgba(118, 10, 61, 0.7), #4c042b);\n  padding: 30px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  min-height: 100vh;\n}\n\n.promo-logo {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  height: 33px;\n}\n\n.promo-logo_image {\n  width: 40px;\n}\n\n.promo-logo_name {\n  font-size: 35px;\n  color: #FFF;\n  font-weight: 400;\n  margin-left: 10px;\n  position: relative;\n  top: -1px;\n}\n\n.promo-header {\n  text-align: center;\n  color: #FBD7A1;\n  font-size: 20px;\n  margin-top: 30px;\n  font-weight: 300;\n}\n\n.promo-text {\n  font-size: 16px;\n  line-height: 22px;\n  font-weight: 200;\n  text-align: center;\n  margin-top: 10px;\n  color: #FFE9C9;\n}\n\n.promo-toptal_logo {\n  height: 20px;\n  margin-left: 5px;\n}\n\n.promo-links {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.promo-github_logo {\n  opacity: .5;\n}\n\n.promo-github_logo:hover {\n  opacity: .8;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 537 */
+/* 536 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "7f2a0e48577c6bd1758829de8d7bce5c.png";
 
 /***/ },
-/* 538 */
+/* 537 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41715,7 +41684,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	/* injects from baggage-loader */
-	__webpack_require__(539);
+	__webpack_require__(538);
 	
 	var Features = function (_React$Component) {
 	  _inherits(Features, _React$Component);
@@ -41897,13 +41866,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 539 */
+/* 538 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(540);
+	var content = __webpack_require__(539);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(525)(content, {});
@@ -41923,7 +41892,7 @@
 	}
 
 /***/ },
-/* 540 */
+/* 539 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(524)();
@@ -41931,55 +41900,55 @@
 	
 	
 	// module
-	exports.push([module.id, ".features {\n  width: 100%;\n  padding: 30px;\n  background-color: #FFFBF5;\n  height: 100vh;\n  overflow-y: auto;\n}\n\n.features-header {\n  color: #770C56;\n  font-weight: 600;\n  font-size: 20px;\n  margin-bottom: 30px;\n}\n\n.features-list {\n  color: #4A3142;\n  margin-top: 15px;\n  font-size: 17px;\n}\n\n.features-item {\n  margin-top: 20px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.features-item:last-child {\n  margin-bottom: 0;\n}\n\n.features-title {\n  font-weight: 600;\n  font-size: 17px;\n  margin-bottom: 5px;\n}\n\n.features-description {\n  color: #4C193C;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 22px;\n}\n\n.features-icon {\n  width: 38px;\n  height: 38px;\n  background-size: 40px;\n  border: 1px solid rgba(119, 12, 86, 0.6);\n  border-radius: 50%;\n  background-repeat: no-repeat;\n  background-position: center;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  margin-top: 2px;\n}\n\n.features-icon.is-modular {\n  background-image: url(" + __webpack_require__(541) + ");\n  background-size: 17px;\n  background-position: center 6px;\n}\n\n.features-icon.is-immutable {\n  background-image: url(" + __webpack_require__(542) + ");\n  background-size: 17px;\n  background-position: center 6px;\n}\n\n.features-icon.is-consistent {\n  background-image: url(" + __webpack_require__(543) + ");\n  background-size: 21px;\n  background-position: center 7px;\n}\n\n.features-icon.is-reliable {\n  background-image: url(" + __webpack_require__(544) + ");\n  background-size: 21px;\n  background-position: center 6px;\n}\n\n.features-icon.is-simple {\n  background-image: url(" + __webpack_require__(545) + ");\n  background-size: 20px;\n  background-position: center 8px;\n}\n\n.features-icon.is-safe {\n  background-image: url(" + __webpack_require__(546) + ");\n  background-size: 18px;\n}\n\n.features-icon.is-fast {\n  background-image: url(" + __webpack_require__(547) + ");\n  background-size: 15px;\n  background-position: center 8px;\n}\n\n.features-content {\n  margin-left: 15px;\n}\n", ""]);
+	exports.push([module.id, ".features {\n  width: 100%;\n  padding: 30px;\n  background-color: #FFFBF5;\n  height: 100vh;\n  overflow-y: auto;\n}\n\n.features-header {\n  color: #770C56;\n  font-weight: 600;\n  font-size: 20px;\n  margin-bottom: 30px;\n}\n\n.features-list {\n  color: #4A3142;\n  margin-top: 15px;\n  font-size: 17px;\n}\n\n.features-item {\n  margin-top: 20px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n\n.features-item:last-child {\n  margin-bottom: 0;\n}\n\n.features-title {\n  font-weight: 600;\n  font-size: 17px;\n  margin-bottom: 5px;\n}\n\n.features-description {\n  color: #4C193C;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 22px;\n}\n\n.features-icon {\n  width: 38px;\n  height: 38px;\n  background-size: 40px;\n  border: 1px solid rgba(119, 12, 86, 0.6);\n  border-radius: 50%;\n  background-repeat: no-repeat;\n  background-position: center;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  margin-top: 2px;\n}\n\n.features-icon.is-modular {\n  background-image: url(" + __webpack_require__(540) + ");\n  background-size: 17px;\n  background-position: center 6px;\n}\n\n.features-icon.is-immutable {\n  background-image: url(" + __webpack_require__(541) + ");\n  background-size: 17px;\n  background-position: center 6px;\n}\n\n.features-icon.is-consistent {\n  background-image: url(" + __webpack_require__(542) + ");\n  background-size: 21px;\n  background-position: center 7px;\n}\n\n.features-icon.is-reliable {\n  background-image: url(" + __webpack_require__(543) + ");\n  background-size: 21px;\n  background-position: center 6px;\n}\n\n.features-icon.is-simple {\n  background-image: url(" + __webpack_require__(544) + ");\n  background-size: 20px;\n  background-position: center 8px;\n}\n\n.features-icon.is-safe {\n  background-image: url(" + __webpack_require__(545) + ");\n  background-size: 18px;\n}\n\n.features-icon.is-fast {\n  background-image: url(" + __webpack_require__(546) + ");\n  background-size: 15px;\n  background-position: center 8px;\n}\n\n.features-content {\n  margin-left: 15px;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 541 */
+/* 540 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "4d4c58160eb97f22f0ab24782e7af28e.svg";
 
 /***/ },
-/* 542 */
+/* 541 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "73d2cb0eae4f78e0b53ce8b58f1947d9.svg";
 
 /***/ },
-/* 543 */
+/* 542 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "c72334d3f456baeac96ad78d143f5949.svg";
 
 /***/ },
-/* 544 */
+/* 543 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "65e3664c350d99aff59d9b9e95c716b6.svg";
 
 /***/ },
-/* 545 */
+/* 544 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "628bfdf9453b80f688285ecb36c8e69f.svg";
 
 /***/ },
-/* 546 */
+/* 545 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "1883111b8238b53ee42d09914f620b77.svg";
 
 /***/ },
-/* 547 */
+/* 546 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "6a93409220f55ae7a92da0775e6790b0.svg";
 
 /***/ },
-/* 548 */
+/* 547 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42002,15 +41971,13 @@
 	
 	var _routes2 = _interopRequireDefault(_routes);
 	
-	var _docs = __webpack_require__(549);
+	var _docs = __webpack_require__(548);
 	
 	var _docs2 = _interopRequireDefault(_docs);
 	
-	var _debounce = __webpack_require__(551);
+	var _debounce = __webpack_require__(549);
 	
 	var _debounce2 = _interopRequireDefault(_debounce);
-	
-	var _tracking_acts = __webpack_require__(528);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -42021,9 +41988,9 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	/* injects from baggage-loader */
-	__webpack_require__(553);
+	__webpack_require__(551);
 	
-	var logoPath = __webpack_require__(557);
+	var logoPath = __webpack_require__(555);
 	
 	var Docs = function (_React$Component) {
 	  _inherits(Docs, _React$Component);
@@ -42036,8 +42003,6 @@
 	    _this.state = {
 	      query: null
 	    };
-	
-	    _this._trackSearch = (0, _debounce2.default)(_this._trackSearch, 500);
 	    return _this;
 	  }
 	
@@ -42190,20 +42155,13 @@
 	  }, {
 	    key: '_clearQuery',
 	    value: function _clearQuery() {
-	      (0, _tracking_acts.trackAction)('Search Cleared');
 	      this.setState({ query: null });
 	    }
 	  }, {
 	    key: '_performSearch',
 	    value: function _performSearch(e) {
 	      var query = e.currentTarget.value;
-	      this._trackSearch(query);
 	      this.setState({ query: query });
-	    }
-	  }, {
-	    key: '_trackSearch',
-	    value: function _trackSearch(query) {
-	      (0, _tracking_acts.trackAction)('Search', { query: query });
 	    }
 	  }, {
 	    key: '_openHome',
@@ -42228,8578 +42186,77 @@
 	module.exports = exports['default'];
 
 /***/ },
+/* 548 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	// import docsJSON from 'date-fns/docs.json'
+	exports.default = {
+	    "General": [{
+	        "content": "# CQASO基础架构工具库\n\n[![Travis][build-badge]][build]  [![Coveralls][coveralls-badge]][coveralls]\n\n## 目的 / 目标\n\n- 为了快速构建CQASO网站,以及快速搭建CQASO相关网站，框架。作为底层工具输出。\n- 根据CQASO的工具需求，完善工具库，为后续开发做准备。\n- 在构建工具库的过程当中，完善前端团队的代码规范的一致性，统一注释风格。\n- 所有模块都要完整测试，覆盖率不少于80%\n- 提升模块意识，每个模块不超过300行，代码语义化，声明变量语义化，规范化。\n\n\n## 单元测试介绍\n\n之前写过的测试都是针对简单的工具方法，用的 mocha + chai 写。本工具库需要一个浏览器环境，于是选择 Karma + phamtonjs 环境，因为涉及到了 Babel 和 commonjs 模块系统，于是用webpack做babel+commonjs编译。\n\n### 测试环境\n\n- PhantomJS\n- Chrome\n- Firefox\n\n### 使用\n\n> npm test\n\n> open coverage/lcov-report/index.html\n\n[build-badge]: https://img.shields.io/travis/CQASO/cqaso-utils/master.svg?style=flat-square\n[build]: https://travis-ci.org/CQASO/cqaso-utils\n[coveralls-badge]: https://img.shields.io/coveralls/CQASO/cqaso-utils.svg?style=flat-square\n[coveralls]: https://coveralls.io/github/CQASO/cqaso-utils\n",
+	        "type": "markdown",
+	        "urlId": "readme",
+	        "category": "General",
+	        "title": "readme",
+	        "description": "Introduction & installation instructions",
+	        "path": "/Users/chenyutian0510/Documents/test/jsdoc/README.md"
+	    }],
+	    "API": [{
+	        "type": "jsdoc",
+	        "urlId": "differenceInCalendarISOWeeks",
+	        "category": "API",
+	        "title": "differenceInCalendarISOWeeks",
+	        "description": "Get the number of calendar ISO weeks between the given dates.",
+	        "content": {
+	            "id": "differenceInCalendarISOWeeks",
+	            "longname": "differenceInCalendarISOWeeks",
+	            "name": "differenceInCalendarISOWeeks",
+	            "kind": "function",
+	            "scope": "global",
+	            "description": "Get the number of calendar ISO weeks between the given dates.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
+	            "params": [{
+	                "type": {
+	                    "names": ["Date", "String", "Number"]
+	                },
+	                "description": "the later date",
+	                "name": "dateLeft"
+	            }, {
+	                "type": {
+	                    "names": ["Date", "String", "Number"]
+	                },
+	                "description": "the earlier date",
+	                "name": "dateRight"
+	            }],
+	            "examples": ["// How many calendar ISO weeks are between 6 July 2014 and 21 July 2014?\nvar result = differenceInCalendarISOWeeks(\n  new Date(2014, 6, 21),\n  new Date(2014, 6, 6)\n)\n//=> 3"],
+	            "returns": [{
+	                "type": {
+	                    "names": ["Number"]
+	                },
+	                "description": "the number of calendar ISO weeks"
+	            }],
+	            "category": "API",
+	            "meta": {
+	                "lineno": 26,
+	                "filename": "index.js",
+	                "path": "/Users/chenyutian0510/Documents/test/jsdoc"
+	            },
+	            "summary": "Get the number of calendar ISO weeks between the given dates.",
+	            "order": 0
+	        }
+	    }]
+	};
+	module.exports = exports["default"];
+
+/***/ },
 /* 549 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _docs = __webpack_require__(550);
-	
-	var _docs2 = _interopRequireDefault(_docs);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	exports.default = _docs2.default;
-	module.exports = exports['default'];
-
-/***/ },
-/* 550 */
-/***/ function(module, exports) {
-
-	module.exports = {
-		"General": [
-			{
-				"content": "# Getting Started\n\n## Table of Contents\n\n- [Introduction](#introduction)\n\n- [Installation](#installation)\n\n  - [npm](#npm)\n\n  - [Bower](#bower)\n\n  - [CDN & Download](#cdn)\n\n  - [GitHub Releases](#github-releases)\n\n## Introduction\n\n**date-fns** provides the most comprehensive, yet simple and consistent toolset\nfor manipulating **JavaScript dates** in **a browser** & **Node.js**.\n\n**date-fns** is like [lodash](https://lodash.com) for dates. It has\n[**140+ functions** for all occasions](https://date-fns.org/docs/).\n\n```js\ndateFns.format(new Date(2014, 1, 11), 'MM/DD/YYYY')\n//=> '02/11/2014'\n\nvar dates = [new Date(1995, 6, 2), new Date(1987, 1, 11), new Date(1989, 6, 10)]\ndates.sort(dateFns.compareAsc)\n//=> [\n//   Wed Feb 11 1987 00:00:00,\n//   Mon Jul 10 1989 00:00:00,\n//   Sun Jul 02 1995 00:00:00\n// ]\n```\n\n## Installation\n\nThe library is available as an [npm package](https://www.npmjs.com/package/date-fns),\na Bower package, and is also distributed through a [CDN](http://cdn.date-fns.org/).\n\n### npm\n\nTo install the npm package, run:\n\n```bash\nnpm install date-fns --save\n```\n\nTo start using:\n\n```js\nvar isToday = require('date-fns/is_today')\nisToday(new Date())\n//=> true\n```\n\n### Bower\n\nTo install the Bower package, run:\n\n```bash\nbower install date-fns\n```\n\nTo start using it, add the library to your build and access it\nvia `window.dateFns`:\n\n```js\ndateFns.isToday(new Date())\n//=> true\n```\n\n### CDN\n\nTo start using date-fns, simply add the following code into HTML:\n\n```html\n<script src=\"http://cdn.date-fns.org/VERSION/date_fns.min.js\"></script>\n<script>\n  dateFns.isToday(new Date())\n  //=> true\n</script>\n```\n\nReplace `VERSION` with a proper version number e.g. `v1.0.0`.\n\nSee the [full list](http://cdn.date-fns.org/) of resources available on the CDN:\n\n- `http://cdn.date-fns.org/VERSION/date_fns.js`\n- `http://cdn.date-fns.org/VERSION/date_fns.js.map`\n- `http://cdn.date-fns.org/VERSION/date_fns.min.js`\n- `http://cdn.date-fns.org/VERSION/date_fns.min.js.map`\n- `http://cdn.date-fns.org/VERSION/date_fns_docs.json`\n\n### GitHub Releases\n\ndate-fns is available via [the releases page](https://github.com/date-fns/date-fns/releases)\nwhere you can download the source code or individual files.\n",
-				"type": "markdown",
-				"urlId": "Getting-Started",
-				"category": "General",
-				"title": "Getting Started",
-				"description": "Introduction & installation instructions",
-				"path": "/Users/lesha/Work/date-fns/docs/getting_started.md"
-			},
-			{
-				"content": "# Change Log\n\nAll notable changes to this project will be documented in this file.\nThis project adheres to [Semantic Versioning].\n\nThis change log follows the format documented in [Keep a CHANGELOG].\n\n[Semantic Versioning]: http://semver.org/\n[Keep a CHANGELOG]: http://keepachangelog.com/\n\n## [Unreleased]\n\n## [1.16.0] - 2016-12-08\n\n### Added\n\n- [Italian locale (it)](https://github.com/date-fns/date-fns/pull/298)\n  (thanks to Alberto Restifo [@albertorestifo](https://github.com/albertorestifo))\n\n- For German `buildDistanceInWordsLocale`, add nominative case translations (for distances without a suffix).\n  Kudos to Asia [@asia-t](https://github.com/asia-t).\n  See related PR: [#295](https://github.com/date-fns/date-fns/pull/295)\n\n## [1.15.1] - 2016-12-07\n\n### Fixed\n\n- Fixed TypeScript imports from individual modules.\n  Thanks to [@mattlewis92](https://github.com/mattlewis92).\n  See related PR: [#287](https://github.com/date-fns/date-fns/pull/287)\n\n## [1.15.0] - 2016-12-07\n\n### Added\n\n- [Indonesian locale (id)](https://github.com/date-fns/date-fns/pull/299)\n  (thanks to Rahmat Budiharso [@rbudiharso](https://github.com/rbudiharso))\n\n- [Catalan locale (ca)](https://github.com/date-fns/date-fns/pull/300)\n  (thanks to Guillermo Grau [@guigrpa](https://github.com/guigrpa))\n\n### Fixed\n\n- Fix some inaccuracies in Spanish locale.\n  Kudos to [@guigrpa](https://github.com/guigrpa).\n  See related PR: [#302](https://github.com/date-fns/date-fns/pull/302)\n\n## [1.14.1] - 2016-12-06\n\n### Fixed\n\n- Fixed broken test for Norwegian Bokmål locale.\n\n## [1.14.0] - 2016-12-06\n\n### Added\n\n- [Norwegian Bokmål locale (nb)](https://github.com/date-fns/date-fns/pull/291)\n  (thanks to Hans-Kristian Koren [@Hanse](https://github.com/Hanse))\n\n## [1.13.0] - 2016-12-06\n\n### Added\n\n- [Chinese Traditional locale (zh_tw)](https://github.com/date-fns/date-fns/pull/283)\n  (thanks to tonypai [@tpai](https://github.com/tpai)).\n\n- [Dutch language locale (nl)](https://github.com/date-fns/date-fns/pull/278)\n  (kudos to Jorik Tangelder [@jtangelder](https://github.com/jtangelder))\n\n## [1.12.1] - 2016-12-05\n\n### Fixed\n\n- Added `distanceInWordsStrict` to the list of supported functions in I18n doc.\n\n## [1.12.0] - 2016-12-05\n\n### Added\n\n- [Spanish language locale (es)](https://github.com/date-fns/date-fns/pull/269)\n  (thanks to Juan Angosto [@juanangosto](https://github.com/juanangosto)).\n\n### Fixed\n\n- Fix flow typings for some of the functions.\n  See PR: [#273](https://github.com/date-fns/date-fns/pull/273)\n\n## [1.11.2] - 2016-11-28\n\n### Fixed\n\n- Bug in `parse` when it sometimes parses ISO week-numbering dates incorrectly.\n  See PR: [#262](https://github.com/date-fns/date-fns/pull/262)\n\n- Bug in some functions which caused them to handle dates earlier than 100 AD incorrectly.\n  See PR: [#263](https://github.com/date-fns/date-fns/pull/263)\n\n## [1.11.1] - 2016-11-24\n\n### Fixed\n\n- Include TypeScript typings with npm package.\n\n## [1.11.0] - 2016-11-23\n\n### Added\n\n- `distanceInWordsStrict`.\n  Kudos to [@STRML](https://github.com/STRML).\n  See related PR: [#254](https://github.com/date-fns/date-fns/pull/254)\n\n- [TypeScript](https://www.typescriptlang.org/) typings for all functions.\n  Kudos to [@mattlewis92](https://github.com/mattlewis92).\n  See related PR: [#255](https://github.com/date-fns/date-fns/pull/255)\n\n## [1.10.0] - 2016-11-01\n\n### Added\n\n- `parse` now can parse dates that are ISO 8601 centuries (e.g., `19` and `+0019`).\n\n  ```javascript\n  var result = parse('19')\n  //=> Mon Jan 01 1900 00:00:00\n  ```\n\n- In `parse`, added ability to specify the number of additional digits\n  for extended year or century format (possible values are 0, 1 or 2; default is 2).\n\n  ```javascript\n  parse('+002016-11-01')\n  parse('+02016-11-01', {additionalDigits: 1})\n  parse('+2016-11-01', {additionalDigits: 0})\n  ```\n\n## [1.9.0] - 2016-10-25\n\n### Added\n\n- Got index.js imports to work with SystemJS.\n\n## [1.8.1] - 2016-10-24\n\n### Fixed\n\n- Added Japanese and German language locales to the list in I18n doc.\n\n## [1.8.0] - 2016-10-23\n\n### Added\n\n- [Japanese language locale (ja)](https://github.com/date-fns/date-fns/pull/241)\n  (thanks to Thomas Eilmsteiner [@DeMuu](https://github.com/DeMuu) again!)\n\n- `getISODay`\n\n- `setISODay`\n\n## [1.7.0] - 2016-10-20\n\n### Added\n\n- [German language locale (de)](https://github.com/date-fns/date-fns/pull/237)\n  (thanks to Thomas Eilmsteiner [@DeMuu](https://github.com/DeMuu)).\n\n## [1.6.0] - 2016-10-16\n\n### Added\n\n- [Chinese Simplified locale (zh_cn)](https://github.com/date-fns/date-fns/pull/235)\n  (kudos to Changyu [@KingMario](https://github.com/KingMario) Geng).\n\n## [1.5.2] - 2016-10-13\n\n### Fixed\n\n- Incorrectly generated docs for `format`.\n\n- Fixed typo in I18n doc.\n\n## [1.5.1] - 2016-10-12\n\n### Fixed\n\n- A change log entry for [1.5.0] is added.\n\n## [1.5.0] - 2016-10-12\n\n### Added\n\n- [The initial I18n support](https://date-fns.org/docs/I18n)\n\n## [1.4.0] - 2016-10-09\n\n### Added\n\n- Basic [SystemJS](https://github.com/systemjs/systemjs) support.\n\n### Fixed\n\n- Fix incorrect behaviour of `YYYY` and `YY` for years prior to 1000:\n  now `format(new Date('0001-01-01'), 'YYYY-MM-DD')` returns `0001-01-01`\n  instead of `1-01-01`.\n\n## [1.3.0] - 2016-05-26\n\n### Added\n\n- `closestIndexTo`\n\n## [1.2.0] - 2016-05-23\n\n### Added\n\n- Add an ability to pass negative numbers to `setDay`.\n\n## [1.1.1] - 2016-05-19\n\n### Fixed\n\n- Fix [Flow](http://flowtype.org/) declarations for some of the functions.\n\n## [1.1.0] - 2016-05-19\n\n### Added\n\n- [Flow](http://flowtype.org/) declarations for each function\n  in [the \".js.flow\" style](http://flowtype.org/docs/declarations.html#declaration-files).\n  Kudos to [@JohnyDays](https://github.com/JohnyDays). See related PRs:\n\n  - [#205](https://github.com/date-fns/date-fns/pull/205)\n\n  - [#207](https://github.com/date-fns/date-fns/pull/207)\n\n## [1.0.0] - 2016-05-18\n\n### Fixed\n\n- `format` now returns the correct result for key `E`.\n\n- Prevent `startOf...`, `endOf...` and `lastDayOf...` functions\n  to return dates with an incorrect time when the date is modifying\n  into another time zone.\n\n- `parse` now parses years from 1 AD to 99 AD correctly.\n\n- Fix a bug in `getISOWeek` appearing because of a changing time zone\n  (e.g., when the given date is in DST and the start of the ISO year is not).\n\n### Changed\n\n- **BREAKING**: all functions are moved to the root of the library, so they\n  are now accessible with `require('date-fns/name_of_function')` or\n  `import nameOfFunction from 'date-fns/name_of_function'`.\n\n  ```javascript\n  // Before v1.0.0\n  var addMonths = require('date-fns/src/add_months')\n\n  // v1.0.0 onward\n  var addMonths = require('date-fns/add_months')\n  ```\n\n- **BREAKING**: functions that had the last optional argument `weekStartsAt`\n  (i.e. `endOfWeek`, `isSameWeek`, `lastDayOfWeek`, `setDay`, `startOfWeek`)\n  now instead receive the object `options` with the property `options.weekStartsOn`\n  as the last argument.\n\n  ```javascript\n  // Before v1.0.0\n  var result = endOfWeek(new Date(2014, 8, 2), 1)\n\n  // v1.0.0 onward\n  var result = endOfWeek(new Date(2014, 8, 2), {weekStartsOn: 1})\n  ```\n\n- **BREAKING**: remove the function `getTimeSinceMidnight` that was used inside\n  the other functions.\n\n- **BREAKING**: `differenceInDays` now returns the number of full days instead\n  of calendar days.\n\n- **BREAKING**: `eachDay` and `isWithinRange` now throw an exception\n  when the given range boundaries are invalid.\n\n- Faster `isLeapYear`.\n\n- *Internal*: make the documentation more verbose.\n\n- *Internal*: convert the tests from Chai to power-assert allowing them\n  to run against IE8.\n\n### Added\n\n- `addISOYears`\n\n- `closestTo`\n\n- `differenceInCalendarDays`\n\n- `differenceInCalendarISOWeeks`\n\n- `differenceInCalendarISOYears`\n\n- `differenceInCalendarMonths`\n\n- `differenceInCalendarQuarters`\n\n- `differenceInCalendarWeeks`\n\n- `differenceInCalendarYears`\n\n- `differenceInHours`\n\n- `differenceInISOYears`\n\n- `differenceInMilliseconds`\n\n- `differenceInMinutes`\n\n- `differenceInMonths`\n\n- `differenceInQuarters`\n\n- `differenceInSeconds`\n\n- `differenceInWeeks`\n\n- `differenceInYears`\n\n- `distanceInWords`\n\n- `distanceInWordsToNow`\n\n- `endOfISOWeek`\n\n- `endOfISOYear`\n\n- `endOfToday`\n\n- `endOfTomorrow`\n\n- `endOfYesterday`\n\n- `getDaysInYear`\n\n- `isDate`\n\n- `isFriday`\n\n- `isMonday`\n\n- `isSameISOWeek`\n\n- `isSameISOYear`\n\n- `isSaturday`\n\n- `isSunday`\n\n- `isThisHour`\n\n- `isThisISOWeek`\n\n- `isThisISOYear`\n\n- `isThisMinute`\n\n- `isThisMonth`\n\n- `isThisQuarter`\n\n- `isThisSecond`\n\n- `isThisWeek`\n\n- `isThisYear`\n\n- `isThursday`\n\n- `isTomorrow`\n\n- `isTuesday`\n\n- `isValid`\n\n- `isWednesday`\n\n- `isYesterday`\n\n- `lastDayOfISOWeek`\n\n- `lastDayOfISOYear`\n\n- `startOfISOWeek`\n\n- `startOfToday`\n\n- `startOfTomorrow`\n\n- `startOfYesterday`\n\n- `subISOYears`\n\n- Add `Qo`, `W`, `Wo`, `WW`, `GG`, `GGGG`, `Z`, `ZZ`, `X`, `x` keys to `format`.\n\n## [0.17.0] - 2015-09-29\n\n### Fixed\n\n- Fix a lot of bugs appearing when date is modifying into other time zone\n  (e.g., when adding months and original date is in DST but new date is not).\n\n- Prevent instances of Date to lose milliseconds value when passed to.\n  `parse` in IE10.\n\n### Changed\n\n- `setISOWeek` now keeps time from original date.\n\n- *Internal*: reuse `getDaysInMonth` inside of `addMonths`.\n\n### Added\n\n- `differenceInDays`\n\n- `getTimeSinceMidnight`\n\n- `format` now has new format key `aa`, which returns `a.m.`/`p.m.`\n  as opposed to `a` that returns `am`/`pm`.\n\n- Complete UMD package (for Bower and CDN).\n\n## [0.16.0] - 2015-09-01\n\n### Changed\n\n- Use `parse` to clean date arguments in all functions.\n\n- `parse` now fallbacks to `new Date` when the argument\n  is not an ISO formatted date.\n\n- *Internal*: reuse `getDaysInMonth` inside of `setMonth`.\n\n### Added\n\n- `addQuarters`\n\n- `addWeeks`\n\n- `endOfQuarter`\n\n- `getDate`\n\n- `getDay`\n\n- `getDaysInMonth`\n\n- `getHours`\n\n- `getISOWeeksInYear`\n\n- `getMilliseconds`\n\n- `getMinutes`\n\n- `getMonth`\n\n- `getSeconds`\n\n- `getYear`\n\n- `isLeapYear`\n\n- `isSameHour`\n\n- `isSameMinute`\n\n- `isSameQuarter`\n\n- `isSameSecond`\n\n- `lastDayOfQuarter`\n\n- `lastDayOfWeek`\n\n- `max`\n\n- `min`\n\n- `setDate`\n\n- `setDay`\n\n- `setHours`\n\n- `setMilliseconds`\n\n- `setMinutes`\n\n- `setSeconds`\n\n- `startOfQuarter`\n\n- `subQuarters`\n\n- `subWeeks`\n\n## [0.15.0] - 2015-08-26\n\n### Changed\n\n- `format` now returns `a.m.`/`p.m.` instead of `am`/`pm`.\n\n- `setMonth` now sets last day of month if original date was last day\n  of longer month.\n\n- *Internal*: Fix code style according to ESLint.\n\n- *Internal*: Make tests run through all time zones.\n\n### Added\n\n- `getQuarter`\n\n- `setQuarter`\n\n- `getDayOfYear`\n\n- `setDayOfYear`\n\n- `isPast`\n\n- `addSeconds`\n\n- `subSeconds`\n\n- `startOfSecond`\n\n- `endOfSecond`\n\n- `startOfMinute`\n\n- `endOfMinute`\n\n- `addMilliseconds`\n\n- `subMilliseconds`\n\n- `endOfYear`\n\n- `addYears`\n\n- `subYears`\n\n- `lastDayOfYear`\n\n- `lastDayOfMonth`\n\n## [0.14.11] - 2015-08-21\n\n### Fixed\n\n- `format` now uses `parse` to avoid time zone bugs.\n\n### Changed\n\n- `setIsoWeek` now sets time to the start of the day.\n\n## [0.14.10] - 2015-07-29\n\n### Fixed\n\n- `format` now behaves correctly with 12:00 am.\n\n- `format` now behaves correctly with ordinal numbers.\n\n### Added\n\n- `compareAsc`\n\n- `compareDesc`\n\n- `addHours`\n\n- `subHours`\n\n- `isSameDay`\n\n- `parse`\n\n- `getISOYear`\n\n- `setISOYear`\n\n- `startOfISOYear`\n\n- `getISOWeek`\n\n- `setISOWeek`\n\n## [0.14.9] - 2015-01-14\n\n### Fixed\n\n- `addMonths` now correctly behaves with February\n  (see [#18](https://github.com/js-fns/date-fns/pull/18)).\n\n## [0.14.8] - 2014-12-25\n\n### Fixed\n\n- `format` function now behaves correctly with `pm`/`am`.\n\n## [0.14.6] - 2014-12-04\n\n### Fixed\n\n- Fix broken Bower support.\n\n## [0.14.0] - 2014-11-05\n\n### Added\n\n- Bower package.\n\n## [0.13.0] - 2014-10-22\n\n### Added\n\n- `addMinutes`\n\n- `subMinutes`\n\n- `isEqual`\n\n- `isBefore`\n\n- `isAfter`\n\n## [0.12.1] - 2014-10-19\n\n### Fixed\n\n- Incorrect rounding in `DDD` formatter.\n\n## [0.12.0] - 2014-10-15\n\n### Added\n\n- `isSameYear`\n\n## [0.11.0] - 2014-10-15\n\n### Added\n\n- `isWithinRange`\n\n## [0.10.0] - 2014-10-13\n\n### Added\n\n- `format`\n\n- `startOfYear`\n\n## [0.9.0] - 2014-10-10\n\n### Changed\n\n- *Internal*: simplify `isWeekend`\n\n### Added\n\n- `isFuture`\n\n## [0.8.0] - 2014-10-09\n\n### Changed\n\n- *Internal*: reuse `addDays` inside of `subDays`.\n\n### Added\n\n- `addMonths`\n\n- `subMonths`\n\n- `setMonth`\n\n- `setYear`\n\n## [0.7.0] - 2014-10-08\n\n### Added\n\n- `isSameWeek`\n\n## [0.6.0] - 2014-10-07\n\n### Fixed\n\n- Inconsistent behavior of `endOfMonth`.\n\n### Added\n\n- `isFirstDayOfMonth`\n\n- `isLastDayOfMonth`\n\n- `isSameMonth`\n\n## [0.5.0] - 2014-10-07\n\n### Added\n\n- `addDays`\n\n- `subDays`\n\n## [0.4.0] - 2014-10-07\n\n### Added\n\n- `startOfWeek`\n\n- `endOfWeek`\n\n- `eachDay`\n\n## [0.3.0] - 2014-10-06\n\n### Changed\n\n- `startOfDay` now sets milliseconds as well.\n\n### Added\n\n- `endOfDay`\n\n- `startOfMonth`\n\n- `endOfMonth`\n\n## [0.2.0] - 2014-10-06\n\n### Added\n\n- `isToday`\n\n- `isWeekend`\n\n## 0.1.0 - 2014-10-06\n\n### Added\n\n- `startOfDay`\n\n[Unreleased]: https://github.com/date-fns/date-fns/compare/v1.16.0...HEAD\n[1.16.0]: https://github.com/date-fns/date-fns/compare/v1.15.1...v1.16.0\n[1.15.1]: https://github.com/date-fns/date-fns/compare/v1.15.0...v1.15.1\n[1.15.0]: https://github.com/date-fns/date-fns/compare/v1.14.1...v1.15.0\n[1.14.1]: https://github.com/date-fns/date-fns/compare/v1.14.0...v1.14.1\n[1.14.0]: https://github.com/date-fns/date-fns/compare/v1.13.0...v1.14.0\n[1.13.0]: https://github.com/date-fns/date-fns/compare/v1.12.1...v1.13.0\n[1.12.1]: https://github.com/date-fns/date-fns/compare/v1.12.0...v1.12.1\n[1.12.0]: https://github.com/date-fns/date-fns/compare/v1.11.2...v1.12.0\n[1.11.2]: https://github.com/date-fns/date-fns/compare/v1.11.1...v1.11.2\n[1.11.1]: https://github.com/date-fns/date-fns/compare/v1.11.0...v1.11.1\n[1.11.0]: https://github.com/date-fns/date-fns/compare/v1.10.0...v1.11.0\n[1.10.0]: https://github.com/date-fns/date-fns/compare/v1.9.0...v1.10.0\n[1.9.0]: https://github.com/date-fns/date-fns/compare/v1.8.1...v1.9.0\n[1.8.1]: https://github.com/date-fns/date-fns/compare/v1.8.0...v1.8.1\n[1.8.0]: https://github.com/date-fns/date-fns/compare/v1.7.0...v1.8.0\n[1.7.0]: https://github.com/date-fns/date-fns/compare/v1.6.0...v1.7.0\n[1.6.0]: https://github.com/date-fns/date-fns/compare/v1.5.2...v1.6.0\n[1.5.2]: https://github.com/date-fns/date-fns/compare/v1.5.1...v1.5.2\n[1.5.1]: https://github.com/date-fns/date-fns/compare/v1.5.0...v1.5.1\n[1.5.0]: https://github.com/date-fns/date-fns/compare/v1.4.0...v1.5.0\n[1.4.0]: https://github.com/date-fns/date-fns/compare/v1.3.0...v1.4.0\n[1.3.0]: https://github.com/date-fns/date-fns/compare/v1.2.0...v1.3.0\n[1.2.0]: https://github.com/date-fns/date-fns/compare/v1.1.1...v1.2.0\n[1.1.1]: https://github.com/date-fns/date-fns/compare/v1.1.0...v1.1.1\n[1.1.0]: https://github.com/date-fns/date-fns/compare/v1.0.0...v1.1.0\n[1.0.0]: https://github.com/date-fns/date-fns/compare/v0.17.0...v1.0.0\n[0.17.0]: https://github.com/date-fns/date-fns/compare/v0.16.0...v0.17.0\n[0.16.0]: https://github.com/date-fns/date-fns/compare/v0.15.0...v0.16.0\n[0.15.0]: https://github.com/date-fns/date-fns/compare/v0.14.11...v0.15.0\n[0.14.11]: https://github.com/date-fns/date-fns/compare/v0.14.10...v0.14.11\n[0.14.10]: https://github.com/date-fns/date-fns/compare/v0.14.9...v0.14.10\n[0.14.9]: https://github.com/date-fns/date-fns/compare/v0.14.8...v0.14.9\n[0.14.8]: https://github.com/date-fns/date-fns/compare/v0.14.6...v0.14.8\n[0.14.6]: https://github.com/date-fns/date-fns/compare/v0.14.0...v0.14.6\n[0.14.0]: https://github.com/date-fns/date-fns/compare/v0.13.0...v0.14.0\n[0.13.0]: https://github.com/date-fns/date-fns/compare/v0.12.1...v0.13.0\n[0.12.1]: https://github.com/date-fns/date-fns/compare/v0.12.0...v0.12.1\n[0.12.0]: https://github.com/date-fns/date-fns/compare/v0.11.0...v0.12.0\n[0.11.0]: https://github.com/date-fns/date-fns/compare/v0.10.0...v0.11.0\n[0.10.0]: https://github.com/date-fns/date-fns/compare/v0.9.0...v0.10.0\n[0.9.0]: https://github.com/date-fns/date-fns/compare/v0.8.0...v0.9.0\n[0.8.0]: https://github.com/date-fns/date-fns/compare/v0.7.0...v0.8.0\n[0.7.0]: https://github.com/date-fns/date-fns/compare/v0.6.0...v0.7.0\n[0.6.0]: https://github.com/date-fns/date-fns/compare/v0.5.0...v0.6.0\n[0.5.0]: https://github.com/date-fns/date-fns/compare/v0.4.0...v0.5.0\n[0.4.0]: https://github.com/date-fns/date-fns/compare/v0.3.0...v0.4.0\n[0.3.0]: https://github.com/date-fns/date-fns/compare/v0.2.0...v0.3.0\n[0.2.0]: https://github.com/date-fns/date-fns/compare/v0.1.0...v0.2.0\n",
-				"type": "markdown",
-				"urlId": "Change-Log",
-				"category": "General",
-				"title": "Change Log",
-				"description": "Changes for each version of the library",
-				"path": "/Users/lesha/Work/date-fns/CHANGELOG.md"
-			},
-			{
-				"content": "# Contributing Guide\n\n## Table of Contents\n\n- [How to Help?](#how-to-help)\n\n- [Contribution Guidelines](#contribution-guidelines)\n\n- [Getting Started](#getting-started)\n\n- [Code Style Guide](#code-style-guide)\n\n  - [Lint the Code](#lint-the-code)\n\n  - [Use EditorConfig](#use-editorconfig)\n\n- [Documentation](#documentation)\n\n  - [JSDoc](#jsdoc)\n\n## How to Help?\n\nHelp is always welcome. There are areas where you can help:\n\n- The core functionality (performance improvements, bug fixes,\n  new features, etc.).\n\n- Documentation ([markdown documents](https://github.com/date-fns/date-fns/search?l=markdown),\n  inline JSDoc comments).\n\n- Test suite & development environment improvements.\n\n- The [website](https://github.com/date-fns/date-fns.org).\n\nIf you see a gap, but don't have time, experience, or you just need help\nwith the library, don't hesitate to [shoot an issue](https://github.com/date-fns/date-fns/issues/new).\n\nThe date-fns functionality is comprehensive and covers most of the use cases,\nhowever it doesn't have extended time zone support. Please leave a comment\nto the [Extended time zones support issue](https://github.com/date-fns/date-fns/issues/180)\nif you are interested in the functionality or want to help with development.\n\nIf you are interested in Elm/ClojureScript/etc. wrappers,\nplease [file an issue](https://github.com/date-fns/date-fns/issues/new).\n\n## Contribution Guidelines\n\nDue to the modular nature of date-fns, it's more than open to new features.\nHowever, when a new function duplicates the existing functionality, native API\nor causes significant build size increase, a PR might be rejected or\nthe author can be asked to move the code to a new or another package.\n\nPlease follow the main contributing rules, to maintain date-fns' top quality:\n\n- Follow style guides:\n\n  - [Lint the code](#lint-the-code).\n\n  - [Use EditorConfig](#use-editorconfig).\n\n- Write tests.\n\n- [Write documentation](#documentation).\n\n- [Write good commit messages].\n\n- Add an entry to Unreleased section in [CHANGELOG].\n\n- Squash related commits before a PR merge.\n\n- Don't change the library version.\n\n[Write good commit messages]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html\n[CHANGELOG]: https://github.com/date-fns/date-fns/blob/master/CHANGELOG.md\n\n## Getting Started\n\n1. [Install Node.js](https://nodejs.org/en/download).\n\n2. Fork the project and clone the fork repo.\n\n3. Run `npm install` to install the application dependencies\n\n## Code Style Guide\n\n### Lint the Code\n\nThe project follows [JavaScript Standard Style]. To lint the code, run:\n\n```bash\nnpm run lint\n```\n\n[JavaScript Standard Style]: http://standardjs.com/\n\n### Use EditorConfig\n\nThe project uses [EditorConfig] to define basic coding style guides.\nPlease install a plugin for your editor of choice or manually enforce\nthe rules listed in [.editorconfig].\n\n[EditorConfig]: http://editorconfig.org\n[.editorconfig]: https://github.com/date-fns/date-fns.org/blob/master/.editorconfig\n\n## Documentation\n\n### JSDoc\n\n[JSDoc](http://usejsdoc.org) is used for the code documentation. Along with\nstandard JSDoc tags, date-fns uses `@category` tag that allows\nto group functions.\n\n[jsdoc-parse](https://github.com/jsdoc2md/jsdoc-parse) is used to generate\n[documentation JSON](https://github.com/date-fns/date-fns/blob/master/dist/date_fns_docs.json)\nconsumed by [date-fns.org](https://date-fns.org/docs).\n",
-				"type": "markdown",
-				"urlId": "Contributing",
-				"category": "General",
-				"title": "Contributing",
-				"description": "Contribution manual",
-				"path": "/Users/lesha/Work/date-fns/CONTRIBUTING.md"
-			},
-			{
-				"content": "# Internationalization\n\n## Table of Contents\n\n- [Usage](#usage)\n\n- [Supported Languages](#supported-languages)\n\n- [Adding New Language](#adding-new-language)\n\n## Usage\n\n**Important! Note that non-CommonJS packages (Bower, CDN)\ndon't support I18 yet.** Please [vote for the issue](https://github.com/date-fns/date-fns/issues/232)\nif you want to make it happen.\n\nThere are just a few functions that support I18n:\n\n- [`format`](https://date-fns.org/docs/format)\n- [`distanceInWords`](https://date-fns.org/docs/distanceInWords)\n- [`distanceInWordsToNow`](https://date-fns.org/docs/distanceInWordsToNow)\n- [`distanceInWordsStrict`](https://date-fns.org/docs/distanceInWordsStrict)\n\nTo use a locale, you need to require it and then pass\nas an option to a function:\n\n```js\nvar distanceInWords = require('date-fns/distance_in_words')\n// Require Esperanto locale\nvar eoLocale = require('date-fns/locale/eo')\n\nvar result = distanceInWords(\n  new Date(2016, 7, 1),\n  {locale: eoLocale} // Pass the locale as an option\n)\n//=> 'pli ol 1 jaro'\n```\n\nIt might seem complicated to require and pass locales as options,\nbut unlike Moment.js which bloats your build with all the locales\nby default date-fns forces developer to manually require locales when needed.\nTo make API simple, we encourage you to write tiny wrappers and use those\ninstead of original functions:\n\n```js\n// app/_lib/format.js\n\nvar format = require('date-fns/format')\n\nvar locales = {\n  en: require('date-fns/locale/en'),\n  eo: require('date-fns/locale/eo'),\n  ru: require('date-fns/locale/ru')\n}\n\nmodule.exports = function (date, formatStr) {\n  return format(date, formatStr, {\n    locale: locales[window.__localeId__] // or global.__localeId__\n  })\n}\n\n// Later:\n\nvar format = require('app/_lib/format')\n\nwindow.__localeId__ = 'en'\nformat(friday13, 'dddd D')\n//=> 'Friday 13'\n\nwindow.__localeId__ = 'eo'\nformat(friday13, 'dddd D')\n//=> 'vendredo 13'\n```\n\n## Supported Languages\n\ndate-fns currently supports:\n\n1. [English](https://github.com/date-fns/date-fns/tree/master/src/locale/en)\n  (`en`; it's the built-in language and doesn't require any setup)\n2. [Russian](https://github.com/date-fns/date-fns/tree/master/src/locale/ru) (`ru`)\n3. [Esperanto](https://github.com/date-fns/date-fns/tree/master/src/locale/eo) (`eo`)\n4. [Chinese Simplified](https://github.com/date-fns/date-fns/tree/master/src/locale/zh_cn)\n  (`zh_cn`; kudos to Changyu Geng [@KingMario](https://github.com/KingMario))\n5. [German](https://github.com/date-fns/date-fns/tree/master/src/locale/de)\n  (`de`; kudos to Thomas Eilmsteiner [@DeMuu](https://github.com/DeMuu)\n  and Asia [@asia-t](https://github.com/asia-t))\n6. [Japanese](https://github.com/date-fns/date-fns/tree/master/src/locale/ja)\n  (`ja`; kudos to Thomas Eilmsteiner [@DeMuu](https://github.com/DeMuu))\n7. [Spanish](https://github.com/date-fns/date-fns/tree/master/src/locale/es)\n  (`es`; kudos to Juan Angosto [@juanangosto](https://github.com/juanangosto)\n  and Guillermo Grau [@guigrpa](https://github.com/guigrpa))\n8. [Dutch](https://github.com/date-fns/date-fns/tree/master/src/locale/nl)\n  (`nl`; kudos to Jorik Tangelder [@jtangelder](https://github.com/jtangelder))\n9. [Chinese Traditional](https://github.com/date-fns/date-fns/tree/master/src/locale/zh_tw)\n  (`zh_tw`; kudos to tonypai [@tpai](https://github.com/tpai))\n10. [Norwegian Bokmål](https://github.com/date-fns/date-fns/tree/master/src/locale/nb)\n  (`nb`; kudos to Hans-Kristian Koren [@Hanse](https://github.com/Hanse))\n11. [Catalan](https://github.com/date-fns/date-fns/tree/master/src/locale/ca)\n  (`ca`; kudos to Guillermo Grau [@guigrpa](https://github.com/guigrpa))\n12. [Indonesian](https://github.com/date-fns/date-fns/tree/master/src/locale/id)\n  (`id`; kudos to Rahmat Budiharso [@rbudiharso](https://github.com/rbudiharso))\n13. [Italian](https://github.com/date-fns/date-fns/tree/master/src/locale/it)\n  (`it`; kudos to Alberto Restifo [@albertorestifo](https://github.com/albertorestifo))\n\nMore is coming, help is welcome!\n\n## Adding New Language\n\nAt the moment there is no definitive guide, so if you feel brave enough,\nuse this quick guide:\n\n- First of all, [create an issue](https://github.com/date-fns/date-fns/issues/new?title=XXX%20language%20support&labels[]=I18n)\n  so you won't overlap with others.\n- Use [English locale](https://github.com/date-fns/date-fns/tree/master/src/locale/en)\n  as the basis and then incrementally adjust the tests and the code.\n- If you have questions or need guidance, leave a comment in the issue.\n\nThank you for your support!\n",
-				"type": "markdown",
-				"urlId": "I18n",
-				"category": "General",
-				"title": "I18n",
-				"description": "Internationalization",
-				"path": "/Users/lesha/Work/date-fns/docs/i18n.md"
-			},
-			{
-				"content": "# License\n\ndate-fns is licensed under the [MIT license](http://kossnocorp.mit-license.org).\nRead more about MIT at [TLDRLegal](https://tldrlegal.com/license/mit-license).\n",
-				"type": "markdown",
-				"urlId": "License",
-				"category": "General",
-				"title": "License",
-				"description": "MIT © Sasha Koss",
-				"path": "/Users/lesha/Work/date-fns/LICENSE.md"
-			}
-		],
-		"Common Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "closestIndexTo",
-				"category": "Common Helpers",
-				"title": "closestIndexTo",
-				"description": "Return an index of the closest date from the array comparing to the given date.",
-				"content": {
-					"id": "closestIndexTo",
-					"longname": "closestIndexTo",
-					"name": "closestIndexTo",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return an index of the closest date from the array comparing to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to compare with",
-							"name": "dateToCompare"
-						},
-						{
-							"type": {
-								"names": [
-									"Array.<Date>",
-									"Array.<String>",
-									"Array.<Number>"
-								]
-							},
-							"description": "the array to search",
-							"name": "datesArray"
-						}
-					],
-					"examples": [
-						"// Which date is closer to 6 September 2015?\nvar dateToCompare = new Date(2015, 8, 6)\nvar datesArray = [\n  new Date(2015, 0, 1),\n  new Date(2016, 0, 1),\n  new Date(2017, 0, 1)\n]\nvar result = closestIndexTo(dateToCompare, datesArray)\n//=> 1"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "an index of the date closest to the given date"
-						}
-					],
-					"category": "Common Helpers",
-					"exceptions": [
-						{
-							"type": {
-								"names": [
-									"TypeError"
-								]
-							},
-							"description": "the second argument must be an instance of Array"
-						}
-					],
-					"meta": {
-						"lineno": 26,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/closest_index_to"
-					},
-					"summary": "Return an index of the closest date from the array comparing to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "closestTo",
-				"category": "Common Helpers",
-				"title": "closestTo",
-				"description": "Return a date from the array closest to the given date.",
-				"content": {
-					"id": "closestTo",
-					"longname": "closestTo",
-					"name": "closestTo",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return a date from the array closest to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to compare with",
-							"name": "dateToCompare"
-						},
-						{
-							"type": {
-								"names": [
-									"Array.<Date>",
-									"Array.<String>",
-									"Array.<Number>"
-								]
-							},
-							"description": "the array to search",
-							"name": "datesArray"
-						}
-					],
-					"examples": [
-						"// Which date is closer to 6 October 2015: 1 January 2000 or 1 January 2030?\nvar dateToCompare = new Date(2015, 8, 6)\nvar result = closestTo(dateToCompare, [\n  new Date(2000, 0, 1),\n  new Date(2030, 0, 1)\n])\n//=> Tue Jan 01 2030 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the date from the array closest to the given date"
-						}
-					],
-					"category": "Common Helpers",
-					"exceptions": [
-						{
-							"type": {
-								"names": [
-									"TypeError"
-								]
-							},
-							"description": "the second argument must be an instance of Array"
-						}
-					],
-					"meta": {
-						"lineno": 24,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/closest_to"
-					},
-					"summary": "Return a date from the array closest to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "compareAsc",
-				"category": "Common Helpers",
-				"title": "compareAsc",
-				"description": "Compare the two dates and return -1, 0 or 1.",
-				"content": {
-					"id": "compareAsc",
-					"longname": "compareAsc",
-					"name": "compareAsc",
-					"scope": "global",
-					"kind": "function",
-					"description": "Compare the two dates and return 1 if the first date is after the second,\n-1 if the first date is before the second or 0 if dates are equal.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to compare",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to compare",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Compare 11 February 1987 and 10 July 1989:\nvar result = compareAsc(\n  new Date(1987, 1, 11),\n  new Date(1989, 6, 10)\n)\n//=> -1",
-						"// Sort the array of dates:\nvar result = [\n  new Date(1995, 6, 2),\n  new Date(1987, 1, 11),\n  new Date(1989, 6, 10)\n].sort(compareAsc)\n//=> [\n//   Wed Feb 11 1987 00:00:00,\n//   Mon Jul 10 1989 00:00:00,\n//   Sun Jul 02 1995 00:00:00\n// ]"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the result of the comparison"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 36,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/compare_asc"
-					},
-					"summary": "Compare the two dates and return -1, 0 or 1.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "compareDesc",
-				"category": "Common Helpers",
-				"title": "compareDesc",
-				"description": "Compare the two dates reverse chronologically and return -1, 0 or 1.",
-				"content": {
-					"id": "compareDesc",
-					"longname": "compareDesc",
-					"name": "compareDesc",
-					"scope": "global",
-					"kind": "function",
-					"description": "Compare the two dates and return -1 if the first date is after the second,\n1 if the first date is before the second or 0 if dates are equal.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to compare",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to compare",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Compare 11 February 1987 and 10 July 1989 reverse chronologically:\nvar result = compareDesc(\n  new Date(1987, 1, 11),\n  new Date(1989, 6, 10)\n)\n//=> 1",
-						"// Sort the array of dates in reverse chronological order:\nvar result = [\n  new Date(1995, 6, 2),\n  new Date(1987, 1, 11),\n  new Date(1989, 6, 10)\n].sort(compareDesc)\n//=> [\n//   Sun Jul 02 1995 00:00:00,\n//   Mon Jul 10 1989 00:00:00,\n//   Wed Feb 11 1987 00:00:00\n// ]"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the result of the comparison"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 36,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/compare_desc"
-					},
-					"summary": "Compare the two dates reverse chronologically and return -1, 0 or 1.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "distanceInWords",
-				"category": "Common Helpers",
-				"title": "distanceInWords",
-				"description": "Return the distance between the given dates in words.",
-				"content": {
-					"id": "distanceInWords",
-					"longname": "distanceInWords",
-					"name": "distanceInWords",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the distance between the given dates in words.\n\n| Distance between dates                                            | Result              |\n|-------------------------------------------------------------------|---------------------|\n| 0 ... 30 secs                                                     | less than a minute  |\n| 30 secs ... 1 min 30 secs                                         | 1 minute            |\n| 1 min 30 secs ... 44 mins 30 secs                                 | [2..44] minutes     |\n| 44 mins ... 30 secs ... 89 mins 30 secs                           | about 1 hour        |\n| 89 mins 30 secs ... 23 hrs 59 mins 30 secs                        | about [2..24] hours |\n| 23 hrs 59 mins 30 secs ... 41 hrs 59 mins 30 secs                 | 1 day               |\n| 41 hrs 59 mins 30 secs ... 29 days 23 hrs 59 mins 30 secs         | [2..30] days        |\n| 29 days 23 hrs 59 mins 30 secs ... 44 days 23 hrs 59 mins 30 secs | about 1 month       |\n| 44 days 23 hrs 59 mins 30 secs ... 59 days 23 hrs 59 mins 30 secs | about 2 months      |\n| 59 days 23 hrs 59 mins 30 secs ... 1 yr                           | [2..12] months      |\n| 1 yr ... 1 yr 3 months                                            | about 1 year        |\n| 1 yr 3 months ... 1 yr 9 month s                                  | over 1 year         |\n| 1 yr 9 months ... 2 yrs                                           | almost 2 years      |\n| N yrs ... N yrs 3 months                                          | about N years       |\n| N yrs 3 months ... N yrs 9 months                                 | over N years        |\n| N yrs 9 months ... N+1 yrs                                        | almost N+1 years    |\n\nWith `options.includeSeconds == true`:\n| Distance between dates | Result               |\n|------------------------|----------------------|\n| 0 secs ... 5 secs      | less than 5 seconds  |\n| 5 secs ... 10 secs     | less than 10 seconds |\n| 10 secs ... 20 secs    | less than 20 seconds |\n| 20 secs ... 40 secs    | half a minute        |\n| 40 secs ... 60 secs    | less than a minute   |\n| 60 secs ... 90 secs    | 1 minute             |",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to compare with",
-							"name": "dateToCompare"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the other date",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"optional": true,
-							"defaultvalue": false,
-							"description": "distances less than a minute are more detailed",
-							"name": "options.includeSeconds"
-						},
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"optional": true,
-							"defaultvalue": false,
-							"description": "result indicates if the second date is earlier or later than the first",
-							"name": "options.addSuffix"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"defaultvalue": "enLocale",
-							"description": "the locale object",
-							"name": "options.locale"
-						}
-					],
-					"examples": [
-						"// What is the distance between 2 July 2014 and 1 January 2015?\nvar result = distanceInWords(\n  new Date(2014, 6, 2),\n  new Date(2015, 0, 1)\n)\n//=> '6 months'",
-						"// What is the distance between 1 January 2015 00:00:15\n// and 1 January 2015 00:00:00, including seconds?\nvar result = distanceInWords(\n  new Date(2015, 0, 1, 0, 0, 15),\n  new Date(2015, 0, 1, 0, 0, 0),\n  {includeSeconds: true}\n)\n//=> 'less than 20 seconds'",
-						"// What is the distance from 1 January 2016\n// to 1 January 2015, with a suffix?\nvar result = distanceInWords(\n  new Date(2016, 0, 1),\n  new Date(2015, 0, 1),\n  {addSuffix: true}\n)\n//=> 'about 1 year ago'",
-						"// What is the distance between 1 August 2016 and 1 January 2015 in Esperanto?\nvar eoLocale = require('date-fns/locale/eo')\nvar result = distanceInWords(\n  new Date(2016, 7, 1),\n  new Date(2015, 0, 1),\n  {locale: eoLocale}\n)\n//=> 'pli ol 1 jaro'"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"String"
-								]
-							},
-							"description": "the distance in words"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 94,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/distance_in_words"
-					},
-					"summary": "Return the distance between the given dates in words.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "distanceInWordsStrict",
-				"category": "Common Helpers",
-				"title": "distanceInWordsStrict",
-				"description": "Return the distance between the given dates in words.",
-				"content": {
-					"id": "distanceInWordsStrict",
-					"longname": "distanceInWordsStrict",
-					"name": "distanceInWordsStrict",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the distance between the given dates in words, using strict units.\nThis is like `distanceInWords`, but does not use helpers like 'almost', 'over',\n'less than' and the like.\n\n| Distance between dates | Result              |\n|------------------------|---------------------|\n| 0 ... 59 secs          | [0..59] seconds     |\n| 1 ... 59 mins          | [1..59] minutes     |\n| 1 ... 23 hrs           | [1..23] hours       |\n| 1 ... 29 days          | [1..29] days        |\n| 1 ... 11 months        | [1..11] months      |\n| 1 ... N years          | [1..N]  years       |",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to compare with",
-							"name": "dateToCompare"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the other date",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"optional": true,
-							"defaultvalue": false,
-							"description": "result indicates if the second date is earlier or later than the first",
-							"name": "options.addSuffix"
-						},
-						{
-							"type": {
-								"names": [
-									"String"
-								]
-							},
-							"optional": true,
-							"description": "if specified, will force a unit. Options: 's', 'm', 'h', 'd', 'M', 'Y'",
-							"name": "options.unit"
-						},
-						{
-							"type": {
-								"names": [
-									"String"
-								]
-							},
-							"optional": true,
-							"defaultvalue": "'floor'",
-							"description": "which way to round partial units. Options: 'floor', 'ceil', 'round'",
-							"name": "options.partialMethod"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"defaultvalue": "enLocale",
-							"description": "the locale object",
-							"name": "options.locale"
-						}
-					],
-					"examples": [
-						"// What is the distance between 2 July 2014 and 1 January 2015?\nvar result = distanceInWordsStrict(\n  new Date(2014, 6, 2),\n  new Date(2015, 0, 2)\n)\n//=> '6 months'",
-						"// What is the distance between 1 January 2015 00:00:15\n// and 1 January 2015 00:00:00?\nvar result = distanceInWordsStrict(\n  new Date(2015, 0, 1, 0, 0, 15),\n  new Date(2015, 0, 1, 0, 0, 0),\n)\n//=> '15 seconds'",
-						"// What is the distance from 1 January 2016\n// to 1 January 2015, with a suffix?\nvar result = distanceInWordsStrict(\n  new Date(2016, 0, 1),\n  new Date(2015, 0, 1),\n  {addSuffix: true}\n)\n//=> '1 year ago'",
-						"// What is the distance from 1 January 2016\n// to 1 January 2015, in minutes?\nvar result = distanceInWordsStrict(\n  new Date(2016, 0, 1),\n  new Date(2015, 0, 1),\n  {unit: 'm'}\n)\n//=> '525600 minutes'",
-						"// What is the distance from 1 January 2016\n// to 28 January 2015, in months, rounded up?\nvar result = distanceInWordsStrict(\n  new Date(2015, 0, 28),\n  new Date(2015, 0, 1),\n  {unit: 'M', partialMethod: 'ceil'}\n)\n//=> '1 month'",
-						"// What is the distance between 1 August 2016 and 1 January 2015 in Esperanto?\nvar eoLocale = require('date-fns/locale/eo')\nvar result = distanceInWordsStrict(\n  new Date(2016, 7, 1),\n  new Date(2015, 0, 1),\n  {locale: eoLocale}\n)\n//=> '1 jaro'"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"String"
-								]
-							},
-							"description": "the distance in words"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 94,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/distance_in_words_strict"
-					},
-					"summary": "Return the distance between the given dates in words.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "distanceInWordsToNow",
-				"category": "Common Helpers",
-				"title": "distanceInWordsToNow",
-				"description": "Return the distance between the given date and now in words.",
-				"content": {
-					"id": "distanceInWordsToNow",
-					"longname": "distanceInWordsToNow",
-					"name": "distanceInWordsToNow",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the distance between the given date and now in words.\n\n| Distance to now                                                   | Result              |\n|-------------------------------------------------------------------|---------------------|\n| 0 ... 30 secs                                                     | less than a minute  |\n| 30 secs ... 1 min 30 secs                                         | 1 minute            |\n| 1 min 30 secs ... 44 mins 30 secs                                 | [2..44] minutes     |\n| 44 mins ... 30 secs ... 89 mins 30 secs                           | about 1 hour        |\n| 89 mins 30 secs ... 23 hrs 59 mins 30 secs                        | about [2..24] hours |\n| 23 hrs 59 mins 30 secs ... 41 hrs 59 mins 30 secs                 | 1 day               |\n| 41 hrs 59 mins 30 secs ... 29 days 23 hrs 59 mins 30 secs         | [2..30] days        |\n| 29 days 23 hrs 59 mins 30 secs ... 44 days 23 hrs 59 mins 30 secs | about 1 month       |\n| 44 days 23 hrs 59 mins 30 secs ... 59 days 23 hrs 59 mins 30 secs | about 2 months      |\n| 59 days 23 hrs 59 mins 30 secs ... 1 yr                           | [2..12] months      |\n| 1 yr ... 1 yr 3 months                                            | about 1 year        |\n| 1 yr 3 months ... 1 yr 9 month s                                  | over 1 year         |\n| 1 yr 9 months ... 2 yrs                                           | almost 2 years      |\n| N yrs ... N yrs 3 months                                          | about N years       |\n| N yrs 3 months ... N yrs 9 months                                 | over N years        |\n| N yrs 9 months ... N+1 yrs                                        | almost N+1 years    |\n\nWith `options.includeSeconds == true`:\n| Distance to now     | Result               |\n|---------------------|----------------------|\n| 0 secs ... 5 secs   | less than 5 seconds  |\n| 5 secs ... 10 secs  | less than 10 seconds |\n| 10 secs ... 20 secs | less than 20 seconds |\n| 20 secs ... 40 secs | half a minute        |\n| 40 secs ... 60 secs | less than a minute   |\n| 60 secs ... 90 secs | 1 minute             |",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"optional": true,
-							"defaultvalue": false,
-							"description": "distances less than a minute are more detailed",
-							"name": "options.includeSeconds"
-						},
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"optional": true,
-							"defaultvalue": false,
-							"description": "result specifies if the second date is earlier or later than the first",
-							"name": "options.addSuffix"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"defaultvalue": "enLocale",
-							"description": "the locale object",
-							"name": "options.locale"
-						}
-					],
-					"examples": [
-						"// If today is 1 January 2015, what is the distance to 2 July 2014?\nvar result = distanceInWordsToNow(\n  new Date(2014, 6, 2)\n)\n//=> '6 months'",
-						"// If now is 1 January 2015 00:00:00,\n// what is the distance to 1 January 2015 00:00:15, including seconds?\nvar result = distanceInWordsToNow(\n  new Date(2015, 0, 1, 0, 0, 15),\n  {includeSeconds: true}\n)\n//=> 'less than 20 seconds'",
-						"// If today is 1 January 2015,\n// what is the distance to 1 January 2016, with a suffix?\nvar result = distanceInWordsToNow(\n  new Date(2016, 0, 1),\n  {addSuffix: true}\n)\n//=> 'in about 1 year'",
-						"// If today is 1 January 2015,\n// what is the distance to 1 August 2016 in Esperanto?\nvar eoLocale = require('date-fns/locale/eo')\nvar result = distanceInWordsToNow(\n  new Date(2016, 7, 1),\n  {locale: eoLocale}\n)\n//=> 'pli ol 1 jaro'"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"String"
-								]
-							},
-							"description": "the distance in words"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 81,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/distance_in_words_to_now"
-					},
-					"summary": "Return the distance between the given date and now in words.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "format",
-				"category": "Common Helpers",
-				"title": "format",
-				"description": "Format the date.",
-				"content": {
-					"id": "format",
-					"longname": "format",
-					"name": "format",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the formatted date string in the given format.\n\nAccepted tokens:\n| Unit                    | Token | Result examples                  |\n|-------------------------|-------|----------------------------------|\n| Month                   | M     | 1, 2, ..., 12                    |\n|                         | Mo    | 1st, 2nd, ..., 12th              |\n|                         | MM    | 01, 02, ..., 12                  |\n|                         | MMM   | Jan, Feb, ..., Dec               |\n|                         | MMMM  | January, February, ..., December |\n| Quarter                 | Q     | 1, 2, 3, 4                       |\n|                         | Qo    | 1st, 2nd, 3rd, 4th               |\n| Day of month            | D     | 1, 2, ..., 31                    |\n|                         | Do    | 1st, 2nd, ..., 31st              |\n|                         | DD    | 01, 02, ..., 31                  |\n| Day of year             | DDD   | 1, 2, ..., 366                   |\n|                         | DDDo  | 1st, 2nd, ..., 366th             |\n|                         | DDDD  | 001, 002, ..., 366               |\n| Day of week             | d     | 0, 1, ..., 6                     |\n|                         | do    | 0th, 1st, ..., 6th               |\n|                         | dd    | Su, Mo, ..., Sa                  |\n|                         | ddd   | Sun, Mon, ..., Sat               |\n|                         | dddd  | Sunday, Monday, ..., Saturday    |\n| Day of ISO week         | E     | 1, 2, ..., 7                     |\n| ISO week                | W     | 1, 2, ..., 53                    |\n|                         | Wo    | 1st, 2nd, ..., 53rd              |\n|                         | WW    | 01, 02, ..., 53                  |\n| Year                    | YY    | 00, 01, ..., 99                  |\n|                         | YYYY  | 1900, 1901, ..., 2099            |\n| ISO week-numbering year | GG    | 00, 01, ..., 99                  |\n|                         | GGGG  | 1900, 1901, ..., 2099            |\n| AM/PM                   | A     | AM, PM                           |\n|                         | a     | am, pm                           |\n|                         | aa    | a.m., p.m.                       |\n| Hour                    | H     | 0, 1, ... 23                     |\n|                         | HH    | 00, 01, ... 23                   |\n|                         | h     | 1, 2, ..., 12                    |\n|                         | hh    | 01, 02, ..., 12                  |\n| Minute                  | m     | 0, 1, ..., 59                    |\n|                         | mm    | 00, 01, ..., 59                  |\n| Second                  | s     | 0, 1, ..., 59                    |\n|                         | ss    | 00, 01, ..., 59                  |\n| 1/10 of second          | S     | 0, 1, ..., 9                     |\n| 1/100 of second         | SS    | 00, 01, ..., 99                  |\n| Millisecond             | SSS   | 000, 001, ..., 999               |\n| Timezone                | Z     | -01:00, +00:00, ... +12:00       |\n|                         | ZZ    | -0100, +0000, ..., +1200         |\n| Seconds timestamp       | X     | 512969520                        |\n| Milliseconds timestamp  | x     | 512969520900                     |\n\nThe characters wrapped in square brackets are escaped.\n\nThe result may vary by locale.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"String"
-								]
-							},
-							"optional": true,
-							"defaultvalue": "'YYYY-MM-DDTHH:mm:ss.SSSZ'",
-							"description": "the string of tokens",
-							"name": "format"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"defaultvalue": "enLocale",
-							"description": "the locale object",
-							"name": "options.locale"
-						}
-					],
-					"examples": [
-						"// Represent 11 February 2014 in middle-endian format:\nvar result = format(\n  new Date(2014, 1, 11),\n  'MM/DD/YYYY'\n)\n//=> '02/11/2014'",
-						"// Represent 2 July 2014 in Esperanto:\nvar eoLocale = require('date-fns/locale/eo')\nvar result = format(\n  new Date(2014, 6, 2),\n  'Do [de] MMMM YYYY',\n  {locale: eoLocale}\n)\n//=> '2-a de julio 2014'"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"String"
-								]
-							},
-							"description": "the formatted date string"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 90,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/format"
-					},
-					"summary": "Format the date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isAfter",
-				"category": "Common Helpers",
-				"title": "isAfter",
-				"description": "Is the first date after the second one?",
-				"content": {
-					"id": "isAfter",
-					"longname": "isAfter",
-					"name": "isAfter",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the first date after the second one?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to compare with",
-							"name": "dateToCompare"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date that should be after the first one to return true",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 10 July 1989 after 11 February 1987?\nvar result = isAfter(new Date(1989, 6, 10), new Date(1987, 1, 11))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the first date is after the second date"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_after"
-					},
-					"summary": "Is the first date after the second one?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isBefore",
-				"category": "Common Helpers",
-				"title": "isBefore",
-				"description": "Is the first date before the second one?",
-				"content": {
-					"id": "isBefore",
-					"longname": "isBefore",
-					"name": "isBefore",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the first date before the second one?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to compare with",
-							"name": "dateToCompare"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date that should be before the first one to return true",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 10 July 1989 before 11 February 1987?\nvar result = isBefore(new Date(1989, 6, 10), new Date(1987, 1, 11))\n//=> false"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the first date is before the second date"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_before"
-					},
-					"summary": "Is the first date before the second one?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isDate",
-				"category": "Common Helpers",
-				"title": "isDate",
-				"description": "Is the given argument an instance of Date?",
-				"content": {
-					"id": "isDate",
-					"longname": "isDate",
-					"name": "isDate",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given argument an instance of Date?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"*"
-								]
-							},
-							"description": "the argument to check",
-							"name": "argument"
-						}
-					],
-					"examples": [
-						"// Is 'mayonnaise' a Date?\nvar result = isDate('mayonnaise')\n//=> false"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the given argument is an instance of Date"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 16,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_date"
-					},
-					"summary": "Is the given argument an instance of Date?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isEqual",
-				"category": "Common Helpers",
-				"title": "isEqual",
-				"description": "Are the given dates equal?",
-				"content": {
-					"id": "isEqual",
-					"longname": "isEqual",
-					"name": "isEqual",
-					"scope": "global",
-					"kind": "function",
-					"description": "Are the given dates equal?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to compare",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to compare",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Are 2 July 2014 06:30:45.000 and 2 July 2014 06:30:45.500 equal?\nvar result = isEqual(\n  new Date(2014, 6, 2, 6, 30, 45, 0)\n  new Date(2014, 6, 2, 6, 30, 45, 500)\n)\n//=> false"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the dates are equal"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_equal"
-					},
-					"summary": "Are the given dates equal?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isFuture",
-				"category": "Common Helpers",
-				"title": "isFuture",
-				"description": "Is the given date in the future?",
-				"content": {
-					"id": "isFuture",
-					"longname": "isFuture",
-					"name": "isFuture",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the future?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If today is 6 October 2014, is 31 December 2014 in the future?\nvar result = isFuture(new Date(2014, 11, 31))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in the future"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_future"
-					},
-					"summary": "Is the given date in the future?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isPast",
-				"category": "Common Helpers",
-				"title": "isPast",
-				"description": "Is the given date in the past?",
-				"content": {
-					"id": "isPast",
-					"longname": "isPast",
-					"name": "isPast",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the past?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If today is 6 October 2014, is 2 July 2014 in the past?\nvar result = isPast(new Date(2014, 6, 2))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in the past"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_past"
-					},
-					"summary": "Is the given date in the past?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isValid",
-				"category": "Common Helpers",
-				"title": "isValid",
-				"description": "Is the given date valid?",
-				"content": {
-					"id": "isValid",
-					"longname": "isValid",
-					"name": "isValid",
-					"scope": "global",
-					"kind": "function",
-					"description": "Returns false if argument is Invalid Date and true otherwise.\nInvalid Date is a Date, whose time value is NaN.\n\nTime value of Date: http://es5.github.io/#x15.9.1.1",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// For the valid date:\nvar result = isValid(new Date(2014, 1, 31))\n//=> true",
-						"// For the invalid date:\nvar result = isValid(new Date(''))\n//=> false"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is valid"
-						}
-					],
-					"category": "Common Helpers",
-					"exceptions": [
-						{
-							"type": {
-								"names": [
-									"TypeError"
-								]
-							},
-							"description": "argument must be an instance of Date"
-						}
-					],
-					"meta": {
-						"lineno": 27,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_valid"
-					},
-					"summary": "Is the given date valid?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "max",
-				"category": "Common Helpers",
-				"title": "max",
-				"description": "Return the latest of the given dates.",
-				"content": {
-					"id": "max",
-					"longname": "max",
-					"name": "max",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the latest of the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"variable": true,
-							"description": "the dates to compare",
-							"name": "dates"
-						}
-					],
-					"examples": [
-						"// Which of these dates is the latest?\nvar result = max(\n  new Date(1989, 6, 10),\n  new Date(1987, 1, 11),\n  new Date(1995, 6, 2),\n  new Date(1990, 0, 1)\n)\n//=> Sun Jul 02 1995 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the latest of the dates"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/max"
-					},
-					"summary": "Return the latest of the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "min",
-				"category": "Common Helpers",
-				"title": "min",
-				"description": "Return the earliest of the given dates.",
-				"content": {
-					"id": "min",
-					"longname": "min",
-					"name": "min",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the earliest of the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"variable": true,
-							"description": "the dates to compare",
-							"name": "dates"
-						}
-					],
-					"examples": [
-						"// Which of these dates is the earliest?\nvar result = min(\n  new Date(1989, 6, 10),\n  new Date(1987, 1, 11),\n  new Date(1995, 6, 2),\n  new Date(1990, 0, 1)\n)\n//=> Wed Feb 11 1987 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the earliest of the dates"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/min"
-					},
-					"summary": "Return the earliest of the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "parse",
-				"category": "Common Helpers",
-				"title": "parse",
-				"description": "Parse the ISO-8601-formatted date.",
-				"content": {
-					"id": "parse",
-					"longname": "parse",
-					"name": "parse",
-					"scope": "global",
-					"kind": "function",
-					"description": "Parse the date string representation.\nIt accepts complete ISO 8601 formats as well as partial implementations.\n\nISO 8601: http://en.wikipedia.org/wiki/ISO_8601",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"String"
-								]
-							},
-							"description": "the ISO 8601 formatted string to parse",
-							"name": "dateString"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"optional": true,
-							"defaultvalue": 2,
-							"description": "the additional number of digits in the extended year format. Options: 0, 1 or 2",
-							"name": "options.additionalDigits"
-						}
-					],
-					"examples": [
-						"// Parse string '2014-02-11T11:30:30':\nvar result = parse('2014-02-11T11:30:30')\n//=> Tue Feb 11 2014 11:30:30",
-						"// Parse string '+02014101',\n// if the additional number of digits in the extended year format is 1:\nvar result = parse('+02014101', {additionalDigits: 1})\n//=> Fri Apr 11 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the parsed date in the local time zone"
-						}
-					],
-					"category": "Common Helpers",
-					"meta": {
-						"lineno": 69,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/parse"
-					},
-					"summary": "Parse the ISO-8601-formatted date.",
-					"order": 0
-				}
-			}
-		],
-		"Range Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "isWithinRange",
-				"category": "Range Helpers",
-				"title": "isWithinRange",
-				"description": "Is the given date within the range?",
-				"content": {
-					"id": "isWithinRange",
-					"longname": "isWithinRange",
-					"name": "isWithinRange",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date within the range?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the start of range",
-							"name": "startDate"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the end of range",
-							"name": "endDate"
-						}
-					],
-					"examples": [
-						"// For the date within the range:\nisWithinRange(\n  new Date(2014, 0, 3), new Date(2014, 0, 1), new Date(2014, 0, 7)\n)\n//=> true",
-						"// For the date outside of the range:\nisWithinRange(\n  new Date(2014, 0, 10), new Date(2014, 0, 1), new Date(2014, 0, 7)\n)\n//=> false"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is within the range"
-						}
-					],
-					"category": "Range Helpers",
-					"exceptions": [
-						{
-							"type": {
-								"names": [
-									"Error"
-								]
-							},
-							"description": "startDate cannot be after endDate"
-						}
-					],
-					"meta": {
-						"lineno": 30,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_within_range"
-					},
-					"summary": "Is the given date within the range?",
-					"order": 0
-				}
-			}
-		],
-		"Millisecond Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "addMilliseconds",
-				"category": "Millisecond Helpers",
-				"title": "addMilliseconds",
-				"description": "Add the specified number of milliseconds to the given date.",
-				"content": {
-					"id": "addMilliseconds",
-					"longname": "addMilliseconds",
-					"name": "addMilliseconds",
-					"scope": "global",
-					"kind": "function",
-					"description": "Add the specified number of milliseconds to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of milliseconds to be added",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Add 750 milliseconds to 10 July 2014 12:45:30.000:\nvar result = addMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)\n//=> Thu Jul 10 2014 12:45:30.750"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the milliseconds added"
-						}
-					],
-					"category": "Millisecond Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/add_milliseconds"
-					},
-					"summary": "Add the specified number of milliseconds to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInMilliseconds",
-				"category": "Millisecond Helpers",
-				"title": "differenceInMilliseconds",
-				"description": "Get the number of milliseconds between the given dates.",
-				"content": {
-					"id": "differenceInMilliseconds",
-					"longname": "differenceInMilliseconds",
-					"name": "differenceInMilliseconds",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of milliseconds between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many milliseconds are between\n// 2 July 2014 12:30:20.600 and 2 July 2014 12:30:21.700?\nvar result = differenceInMilliseconds(\n  new Date(2014, 6, 2, 12, 30, 21, 700),\n  new Date(2014, 6, 2, 12, 30, 20, 600)\n)\n//=> 1100"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of milliseconds"
-						}
-					],
-					"category": "Millisecond Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_milliseconds"
-					},
-					"summary": "Get the number of milliseconds between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getMilliseconds",
-				"category": "Millisecond Helpers",
-				"title": "getMilliseconds",
-				"description": "Get the milliseconds of the given date.",
-				"content": {
-					"id": "getMilliseconds",
-					"longname": "getMilliseconds",
-					"name": "getMilliseconds",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the milliseconds of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Get the milliseconds of 29 February 2012 11:45:05.123:\nvar result = getMilliseconds(new Date(2012, 1, 29, 11, 45, 5, 123))\n//=> 123"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the milliseconds"
-						}
-					],
-					"category": "Millisecond Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_milliseconds"
-					},
-					"summary": "Get the milliseconds of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setMilliseconds",
-				"category": "Millisecond Helpers",
-				"title": "setMilliseconds",
-				"description": "Set the milliseconds to the given date.",
-				"content": {
-					"id": "setMilliseconds",
-					"longname": "setMilliseconds",
-					"name": "setMilliseconds",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the milliseconds to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the milliseconds of the new date",
-							"name": "milliseconds"
-						}
-					],
-					"examples": [
-						"// Set 300 milliseconds to 1 September 2014 11:30:40.500:\nvar result = setMilliseconds(new Date(2014, 8, 1, 11, 30, 40, 500), 300)\n//=> Mon Sep 01 2014 11:30:40.300"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the milliseconds setted"
-						}
-					],
-					"category": "Millisecond Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_milliseconds"
-					},
-					"summary": "Set the milliseconds to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "subMilliseconds",
-				"category": "Millisecond Helpers",
-				"title": "subMilliseconds",
-				"description": "Subtract the specified number of milliseconds from the given date.",
-				"content": {
-					"id": "subMilliseconds",
-					"longname": "subMilliseconds",
-					"name": "subMilliseconds",
-					"scope": "global",
-					"kind": "function",
-					"description": "Subtract the specified number of milliseconds from the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of milliseconds to be subtracted",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Subtract 750 milliseconds from 10 July 2014 12:45:30.000:\nvar result = subMilliseconds(new Date(2014, 6, 10, 12, 45, 30, 0), 750)\n//=> Thu Jul 10 2014 12:45:29.250"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the milliseconds subtracted"
-						}
-					],
-					"category": "Millisecond Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/sub_milliseconds"
-					},
-					"summary": "Subtract the specified number of milliseconds from the given date.",
-					"order": 0
-				}
-			}
-		],
-		"Second Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "addSeconds",
-				"category": "Second Helpers",
-				"title": "addSeconds",
-				"description": "Add the specified number of seconds to the given date.",
-				"content": {
-					"id": "addSeconds",
-					"longname": "addSeconds",
-					"name": "addSeconds",
-					"scope": "global",
-					"kind": "function",
-					"description": "Add the specified number of seconds to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of seconds to be added",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Add 30 seconds to 10 July 2014 12:45:00:\nvar result = addSeconds(new Date(2014, 6, 10, 12, 45, 0), 30)\n//=> Thu Jul 10 2014 12:45:30"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the seconds added"
-						}
-					],
-					"category": "Second Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/add_seconds"
-					},
-					"summary": "Add the specified number of seconds to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInSeconds",
-				"category": "Second Helpers",
-				"title": "differenceInSeconds",
-				"description": "Get the number of seconds between the given dates.",
-				"content": {
-					"id": "differenceInSeconds",
-					"longname": "differenceInSeconds",
-					"name": "differenceInSeconds",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of seconds between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many seconds are between\n// 2 July 2014 12:30:07.999 and 2 July 2014 12:30:20.000?\nvar result = differenceInSeconds(\n  new Date(2014, 6, 2, 12, 30, 20, 0),\n  new Date(2014, 6, 2, 12, 30, 7, 999)\n)\n//=> 12"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of seconds"
-						}
-					],
-					"category": "Second Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_seconds"
-					},
-					"summary": "Get the number of seconds between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfSecond",
-				"category": "Second Helpers",
-				"title": "endOfSecond",
-				"description": "Return the end of a second for the given date.",
-				"content": {
-					"id": "endOfSecond",
-					"longname": "endOfSecond",
-					"name": "endOfSecond",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of a second for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The end of a second for 1 December 2014 22:15:45.400:\nvar result = endOfSecond(new Date(2014, 11, 1, 22, 15, 45, 400))\n//=> Mon Dec 01 2014 22:15:45.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of a second"
-						}
-					],
-					"category": "Second Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_second"
-					},
-					"summary": "Return the end of a second for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getSeconds",
-				"category": "Second Helpers",
-				"title": "getSeconds",
-				"description": "Get the seconds of the given date.",
-				"content": {
-					"id": "getSeconds",
-					"longname": "getSeconds",
-					"name": "getSeconds",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the seconds of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Get the seconds of 29 February 2012 11:45:05.123:\nvar result = getSeconds(new Date(2012, 1, 29, 11, 45, 5, 123))\n//=> 5"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the seconds"
-						}
-					],
-					"category": "Second Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_seconds"
-					},
-					"summary": "Get the seconds of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSameSecond",
-				"category": "Second Helpers",
-				"title": "isSameSecond",
-				"description": "Are the given dates in the same second?",
-				"content": {
-					"id": "isSameSecond",
-					"longname": "isSameSecond",
-					"name": "isSameSecond",
-					"scope": "global",
-					"kind": "function",
-					"description": "Are the given dates in the same second?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to check",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to check",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Are 4 September 2014 06:30:15.000 and 4 September 2014 06:30.15.500\n// in the same second?\nvar result = isSameSecond(\n  new Date(2014, 8, 4, 6, 30, 15),\n  new Date(2014, 8, 4, 6, 30, 15, 500)\n)\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the dates are in the same second"
-						}
-					],
-					"category": "Second Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_same_second"
-					},
-					"summary": "Are the given dates in the same second?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isThisSecond",
-				"category": "Second Helpers",
-				"title": "isThisSecond",
-				"description": "Is the given date in the same second as the current date?",
-				"content": {
-					"id": "isThisSecond",
-					"longname": "isThisSecond",
-					"name": "isThisSecond",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the same second as the current date?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If now is 25 September 2014 18:30:15.500,\n// is 25 September 2014 18:30:15.000 in this second?\nvar result = isThisSecond(new Date(2014, 8, 25, 18, 30, 15))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in this second"
-						}
-					],
-					"category": "Second Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_this_second"
-					},
-					"summary": "Is the given date in the same second as the current date?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setSeconds",
-				"category": "Second Helpers",
-				"title": "setSeconds",
-				"description": "Set the seconds to the given date.",
-				"content": {
-					"id": "setSeconds",
-					"longname": "setSeconds",
-					"name": "setSeconds",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the seconds to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the seconds of the new date",
-							"name": "seconds"
-						}
-					],
-					"examples": [
-						"// Set 45 seconds to 1 September 2014 11:30:40:\nvar result = setSeconds(new Date(2014, 8, 1, 11, 30, 40), 45)\n//=> Mon Sep 01 2014 11:30:45"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the seconds setted"
-						}
-					],
-					"category": "Second Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_seconds"
-					},
-					"summary": "Set the seconds to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfSecond",
-				"category": "Second Helpers",
-				"title": "startOfSecond",
-				"description": "Return the start of a second for the given date.",
-				"content": {
-					"id": "startOfSecond",
-					"longname": "startOfSecond",
-					"name": "startOfSecond",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of a second for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The start of a second for 1 December 2014 22:15:45.400:\nvar result = startOfSecond(new Date(2014, 11, 1, 22, 15, 45, 400))\n//=> Mon Dec 01 2014 22:15:45.000"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of a second"
-						}
-					],
-					"category": "Second Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_second"
-					},
-					"summary": "Return the start of a second for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "subSeconds",
-				"category": "Second Helpers",
-				"title": "subSeconds",
-				"description": "Subtract the specified number of seconds from the given date.",
-				"content": {
-					"id": "subSeconds",
-					"longname": "subSeconds",
-					"name": "subSeconds",
-					"scope": "global",
-					"kind": "function",
-					"description": "Subtract the specified number of seconds from the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of seconds to be subtracted",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Subtract 30 seconds from 10 July 2014 12:45:00:\nvar result = subSeconds(new Date(2014, 6, 10, 12, 45, 0), 30)\n//=> Thu Jul 10 2014 12:44:30"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the seconds subtracted"
-						}
-					],
-					"category": "Second Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/sub_seconds"
-					},
-					"summary": "Subtract the specified number of seconds from the given date.",
-					"order": 0
-				}
-			}
-		],
-		"Minute Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "addMinutes",
-				"category": "Minute Helpers",
-				"title": "addMinutes",
-				"description": "Add the specified number of minutes to the given date.",
-				"content": {
-					"id": "addMinutes",
-					"longname": "addMinutes",
-					"name": "addMinutes",
-					"scope": "global",
-					"kind": "function",
-					"description": "Add the specified number of minutes to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of minutes to be added",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Add 30 minutes to 10 July 2014 12:00:00:\nvar result = addMinutes(new Date(2014, 6, 10, 12, 0), 30)\n//=> Thu Jul 10 2014 12:30:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the minutes added"
-						}
-					],
-					"category": "Minute Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/add_minutes"
-					},
-					"summary": "Add the specified number of minutes to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInMinutes",
-				"category": "Minute Helpers",
-				"title": "differenceInMinutes",
-				"description": "Get the number of minutes between the given dates.",
-				"content": {
-					"id": "differenceInMinutes",
-					"longname": "differenceInMinutes",
-					"name": "differenceInMinutes",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of minutes between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many minutes are between 2 July 2014 12:07:59 and 2 July 2014 12:20:00?\nvar result = differenceInMinutes(\n  new Date(2014, 6, 2, 12, 20, 0),\n  new Date(2014, 6, 2, 12, 7, 59)\n)\n//=> 12"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of minutes"
-						}
-					],
-					"category": "Minute Helpers",
-					"meta": {
-						"lineno": 24,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_minutes"
-					},
-					"summary": "Get the number of minutes between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfMinute",
-				"category": "Minute Helpers",
-				"title": "endOfMinute",
-				"description": "Return the end of a minute for the given date.",
-				"content": {
-					"id": "endOfMinute",
-					"longname": "endOfMinute",
-					"name": "endOfMinute",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of a minute for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The end of a minute for 1 December 2014 22:15:45.400:\nvar result = endOfMinute(new Date(2014, 11, 1, 22, 15, 45, 400))\n//=> Mon Dec 01 2014 22:15:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of a minute"
-						}
-					],
-					"category": "Minute Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_minute"
-					},
-					"summary": "Return the end of a minute for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getMinutes",
-				"category": "Minute Helpers",
-				"title": "getMinutes",
-				"description": "Get the minutes of the given date.",
-				"content": {
-					"id": "getMinutes",
-					"longname": "getMinutes",
-					"name": "getMinutes",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the minutes of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Get the minutes of 29 February 2012 11:45:05:\nvar result = getMinutes(new Date(2012, 1, 29, 11, 45, 5))\n//=> 45"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the minutes"
-						}
-					],
-					"category": "Minute Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_minutes"
-					},
-					"summary": "Get the minutes of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSameMinute",
-				"category": "Minute Helpers",
-				"title": "isSameMinute",
-				"description": "Are the given dates in the same minute?",
-				"content": {
-					"id": "isSameMinute",
-					"longname": "isSameMinute",
-					"name": "isSameMinute",
-					"scope": "global",
-					"kind": "function",
-					"description": "Are the given dates in the same minute?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to check",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to check",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Are 4 September 2014 06:30:00 and 4 September 2014 06:30:15\n// in the same minute?\nvar result = isSameMinute(\n  new Date(2014, 8, 4, 6, 30),\n  new Date(2014, 8, 4, 6, 30, 15)\n)\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the dates are in the same minute"
-						}
-					],
-					"category": "Minute Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_same_minute"
-					},
-					"summary": "Are the given dates in the same minute?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isThisMinute",
-				"category": "Minute Helpers",
-				"title": "isThisMinute",
-				"description": "Is the given date in the same minute as the current date?",
-				"content": {
-					"id": "isThisMinute",
-					"longname": "isThisMinute",
-					"name": "isThisMinute",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the same minute as the current date?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If now is 25 September 2014 18:30:15.500,\n// is 25 September 2014 18:30:00 in this minute?\nvar result = isThisMinute(new Date(2014, 8, 25, 18, 30))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in this minute"
-						}
-					],
-					"category": "Minute Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_this_minute"
-					},
-					"summary": "Is the given date in the same minute as the current date?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setMinutes",
-				"category": "Minute Helpers",
-				"title": "setMinutes",
-				"description": "Set the minutes to the given date.",
-				"content": {
-					"id": "setMinutes",
-					"longname": "setMinutes",
-					"name": "setMinutes",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the minutes to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the minutes of the new date",
-							"name": "minutes"
-						}
-					],
-					"examples": [
-						"// Set 45 minutes to 1 September 2014 11:30:40:\nvar result = setMinutes(new Date(2014, 8, 1, 11, 30, 40), 45)\n//=> Mon Sep 01 2014 11:45:40"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the minutes setted"
-						}
-					],
-					"category": "Minute Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_minutes"
-					},
-					"summary": "Set the minutes to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfMinute",
-				"category": "Minute Helpers",
-				"title": "startOfMinute",
-				"description": "Return the start of a minute for the given date.",
-				"content": {
-					"id": "startOfMinute",
-					"longname": "startOfMinute",
-					"name": "startOfMinute",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of a minute for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The start of a minute for 1 December 2014 22:15:45.400:\nvar result = startOfMinute(new Date(2014, 11, 1, 22, 15, 45, 400))\n//=> Mon Dec 01 2014 22:15:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of a minute"
-						}
-					],
-					"category": "Minute Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_minute"
-					},
-					"summary": "Return the start of a minute for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "subMinutes",
-				"category": "Minute Helpers",
-				"title": "subMinutes",
-				"description": "Subtract the specified number of minutes from the given date.",
-				"content": {
-					"id": "subMinutes",
-					"longname": "subMinutes",
-					"name": "subMinutes",
-					"scope": "global",
-					"kind": "function",
-					"description": "Subtract the specified number of minutes from the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of minutes to be subtracted",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Subtract 30 minutes from 10 July 2014 12:00:00:\nvar result = subMinutes(new Date(2014, 6, 10, 12, 0), 30)\n//=> Thu Jul 10 2014 11:30:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the mintues subtracted"
-						}
-					],
-					"category": "Minute Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/sub_minutes"
-					},
-					"summary": "Subtract the specified number of minutes from the given date.",
-					"order": 0
-				}
-			}
-		],
-		"Hour Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "addHours",
-				"category": "Hour Helpers",
-				"title": "addHours",
-				"description": "Add the specified number of hours to the given date.",
-				"content": {
-					"id": "addHours",
-					"longname": "addHours",
-					"name": "addHours",
-					"scope": "global",
-					"kind": "function",
-					"description": "Add the specified number of hours to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of hours to be added",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Add 2 hours to 10 July 2014 23:00:00:\nvar result = addHours(new Date(2014, 6, 10, 23, 0), 2)\n//=> Fri Jul 11 2014 01:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the hours added"
-						}
-					],
-					"category": "Hour Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/add_hours"
-					},
-					"summary": "Add the specified number of hours to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInHours",
-				"category": "Hour Helpers",
-				"title": "differenceInHours",
-				"description": "Get the number of hours between the given dates.",
-				"content": {
-					"id": "differenceInHours",
-					"longname": "differenceInHours",
-					"name": "differenceInHours",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of hours between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many hours are between 2 July 2014 06:50:00 and 2 July 2014 19:00:00?\nvar result = differenceInHours(\n  new Date(2014, 6, 2, 19, 0),\n  new Date(2014, 6, 2, 6, 50)\n)\n//=> 12"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of hours"
-						}
-					],
-					"category": "Hour Helpers",
-					"meta": {
-						"lineno": 24,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_hours"
-					},
-					"summary": "Get the number of hours between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfHour",
-				"category": "Hour Helpers",
-				"title": "endOfHour",
-				"description": "Return the end of an hour for the given date.",
-				"content": {
-					"id": "endOfHour",
-					"longname": "endOfHour",
-					"name": "endOfHour",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of an hour for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The end of an hour for 2 September 2014 11:55:00:\nvar result = endOfHour(new Date(2014, 8, 2, 11, 55))\n//=> Tue Sep 02 2014 11:59:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of an hour"
-						}
-					],
-					"category": "Hour Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_hour"
-					},
-					"summary": "Return the end of an hour for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getHours",
-				"category": "Hour Helpers",
-				"title": "getHours",
-				"description": "Get the hours of the given date.",
-				"content": {
-					"id": "getHours",
-					"longname": "getHours",
-					"name": "getHours",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the hours of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Get the hours of 29 February 2012 11:45:00:\nvar result = getHours(new Date(2012, 1, 29, 11, 45))\n//=> 11"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the hours"
-						}
-					],
-					"category": "Hour Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_hours"
-					},
-					"summary": "Get the hours of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSameHour",
-				"category": "Hour Helpers",
-				"title": "isSameHour",
-				"description": "Are the given dates in the same hour?",
-				"content": {
-					"id": "isSameHour",
-					"longname": "isSameHour",
-					"name": "isSameHour",
-					"scope": "global",
-					"kind": "function",
-					"description": "Are the given dates in the same hour?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to check",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to check",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Are 4 September 2014 06:00:00 and 4 September 06:30:00 in the same hour?\nvar result = isSameHour(\n  new Date(2014, 8, 4, 6, 0),\n  new Date(2014, 8, 4, 6, 30)\n)\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the dates are in the same hour"
-						}
-					],
-					"category": "Hour Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_same_hour"
-					},
-					"summary": "Are the given dates in the same hour?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isThisHour",
-				"category": "Hour Helpers",
-				"title": "isThisHour",
-				"description": "Is the given date in the same hour as the current date?",
-				"content": {
-					"id": "isThisHour",
-					"longname": "isThisHour",
-					"name": "isThisHour",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the same hour as the current date?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If now is 25 September 2014 18:30:15.500,\n// is 25 September 2014 18:00:00 in this hour?\nvar result = isThisHour(new Date(2014, 8, 25, 18))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in this hour"
-						}
-					],
-					"category": "Hour Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_this_hour"
-					},
-					"summary": "Is the given date in the same hour as the current date?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setHours",
-				"category": "Hour Helpers",
-				"title": "setHours",
-				"description": "Set the hours to the given date.",
-				"content": {
-					"id": "setHours",
-					"longname": "setHours",
-					"name": "setHours",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the hours to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the hours of the new date",
-							"name": "hours"
-						}
-					],
-					"examples": [
-						"// Set 4 hours to 1 September 2014 11:30:00:\nvar result = setHours(new Date(2014, 8, 1, 11, 30), 4)\n//=> Mon Sep 01 2014 04:30:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the hours setted"
-						}
-					],
-					"category": "Hour Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_hours"
-					},
-					"summary": "Set the hours to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfHour",
-				"category": "Hour Helpers",
-				"title": "startOfHour",
-				"description": "Return the start of an hour for the given date.",
-				"content": {
-					"id": "startOfHour",
-					"longname": "startOfHour",
-					"name": "startOfHour",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of an hour for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The start of an hour for 2 September 2014 11:55:00:\nvar result = startOfHour(new Date(2014, 8, 2, 11, 55))\n//=> Tue Sep 02 2014 11:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of an hour"
-						}
-					],
-					"category": "Hour Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_hour"
-					},
-					"summary": "Return the start of an hour for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "subHours",
-				"category": "Hour Helpers",
-				"title": "subHours",
-				"description": "Subtract the specified number of hours from the given date.",
-				"content": {
-					"id": "subHours",
-					"longname": "subHours",
-					"name": "subHours",
-					"scope": "global",
-					"kind": "function",
-					"description": "Subtract the specified number of hours from the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of hours to be subtracted",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Subtract 2 hours from 11 July 2014 01:00:00:\nvar result = subHours(new Date(2014, 6, 11, 1, 0), 2)\n//=> Thu Jul 10 2014 23:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the hours subtracted"
-						}
-					],
-					"category": "Hour Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/sub_hours"
-					},
-					"summary": "Subtract the specified number of hours from the given date.",
-					"order": 0
-				}
-			}
-		],
-		"Day Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "addDays",
-				"category": "Day Helpers",
-				"title": "addDays",
-				"description": "Add the specified number of days to the given date.",
-				"content": {
-					"id": "addDays",
-					"longname": "addDays",
-					"name": "addDays",
-					"scope": "global",
-					"kind": "function",
-					"description": "Add the specified number of days to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of days to be added",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Add 10 days to 1 September 2014:\nvar result = addDays(new Date(2014, 8, 1), 10)\n//=> Thu Sep 11 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the days added"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/add_days"
-					},
-					"summary": "Add the specified number of days to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInCalendarDays",
-				"category": "Day Helpers",
-				"title": "differenceInCalendarDays",
-				"description": "Get the number of calendar days between the given dates.",
-				"content": {
-					"id": "differenceInCalendarDays",
-					"longname": "differenceInCalendarDays",
-					"name": "differenceInCalendarDays",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of calendar days between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many calendar days are between\n// 2 July 2011 23:00:00 and 2 July 2012 00:00:00?\nvar result = differenceInCalendarDays(\n  new Date(2012, 6, 2, 0, 0),\n  new Date(2011, 6, 2, 23, 0)\n)\n//=> 366"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of calendar days"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 26,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_calendar_days"
-					},
-					"summary": "Get the number of calendar days between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInDays",
-				"category": "Day Helpers",
-				"title": "differenceInDays",
-				"description": "Get the number of full days between the given dates.",
-				"content": {
-					"id": "differenceInDays",
-					"longname": "differenceInDays",
-					"name": "differenceInDays",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of full days between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many full days are between\n// 2 July 2011 23:00:00 and 2 July 2012 00:00:00?\nvar result = differenceInDays(\n  new Date(2012, 6, 2, 0, 0),\n  new Date(2011, 6, 2, 23, 0)\n)\n//=> 365"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of full days"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 25,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_days"
-					},
-					"summary": "Get the number of full days between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "eachDay",
-				"category": "Day Helpers",
-				"title": "eachDay",
-				"description": "Return the array of dates within the specified range.",
-				"content": {
-					"id": "eachDay",
-					"longname": "eachDay",
-					"name": "eachDay",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the array of dates within the specified range.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date",
-							"name": "startDate"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the last date",
-							"name": "endDate"
-						}
-					],
-					"examples": [
-						"// Each day between 6 October 2014 and 10 October 2014:\nvar result = eachDay(\n  new Date(2014, 9, 6),\n  new Date(2014, 9, 10)\n)\n//=> [\n//   Mon Oct 06 2014 00:00:00,\n//   Tue Oct 07 2014 00:00:00,\n//   Wed Oct 08 2014 00:00:00,\n//   Thu Oct 09 2014 00:00:00,\n//   Fri Oct 10 2014 00:00:00\n// ]"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Array.<Date>"
-								]
-							},
-							"description": "the array with starts of days from the day of startDate to the day of endDate"
-						}
-					],
-					"category": "Day Helpers",
-					"exceptions": [
-						{
-							"type": {
-								"names": [
-									"Error"
-								]
-							},
-							"description": "startDate cannot be after endDate"
-						}
-					],
-					"meta": {
-						"lineno": 29,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/each_day"
-					},
-					"summary": "Return the array of dates within the specified range.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfDay",
-				"category": "Day Helpers",
-				"title": "endOfDay",
-				"description": "Return the end of a day for the given date.",
-				"content": {
-					"id": "endOfDay",
-					"longname": "endOfDay",
-					"name": "endOfDay",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of a day for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The end of a day for 2 September 2014 11:55:00:\nvar result = endOfDay(new Date(2014, 8, 2, 11, 55, 0))\n//=> Tue Sep 02 2014 23:59:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of a day"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_day"
-					},
-					"summary": "Return the end of a day for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfToday",
-				"category": "Day Helpers",
-				"title": "endOfToday",
-				"description": "Return the end of today.",
-				"content": {
-					"id": "endOfToday",
-					"longname": "endOfToday",
-					"name": "endOfToday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of today.",
-					"params": [],
-					"examples": [
-						"// If today is 6 October 2014:\nvar result = endOfToday()\n//=> Mon Oct 6 2014 23:59:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of today"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 17,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_today"
-					},
-					"summary": "Return the end of today.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfTomorrow",
-				"category": "Day Helpers",
-				"title": "endOfTomorrow",
-				"description": "Return the end of tomorrow.",
-				"content": {
-					"id": "endOfTomorrow",
-					"longname": "endOfTomorrow",
-					"name": "endOfTomorrow",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of tomorrow.",
-					"params": [],
-					"examples": [
-						"// If today is 6 October 2014:\nvar result = endOfTomorrow()\n//=> Tue Oct 7 2014 23:59:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of tomorrow"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 15,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_tomorrow"
-					},
-					"summary": "Return the end of tomorrow.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfYesterday",
-				"category": "Day Helpers",
-				"title": "endOfYesterday",
-				"description": "Return the end of yesterday.",
-				"content": {
-					"id": "endOfYesterday",
-					"longname": "endOfYesterday",
-					"name": "endOfYesterday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of yesterday.",
-					"params": [],
-					"examples": [
-						"// If today is 6 October 2014:\nvar result = endOfYesterday()\n//=> Sun Oct 5 2014 23:59:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of yesterday"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 15,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_yesterday"
-					},
-					"summary": "Return the end of yesterday.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getDate",
-				"category": "Day Helpers",
-				"title": "getDate",
-				"description": "Get the day of the month of the given date.",
-				"content": {
-					"id": "getDate",
-					"longname": "getDate",
-					"name": "getDate",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the day of the month of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Which day of the month is 29 February 2012?\nvar result = getDate(new Date(2012, 1, 29))\n//=> 29"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the day of month"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_date"
-					},
-					"summary": "Get the day of the month of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getDayOfYear",
-				"category": "Day Helpers",
-				"title": "getDayOfYear",
-				"description": "Get the day of the year of the given date.",
-				"content": {
-					"id": "getDayOfYear",
-					"longname": "getDayOfYear",
-					"name": "getDayOfYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the day of the year of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Which day of the year is 2 July 2014?\nvar result = getDayOfYear(new Date(2014, 6, 2))\n//=> 183"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the day of year"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 20,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_day_of_year"
-					},
-					"summary": "Get the day of the year of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSameDay",
-				"category": "Day Helpers",
-				"title": "isSameDay",
-				"description": "Are the given dates in the same day?",
-				"content": {
-					"id": "isSameDay",
-					"longname": "isSameDay",
-					"name": "isSameDay",
-					"scope": "global",
-					"kind": "function",
-					"description": "Are the given dates in the same day?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to check",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to check",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Are 4 September 06:00:00 and 4 September 18:00:00 in the same day?\nvar result = isSameDay(\n  new Date(2014, 8, 4, 6, 0),\n  new Date(2014, 8, 4, 18, 0)\n)\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the dates are in the same day"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_same_day"
-					},
-					"summary": "Are the given dates in the same day?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isToday",
-				"category": "Day Helpers",
-				"title": "isToday",
-				"description": "Is the given date today?",
-				"content": {
-					"id": "isToday",
-					"longname": "isToday",
-					"name": "isToday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date today?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If today is 6 October 2014, is 6 October 14:00:00 today?\nvar result = isToday(new Date(2014, 9, 6, 14, 0))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is today"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_today"
-					},
-					"summary": "Is the given date today?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isTomorrow",
-				"category": "Day Helpers",
-				"title": "isTomorrow",
-				"description": "Is the given date tomorrow?",
-				"content": {
-					"id": "isTomorrow",
-					"longname": "isTomorrow",
-					"name": "isTomorrow",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date tomorrow?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If today is 6 October 2014, is 7 October 14:00:00 tomorrow?\nvar result = isTomorrow(new Date(2014, 9, 7, 14, 0))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is tomorrow"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_tomorrow"
-					},
-					"summary": "Is the given date tomorrow?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isYesterday",
-				"category": "Day Helpers",
-				"title": "isYesterday",
-				"description": "Is the given date yesterday?",
-				"content": {
-					"id": "isYesterday",
-					"longname": "isYesterday",
-					"name": "isYesterday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date yesterday?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If today is 6 October 2014, is 5 October 14:00:00 yesterday?\nvar result = isYesterday(new Date(2014, 9, 5, 14, 0))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is yesterday"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_yesterday"
-					},
-					"summary": "Is the given date yesterday?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setDate",
-				"category": "Day Helpers",
-				"title": "setDate",
-				"description": "Set the day of the month to the given date.",
-				"content": {
-					"id": "setDate",
-					"longname": "setDate",
-					"name": "setDate",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the day of the month to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the day of the month of the new date",
-							"name": "dayOfMonth"
-						}
-					],
-					"examples": [
-						"// Set the 30th day of the month to 1 September 2014:\nvar result = setDate(new Date(2014, 8, 1), 30)\n//=> Tue Sep 30 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the day of the month setted"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_date"
-					},
-					"summary": "Set the day of the month to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setDayOfYear",
-				"category": "Day Helpers",
-				"title": "setDayOfYear",
-				"description": "Set the day of the year to the given date.",
-				"content": {
-					"id": "setDayOfYear",
-					"longname": "setDayOfYear",
-					"name": "setDayOfYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the day of the year to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the day of the year of the new date",
-							"name": "dayOfYear"
-						}
-					],
-					"examples": [
-						"// Set the 2nd day of the year to 2 July 2014:\nvar result = setDayOfYear(new Date(2014, 6, 2), 2)\n//=> Thu Jan 02 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the day of the year setted"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_day_of_year"
-					},
-					"summary": "Set the day of the year to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfDay",
-				"category": "Day Helpers",
-				"title": "startOfDay",
-				"description": "Return the start of a day for the given date.",
-				"content": {
-					"id": "startOfDay",
-					"longname": "startOfDay",
-					"name": "startOfDay",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of a day for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The start of a day for 2 September 2014 11:55:00:\nvar result = startOfDay(new Date(2014, 8, 2, 11, 55, 0))\n//=> Tue Sep 02 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of a day"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_day"
-					},
-					"summary": "Return the start of a day for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfToday",
-				"category": "Day Helpers",
-				"title": "startOfToday",
-				"description": "Return the start of today.",
-				"content": {
-					"id": "startOfToday",
-					"longname": "startOfToday",
-					"name": "startOfToday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of today.",
-					"params": [],
-					"examples": [
-						"// If today is 6 October 2014:\nvar result = startOfToday()\n//=> Mon Oct 6 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of today"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 17,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_today"
-					},
-					"summary": "Return the start of today.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfTomorrow",
-				"category": "Day Helpers",
-				"title": "startOfTomorrow",
-				"description": "Return the start of tomorrow.",
-				"content": {
-					"id": "startOfTomorrow",
-					"longname": "startOfTomorrow",
-					"name": "startOfTomorrow",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of tomorrow.",
-					"params": [],
-					"examples": [
-						"// If today is 6 October 2014:\nvar result = startOfTomorrow()\n//=> Tue Oct 7 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of tomorrow"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 15,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_tomorrow"
-					},
-					"summary": "Return the start of tomorrow.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfYesterday",
-				"category": "Day Helpers",
-				"title": "startOfYesterday",
-				"description": "Return the start of yesterday.",
-				"content": {
-					"id": "startOfYesterday",
-					"longname": "startOfYesterday",
-					"name": "startOfYesterday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of yesterday.",
-					"params": [],
-					"examples": [
-						"// If today is 6 October 2014:\nvar result = startOfYesterday()\n//=> Sun Oct 5 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of yesterday"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 15,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_yesterday"
-					},
-					"summary": "Return the start of yesterday.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "subDays",
-				"category": "Day Helpers",
-				"title": "subDays",
-				"description": "Subtract the specified number of days from the given date.",
-				"content": {
-					"id": "subDays",
-					"longname": "subDays",
-					"name": "subDays",
-					"scope": "global",
-					"kind": "function",
-					"description": "Subtract the specified number of days from the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of days to be subtracted",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Subtract 10 days from 1 September 2014:\nvar result = subDays(new Date(2014, 8, 1), 10)\n//=> Fri Aug 22 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the days subtracted"
-						}
-					],
-					"category": "Day Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/sub_days"
-					},
-					"summary": "Subtract the specified number of days from the given date.",
-					"order": 0
-				}
-			}
-		],
-		"Weekday Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "getDay",
-				"category": "Weekday Helpers",
-				"title": "getDay",
-				"description": "Get the day of the week of the given date.",
-				"content": {
-					"id": "getDay",
-					"longname": "getDay",
-					"name": "getDay",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the day of the week of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Which day of the week is 29 February 2012?\nvar result = getDay(new Date(2012, 1, 29))\n//=> 3"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the day of week"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_day"
-					},
-					"summary": "Get the day of the week of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getISODay",
-				"category": "Weekday Helpers",
-				"title": "getISODay",
-				"description": "Get the day of the ISO week of the given date.",
-				"content": {
-					"id": "getISODay",
-					"longname": "getISODay",
-					"name": "getISODay",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the day of the ISO week of the given date,\nwhich is 7 for Sunday, 1 for Monday etc.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Which day of the ISO week is 26 February 2012?\nvar result = getISODay(new Date(2012, 1, 26))\n//=> 7"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the day of ISO week"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 21,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_iso_day"
-					},
-					"summary": "Get the day of the ISO week of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isFriday",
-				"category": "Weekday Helpers",
-				"title": "isFriday",
-				"description": "Is the given date Friday?",
-				"content": {
-					"id": "isFriday",
-					"longname": "isFriday",
-					"name": "isFriday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date Friday?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 26 September 2014 Friday?\nvar result = isFriday(new Date(2014, 8, 26))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is Friday"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_friday"
-					},
-					"summary": "Is the given date Friday?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isMonday",
-				"category": "Weekday Helpers",
-				"title": "isMonday",
-				"description": "Is the given date Monday?",
-				"content": {
-					"id": "isMonday",
-					"longname": "isMonday",
-					"name": "isMonday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date Monday?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 22 September 2014 Monday?\nvar result = isMonday(new Date(2014, 8, 22))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is Monday"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_monday"
-					},
-					"summary": "Is the given date Monday?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSaturday",
-				"category": "Weekday Helpers",
-				"title": "isSaturday",
-				"description": "Is the given date Saturday?",
-				"content": {
-					"id": "isSaturday",
-					"longname": "isSaturday",
-					"name": "isSaturday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date Saturday?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 27 September 2014 Saturday?\nvar result = isSaturday(new Date(2014, 8, 27))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is Saturday"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_saturday"
-					},
-					"summary": "Is the given date Saturday?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSunday",
-				"category": "Weekday Helpers",
-				"title": "isSunday",
-				"description": "Is the given date Sunday?",
-				"content": {
-					"id": "isSunday",
-					"longname": "isSunday",
-					"name": "isSunday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date Sunday?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 21 September 2014 Sunday?\nvar result = isSunday(new Date(2014, 8, 21))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is Sunday"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_sunday"
-					},
-					"summary": "Is the given date Sunday?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isThursday",
-				"category": "Weekday Helpers",
-				"title": "isThursday",
-				"description": "Is the given date Thursday?",
-				"content": {
-					"id": "isThursday",
-					"longname": "isThursday",
-					"name": "isThursday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date Thursday?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 25 September 2014 Thursday?\nvar result = isThursday(new Date(2014, 8, 25))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is Thursday"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_thursday"
-					},
-					"summary": "Is the given date Thursday?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isTuesday",
-				"category": "Weekday Helpers",
-				"title": "isTuesday",
-				"description": "Is the given date Tuesday?",
-				"content": {
-					"id": "isTuesday",
-					"longname": "isTuesday",
-					"name": "isTuesday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date Tuesday?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 23 September 2014 Tuesday?\nvar result = isTuesday(new Date(2014, 8, 23))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is Tuesday"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_tuesday"
-					},
-					"summary": "Is the given date Tuesday?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isWednesday",
-				"category": "Weekday Helpers",
-				"title": "isWednesday",
-				"description": "Is the given date Wednesday?",
-				"content": {
-					"id": "isWednesday",
-					"longname": "isWednesday",
-					"name": "isWednesday",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date Wednesday?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 24 September 2014 Wednesday?\nvar result = isWednesday(new Date(2014, 8, 24))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is Wednesday"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_wednesday"
-					},
-					"summary": "Is the given date Wednesday?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isWeekend",
-				"category": "Weekday Helpers",
-				"title": "isWeekend",
-				"description": "Is the given date in a weekend?",
-				"content": {
-					"id": "isWeekend",
-					"longname": "isWeekend",
-					"name": "isWeekend",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in a weekend?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 5 October 2014 in a weekend?\nvar result = isWeekend(new Date(2014, 9, 5))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in the weekend"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_weekend"
-					},
-					"summary": "Is the given date in a weekend?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setDay",
-				"category": "Weekday Helpers",
-				"title": "setDay",
-				"description": "Set the day of the week to the given date.",
-				"content": {
-					"id": "setDay",
-					"longname": "setDay",
-					"name": "setDay",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the day of the week to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the day of the week of the new date",
-							"name": "day"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"optional": true,
-							"defaultvalue": 0,
-							"description": "the index of the first day of the week (0 - Sunday)",
-							"name": "options.weekStartsOn"
-						}
-					],
-					"examples": [
-						"// Set Sunday to 1 September 2014:\nvar result = setDay(new Date(2014, 8, 1), 0)\n//=> Sun Aug 31 2014 00:00:00",
-						"// If week starts with Monday, set Sunday to 1 September 2014:\nvar result = setDay(new Date(2014, 8, 1), 0, {weekStartsOn: 1})\n//=> Sun Sep 07 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the day of the week setted"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 27,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_day"
-					},
-					"summary": "Set the day of the week to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setISODay",
-				"category": "Weekday Helpers",
-				"title": "setISODay",
-				"description": "Set the day of the ISO week to the given date.",
-				"content": {
-					"id": "setISODay",
-					"longname": "setISODay",
-					"name": "setISODay",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the day of the ISO week to the given date.\nISO week starts with Monday.\n7 is the index of Sunday, 1 is the index of Monday etc.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the day of the ISO week of the new date",
-							"name": "day"
-						}
-					],
-					"examples": [
-						"// Set Sunday to 1 September 2014:\nvar result = setISODay(new Date(2014, 8, 1), 7)\n//=> Sun Sep 07 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the day of the ISO week setted"
-						}
-					],
-					"category": "Weekday Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_iso_day"
-					},
-					"summary": "Set the day of the ISO week to the given date.",
-					"order": 0
-				}
-			}
-		],
-		"Week Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "addWeeks",
-				"category": "Week Helpers",
-				"title": "addWeeks",
-				"description": "Add the specified number of weeks to the given date.",
-				"content": {
-					"id": "addWeeks",
-					"longname": "addWeeks",
-					"name": "addWeeks",
-					"scope": "global",
-					"kind": "function",
-					"description": "Add the specified number of week to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of weeks to be added",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Add 4 weeks to 1 September 2014:\nvar result = addWeeks(new Date(2014, 8, 1), 4)\n//=> Mon Sep 29 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the weeks added"
-						}
-					],
-					"category": "Week Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/add_weeks"
-					},
-					"summary": "Add the specified number of weeks to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInCalendarWeeks",
-				"category": "Week Helpers",
-				"title": "differenceInCalendarWeeks",
-				"description": "Get the number of calendar weeks between the given dates.",
-				"content": {
-					"id": "differenceInCalendarWeeks",
-					"longname": "differenceInCalendarWeeks",
-					"name": "differenceInCalendarWeeks",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of calendar weeks between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"optional": true,
-							"defaultvalue": 0,
-							"description": "the index of the first day of the week (0 - Sunday)",
-							"name": "options.weekStartsOn"
-						}
-					],
-					"examples": [
-						"// How many calendar weeks are between 5 July 2014 and 20 July 2014?\nvar result = differenceInCalendarWeeks(\n  new Date(2014, 6, 20),\n  new Date(2014, 6, 5)\n)\n//=> 3",
-						"// If weeks starts at Monday,\n// how many calendar weeks are between 5 July 2014 and 20 July 2014?\nvar result = differenceInCalendarWeeks(\n  new Date(2014, 6, 20),\n  new Date(2014, 6, 5),\n  {weekStartsOn: 1}\n)\n//=> 2"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of calendar weeks"
-						}
-					],
-					"category": "Week Helpers",
-					"meta": {
-						"lineno": 37,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_calendar_weeks"
-					},
-					"summary": "Get the number of calendar weeks between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInWeeks",
-				"category": "Week Helpers",
-				"title": "differenceInWeeks",
-				"description": "Get the number of full weeks between the given dates.",
-				"content": {
-					"id": "differenceInWeeks",
-					"longname": "differenceInWeeks",
-					"name": "differenceInWeeks",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of full weeks between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many full weeks are between 5 July 2014 and 20 July 2014?\nvar result = differenceInWeeks(\n  new Date(2014, 6, 20),\n  new Date(2014, 6, 5)\n)\n//=> 2"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of full weeks"
-						}
-					],
-					"category": "Week Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_weeks"
-					},
-					"summary": "Get the number of full weeks between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfWeek",
-				"category": "Week Helpers",
-				"title": "endOfWeek",
-				"description": "Return the end of a week for the given date.",
-				"content": {
-					"id": "endOfWeek",
-					"longname": "endOfWeek",
-					"name": "endOfWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of a week for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"optional": true,
-							"defaultvalue": 0,
-							"description": "the index of the first day of the week (0 - Sunday)",
-							"name": "options.weekStartsOn"
-						}
-					],
-					"examples": [
-						"// The end of a week for 2 September 2014 11:55:00:\nvar result = endOfWeek(new Date(2014, 8, 2, 11, 55, 0))\n//=> Sat Sep 06 2014 23:59:59.999",
-						"// If week starts at Monday, the end of a week for 2 September 2014 11:55:00:\nvar result = endOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})\n//=> Sun Sep 07 2014 23:59:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of a week"
-						}
-					],
-					"category": "Week Helpers",
-					"meta": {
-						"lineno": 26,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_week"
-					},
-					"summary": "Return the end of a week for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSameWeek",
-				"category": "Week Helpers",
-				"title": "isSameWeek",
-				"description": "Are the given dates in the same week?",
-				"content": {
-					"id": "isSameWeek",
-					"longname": "isSameWeek",
-					"name": "isSameWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Are the given dates in the same week?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to check",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to check",
-							"name": "dateRight"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"optional": true,
-							"defaultvalue": 0,
-							"description": "the index of the first day of the week (0 - Sunday)",
-							"name": "options.weekStartsOn"
-						}
-					],
-					"examples": [
-						"// Are 31 August 2014 and 4 September 2014 in the same week?\nvar result = isSameWeek(\n  new Date(2014, 7, 31),\n  new Date(2014, 8, 4)\n)\n//=> true",
-						"// If week starts with Monday,\n// are 31 August 2014 and 4 September 2014 in the same week?\nvar result = isSameWeek(\n  new Date(2014, 7, 31),\n  new Date(2014, 8, 4),\n  {weekStartsOn: 1}\n)\n//=> false"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the dates are in the same week"
-						}
-					],
-					"category": "Week Helpers",
-					"meta": {
-						"lineno": 34,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_same_week"
-					},
-					"summary": "Are the given dates in the same week?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isThisWeek",
-				"category": "Week Helpers",
-				"title": "isThisWeek",
-				"description": "Is the given date in the same week as the current date?",
-				"content": {
-					"id": "isThisWeek",
-					"longname": "isThisWeek",
-					"name": "isThisWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the same week as the current date?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"optional": true,
-							"defaultvalue": 0,
-							"description": "the index of the first day of the week (0 - Sunday)",
-							"name": "options.weekStartsOn"
-						}
-					],
-					"examples": [
-						"// If today is 25 September 2014, is 21 September 2014 in this week?\nvar result = isThisWeek(new Date(2014, 8, 21))\n//=> true",
-						"// If today is 25 September 2014 and week starts with Monday\n// is 21 September 2014 in this week?\nvar result = isThisWeek(new Date(2014, 8, 21), {weekStartsOn: 1})\n//=> false"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in this week"
-						}
-					],
-					"category": "Week Helpers",
-					"meta": {
-						"lineno": 26,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_this_week"
-					},
-					"summary": "Is the given date in the same week as the current date?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "lastDayOfWeek",
-				"category": "Week Helpers",
-				"title": "lastDayOfWeek",
-				"description": "Return the last day of a week for the given date.",
-				"content": {
-					"id": "lastDayOfWeek",
-					"longname": "lastDayOfWeek",
-					"name": "lastDayOfWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the last day of a week for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"optional": true,
-							"defaultvalue": 0,
-							"description": "the index of the first day of the week (0 - Sunday)",
-							"name": "options.weekStartsOn"
-						}
-					],
-					"examples": [
-						"// The last day of a week for 2 September 2014 11:55:00:\nvar result = lastDayOfWeek(new Date(2014, 8, 2, 11, 55, 0))\n//=> Sat Sep 06 2014 00:00:00",
-						"// If week starts at Monday, the last day of a week for 2 September 2014 11:55:00:\nvar result = lastDayOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})\n//=> Sun Sep 07 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the last day of a week"
-						}
-					],
-					"category": "Week Helpers",
-					"meta": {
-						"lineno": 26,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/last_day_of_week"
-					},
-					"summary": "Return the last day of a week for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfWeek",
-				"category": "Week Helpers",
-				"title": "startOfWeek",
-				"description": "Return the start of a week for the given date.",
-				"content": {
-					"id": "startOfWeek",
-					"longname": "startOfWeek",
-					"name": "startOfWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of a week for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Object"
-								]
-							},
-							"optional": true,
-							"description": "the object with options",
-							"name": "options"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"optional": true,
-							"defaultvalue": 0,
-							"description": "the index of the first day of the week (0 - Sunday)",
-							"name": "options.weekStartsOn"
-						}
-					],
-					"examples": [
-						"// The start of a week for 2 September 2014 11:55:00:\nvar result = startOfWeek(new Date(2014, 8, 2, 11, 55, 0))\n//=> Sun Aug 31 2014 00:00:00",
-						"// If week starts at Monday, the start of a week for 2 September 2014 11:55:00:\nvar result = startOfWeek(new Date(2014, 8, 2, 11, 55, 0), {weekStartsOn: 1})\n//=> Mon Sep 01 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of a week"
-						}
-					],
-					"category": "Week Helpers",
-					"meta": {
-						"lineno": 26,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_week"
-					},
-					"summary": "Return the start of a week for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "subWeeks",
-				"category": "Week Helpers",
-				"title": "subWeeks",
-				"description": "Subtract the specified number of weeks from the given date.",
-				"content": {
-					"id": "subWeeks",
-					"longname": "subWeeks",
-					"name": "subWeeks",
-					"scope": "global",
-					"kind": "function",
-					"description": "Subtract the specified number of weeks from the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of weeks to be subtracted",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Subtract 4 weeks from 1 September 2014:\nvar result = subWeeks(new Date(2014, 8, 1), 4)\n//=> Mon Aug 04 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the weeks subtracted"
-						}
-					],
-					"category": "Week Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/sub_weeks"
-					},
-					"summary": "Subtract the specified number of weeks from the given date.",
-					"order": 0
-				}
-			}
-		],
-		"ISO Week Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInCalendarISOWeeks",
-				"category": "ISO Week Helpers",
-				"title": "differenceInCalendarISOWeeks",
-				"description": "Get the number of calendar ISO weeks between the given dates.",
-				"content": {
-					"id": "differenceInCalendarISOWeeks",
-					"longname": "differenceInCalendarISOWeeks",
-					"name": "differenceInCalendarISOWeeks",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of calendar ISO weeks between the given dates.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many calendar ISO weeks are between 6 July 2014 and 21 July 2014?\nvar result = differenceInCalendarISOWeeks(\n  new Date(2014, 6, 21),\n  new Date(2014, 6, 6)\n)\n//=> 3"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of calendar ISO weeks"
-						}
-					],
-					"category": "ISO Week Helpers",
-					"meta": {
-						"lineno": 27,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_calendar_iso_weeks"
-					},
-					"summary": "Get the number of calendar ISO weeks between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfISOWeek",
-				"category": "ISO Week Helpers",
-				"title": "endOfISOWeek",
-				"description": "Return the end of an ISO week for the given date.",
-				"content": {
-					"id": "endOfISOWeek",
-					"longname": "endOfISOWeek",
-					"name": "endOfISOWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of an ISO week for the given date.\nThe result will be in the local timezone.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The end of an ISO week for 2 September 2014 11:55:00:\nvar result = endOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))\n//=> Sun Sep 07 2014 23:59:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of an ISO week"
-						}
-					],
-					"category": "ISO Week Helpers",
-					"meta": {
-						"lineno": 21,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_iso_week"
-					},
-					"summary": "Return the end of an ISO week for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getISOWeek",
-				"category": "ISO Week Helpers",
-				"title": "getISOWeek",
-				"description": "Get the ISO week of the given date.",
-				"content": {
-					"id": "getISOWeek",
-					"longname": "getISOWeek",
-					"name": "getISOWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the ISO week of the given date.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Which week of the ISO-week numbering year is 2 January 2005?\nvar result = getISOWeek(new Date(2005, 0, 2))\n//=> 53"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the ISO week"
-						}
-					],
-					"category": "ISO Week Helpers",
-					"meta": {
-						"lineno": 24,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_iso_week"
-					},
-					"summary": "Get the ISO week of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSameISOWeek",
-				"category": "ISO Week Helpers",
-				"title": "isSameISOWeek",
-				"description": "Are the given dates in the same ISO week?",
-				"content": {
-					"id": "isSameISOWeek",
-					"longname": "isSameISOWeek",
-					"name": "isSameISOWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Are the given dates in the same ISO week?\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to check",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to check",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Are 1 September 2014 and 7 September 2014 in the same ISO week?\nvar result = isSameISOWeek(\n  new Date(2014, 8, 1),\n  new Date(2014, 8, 7)\n)\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the dates are in the same ISO week"
-						}
-					],
-					"category": "ISO Week Helpers",
-					"meta": {
-						"lineno": 24,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_same_iso_week"
-					},
-					"summary": "Are the given dates in the same ISO week?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isThisISOWeek",
-				"category": "ISO Week Helpers",
-				"title": "isThisISOWeek",
-				"description": "Is the given date in the same ISO week as the current date?",
-				"content": {
-					"id": "isThisISOWeek",
-					"longname": "isThisISOWeek",
-					"name": "isThisISOWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the same ISO week as the current date?\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If today is 25 September 2014, is 22 September 2014 in this ISO week?\nvar result = isThisISOWeek(new Date(2014, 8, 22))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in this ISO week"
-						}
-					],
-					"category": "ISO Week Helpers",
-					"meta": {
-						"lineno": 20,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_this_iso_week"
-					},
-					"summary": "Is the given date in the same ISO week as the current date?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "lastDayOfISOWeek",
-				"category": "ISO Week Helpers",
-				"title": "lastDayOfISOWeek",
-				"description": "Return the last day of an ISO week for the given date.",
-				"content": {
-					"id": "lastDayOfISOWeek",
-					"longname": "lastDayOfISOWeek",
-					"name": "lastDayOfISOWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the last day of an ISO week for the given date.\nThe result will be in the local timezone.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The last day of an ISO week for 2 September 2014 11:55:00:\nvar result = lastDayOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))\n//=> Sun Sep 07 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the last day of an ISO week"
-						}
-					],
-					"category": "ISO Week Helpers",
-					"meta": {
-						"lineno": 21,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/last_day_of_iso_week"
-					},
-					"summary": "Return the last day of an ISO week for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setISOWeek",
-				"category": "ISO Week Helpers",
-				"title": "setISOWeek",
-				"description": "Set the ISO week to the given date.",
-				"content": {
-					"id": "setISOWeek",
-					"longname": "setISOWeek",
-					"name": "setISOWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the ISO week to the given date, saving the weekday number.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the ISO week of the new date",
-							"name": "isoWeek"
-						}
-					],
-					"examples": [
-						"// Set the 53rd ISO week to 7 August 2004:\nvar result = setISOWeek(new Date(2004, 7, 7), 53)\n//=> Sat Jan 01 2005 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the ISO week setted"
-						}
-					],
-					"category": "ISO Week Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_iso_week"
-					},
-					"summary": "Set the ISO week to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfISOWeek",
-				"category": "ISO Week Helpers",
-				"title": "startOfISOWeek",
-				"description": "Return the start of an ISO week for the given date.",
-				"content": {
-					"id": "startOfISOWeek",
-					"longname": "startOfISOWeek",
-					"name": "startOfISOWeek",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of an ISO week for the given date.\nThe result will be in the local timezone.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The start of an ISO week for 2 September 2014 11:55:00:\nvar result = startOfISOWeek(new Date(2014, 8, 2, 11, 55, 0))\n//=> Mon Sep 01 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of an ISO week"
-						}
-					],
-					"category": "ISO Week Helpers",
-					"meta": {
-						"lineno": 21,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_iso_week"
-					},
-					"summary": "Return the start of an ISO week for the given date.",
-					"order": 0
-				}
-			}
-		],
-		"Month Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "addMonths",
-				"category": "Month Helpers",
-				"title": "addMonths",
-				"description": "Add the specified number of months to the given date.",
-				"content": {
-					"id": "addMonths",
-					"longname": "addMonths",
-					"name": "addMonths",
-					"scope": "global",
-					"kind": "function",
-					"description": "Add the specified number of months to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of months to be added",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Add 5 months to 1 September 2014:\nvar result = addMonths(new Date(2014, 8, 1), 5)\n//=> Sun Feb 01 2015 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the months added"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 20,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/add_months"
-					},
-					"summary": "Add the specified number of months to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInCalendarMonths",
-				"category": "Month Helpers",
-				"title": "differenceInCalendarMonths",
-				"description": "Get the number of calendar months between the given dates.",
-				"content": {
-					"id": "differenceInCalendarMonths",
-					"longname": "differenceInCalendarMonths",
-					"name": "differenceInCalendarMonths",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of calendar months between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many calendar months are between 31 January 2014 and 1 September 2014?\nvar result = differenceInCalendarMonths(\n  new Date(2014, 8, 1),\n  new Date(2014, 0, 31)\n)\n//=> 8"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of calendar months"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_calendar_months"
-					},
-					"summary": "Get the number of calendar months between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInMonths",
-				"category": "Month Helpers",
-				"title": "differenceInMonths",
-				"description": "Get the number of full months between the given dates.",
-				"content": {
-					"id": "differenceInMonths",
-					"longname": "differenceInMonths",
-					"name": "differenceInMonths",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of full months between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many full months are between 31 January 2014 and 1 September 2014?\nvar result = differenceInMonths(\n  new Date(2014, 8, 1),\n  new Date(2014, 0, 31)\n)\n//=> 7"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of full months"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 24,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_months"
-					},
-					"summary": "Get the number of full months between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfMonth",
-				"category": "Month Helpers",
-				"title": "endOfMonth",
-				"description": "Return the end of a month for the given date.",
-				"content": {
-					"id": "endOfMonth",
-					"longname": "endOfMonth",
-					"name": "endOfMonth",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of a month for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The end of a month for 2 September 2014 11:55:00:\nvar result = endOfMonth(new Date(2014, 8, 2, 11, 55, 0))\n//=> Tue Sep 30 2014 23:59:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of a month"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_month"
-					},
-					"summary": "Return the end of a month for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getDaysInMonth",
-				"category": "Month Helpers",
-				"title": "getDaysInMonth",
-				"description": "Get the number of days in a month of the given date.",
-				"content": {
-					"id": "getDaysInMonth",
-					"longname": "getDaysInMonth",
-					"name": "getDaysInMonth",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of days in a month of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// How many days are in February 2000?\nvar result = getDaysInMonth(new Date(2000, 1))\n//=> 29"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of days in a month"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_days_in_month"
-					},
-					"summary": "Get the number of days in a month of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getMonth",
-				"category": "Month Helpers",
-				"title": "getMonth",
-				"description": "Get the month of the given date.",
-				"content": {
-					"id": "getMonth",
-					"longname": "getMonth",
-					"name": "getMonth",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the month of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Which month is 29 February 2012?\nvar result = getMonth(new Date(2012, 1, 29))\n//=> 1"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the month"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_month"
-					},
-					"summary": "Get the month of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isFirstDayOfMonth",
-				"category": "Month Helpers",
-				"title": "isFirstDayOfMonth",
-				"description": "Is the given date the first day of a month?",
-				"content": {
-					"id": "isFirstDayOfMonth",
-					"longname": "isFirstDayOfMonth",
-					"name": "isFirstDayOfMonth",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date the first day of a month?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 1 September 2014 the first day of a month?\nvar result = isFirstDayOfMonth(new Date(2014, 8, 1))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is the first day of a month"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_first_day_of_month"
-					},
-					"summary": "Is the given date the first day of a month?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isLastDayOfMonth",
-				"category": "Month Helpers",
-				"title": "isLastDayOfMonth",
-				"description": "Is the given date the last day of a month?",
-				"content": {
-					"id": "isLastDayOfMonth",
-					"longname": "isLastDayOfMonth",
-					"name": "isLastDayOfMonth",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date the last day of a month?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 28 February 2014 the last day of a month?\nvar result = isLastDayOfMonth(new Date(2014, 1, 28))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is the last day of a month"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 20,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_last_day_of_month"
-					},
-					"summary": "Is the given date the last day of a month?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSameMonth",
-				"category": "Month Helpers",
-				"title": "isSameMonth",
-				"description": "Are the given dates in the same month?",
-				"content": {
-					"id": "isSameMonth",
-					"longname": "isSameMonth",
-					"name": "isSameMonth",
-					"scope": "global",
-					"kind": "function",
-					"description": "Are the given dates in the same month?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to check",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to check",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Are 2 September 2014 and 25 September 2014 in the same month?\nvar result = isSameMonth(\n  new Date(2014, 8, 2),\n  new Date(2014, 8, 25)\n)\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the dates are in the same month"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_same_month"
-					},
-					"summary": "Are the given dates in the same month?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isThisMonth",
-				"category": "Month Helpers",
-				"title": "isThisMonth",
-				"description": "Is the given date in the same month as the current date?",
-				"content": {
-					"id": "isThisMonth",
-					"longname": "isThisMonth",
-					"name": "isThisMonth",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the same month as the current date?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If today is 25 September 2014, is 15 September 2014 in this month?\nvar result = isThisMonth(new Date(2014, 8, 15))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in this month"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_this_month"
-					},
-					"summary": "Is the given date in the same month as the current date?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "lastDayOfMonth",
-				"category": "Month Helpers",
-				"title": "lastDayOfMonth",
-				"description": "Return the last day of a month for the given date.",
-				"content": {
-					"id": "lastDayOfMonth",
-					"longname": "lastDayOfMonth",
-					"name": "lastDayOfMonth",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the last day of a month for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The last day of a month for 2 September 2014 11:55:00:\nvar result = lastDayOfMonth(new Date(2014, 8, 2, 11, 55, 0))\n//=> Tue Sep 30 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the last day of a month"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/last_day_of_month"
-					},
-					"summary": "Return the last day of a month for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setMonth",
-				"category": "Month Helpers",
-				"title": "setMonth",
-				"description": "Set the month to the given date.",
-				"content": {
-					"id": "setMonth",
-					"longname": "setMonth",
-					"name": "setMonth",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the month to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the month of the new date",
-							"name": "month"
-						}
-					],
-					"examples": [
-						"// Set February to 1 September 2014:\nvar result = setMonth(new Date(2014, 8, 1), 1)\n//=> Sat Feb 01 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the month setted"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 20,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_month"
-					},
-					"summary": "Set the month to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfMonth",
-				"category": "Month Helpers",
-				"title": "startOfMonth",
-				"description": "Return the start of a month for the given date.",
-				"content": {
-					"id": "startOfMonth",
-					"longname": "startOfMonth",
-					"name": "startOfMonth",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of a month for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The start of a month for 2 September 2014 11:55:00:\nvar result = startOfMonth(new Date(2014, 8, 2, 11, 55, 0))\n//=> Mon Sep 01 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of a month"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_month"
-					},
-					"summary": "Return the start of a month for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "subMonths",
-				"category": "Month Helpers",
-				"title": "subMonths",
-				"description": "Subtract the specified number of months from the given date.",
-				"content": {
-					"id": "subMonths",
-					"longname": "subMonths",
-					"name": "subMonths",
-					"scope": "global",
-					"kind": "function",
-					"description": "Subtract the specified number of months from the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of months to be subtracted",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Subtract 5 months from 1 February 2015:\nvar result = subMonths(new Date(2015, 1, 1), 5)\n//=> Mon Sep 01 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the months subtracted"
-						}
-					],
-					"category": "Month Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/sub_months"
-					},
-					"summary": "Subtract the specified number of months from the given date.",
-					"order": 0
-				}
-			}
-		],
-		"Quarter Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "addQuarters",
-				"category": "Quarter Helpers",
-				"title": "addQuarters",
-				"description": "Add the specified number of year quarters to the given date.",
-				"content": {
-					"id": "addQuarters",
-					"longname": "addQuarters",
-					"name": "addQuarters",
-					"scope": "global",
-					"kind": "function",
-					"description": "Add the specified number of year quarters to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of quarters to be added",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Add 1 quarter to 1 September 2014:\nvar result = addQuarters(new Date(2014, 8, 1), 1)\n//=> Mon Dec 01 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the quarters added"
-						}
-					],
-					"category": "Quarter Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/add_quarters"
-					},
-					"summary": "Add the specified number of year quarters to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInCalendarQuarters",
-				"category": "Quarter Helpers",
-				"title": "differenceInCalendarQuarters",
-				"description": "Get the number of calendar quarters between the given dates.",
-				"content": {
-					"id": "differenceInCalendarQuarters",
-					"longname": "differenceInCalendarQuarters",
-					"name": "differenceInCalendarQuarters",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of calendar quarters between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many calendar quarters are between 31 December 2013 and 2 July 2014?\nvar result = differenceInCalendarQuarters(\n  new Date(2014, 6, 2),\n  new Date(2013, 11, 31)\n)\n//=> 3"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of calendar quarters"
-						}
-					],
-					"category": "Quarter Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_calendar_quarters"
-					},
-					"summary": "Get the number of calendar quarters between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInQuarters",
-				"category": "Quarter Helpers",
-				"title": "differenceInQuarters",
-				"description": "Get the number of full quarters between the given dates.",
-				"content": {
-					"id": "differenceInQuarters",
-					"longname": "differenceInQuarters",
-					"name": "differenceInQuarters",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of full quarters between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many full quarters are between 31 December 2013 and 2 July 2014?\nvar result = differenceInQuarters(\n  new Date(2014, 6, 2),\n  new Date(2013, 11, 31)\n)\n//=> 2"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of full quarters"
-						}
-					],
-					"category": "Quarter Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_quarters"
-					},
-					"summary": "Get the number of full quarters between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfQuarter",
-				"category": "Quarter Helpers",
-				"title": "endOfQuarter",
-				"description": "Return the end of a year quarter for the given date.",
-				"content": {
-					"id": "endOfQuarter",
-					"longname": "endOfQuarter",
-					"name": "endOfQuarter",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of a year quarter for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The end of a quarter for 2 September 2014 11:55:00:\nvar result = endOfQuarter(new Date(2014, 8, 2, 11, 55, 0))\n//=> Tue Sep 30 2014 23:59:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of a quarter"
-						}
-					],
-					"category": "Quarter Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_quarter"
-					},
-					"summary": "Return the end of a year quarter for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getQuarter",
-				"category": "Quarter Helpers",
-				"title": "getQuarter",
-				"description": "Get the year quarter of the given date.",
-				"content": {
-					"id": "getQuarter",
-					"longname": "getQuarter",
-					"name": "getQuarter",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the year quarter of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Which quarter is 2 July 2014?\nvar result = getQuarter(new Date(2014, 6, 2))\n//=> 3"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the quarter"
-						}
-					],
-					"category": "Quarter Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_quarter"
-					},
-					"summary": "Get the year quarter of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSameQuarter",
-				"category": "Quarter Helpers",
-				"title": "isSameQuarter",
-				"description": "Are the given dates in the same year quarter?",
-				"content": {
-					"id": "isSameQuarter",
-					"longname": "isSameQuarter",
-					"name": "isSameQuarter",
-					"scope": "global",
-					"kind": "function",
-					"description": "Are the given dates in the same year quarter?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to check",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to check",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Are 1 January 2014 and 8 March 2014 in the same quarter?\nvar result = isSameQuarter(\n  new Date(2014, 0, 1),\n  new Date(2014, 2, 8)\n)\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the dates are in the same quarter"
-						}
-					],
-					"category": "Quarter Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_same_quarter"
-					},
-					"summary": "Are the given dates in the same year quarter?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isThisQuarter",
-				"category": "Quarter Helpers",
-				"title": "isThisQuarter",
-				"description": "Is the given date in the same quarter as the current date?",
-				"content": {
-					"id": "isThisQuarter",
-					"longname": "isThisQuarter",
-					"name": "isThisQuarter",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the same quarter as the current date?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If today is 25 September 2014, is 2 July 2014 in this quarter?\nvar result = isThisQuarter(new Date(2014, 6, 2))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in this quarter"
-						}
-					],
-					"category": "Quarter Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_this_quarter"
-					},
-					"summary": "Is the given date in the same quarter as the current date?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "lastDayOfQuarter",
-				"category": "Quarter Helpers",
-				"title": "lastDayOfQuarter",
-				"description": "Return the last day of a year quarter for the given date.",
-				"content": {
-					"id": "lastDayOfQuarter",
-					"longname": "lastDayOfQuarter",
-					"name": "lastDayOfQuarter",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the last day of a year quarter for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The last day of a quarter for 2 September 2014 11:55:00:\nvar result = lastDayOfQuarter(new Date(2014, 8, 2, 11, 55, 0))\n//=> Tue Sep 30 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the last day of a quarter"
-						}
-					],
-					"category": "Quarter Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/last_day_of_quarter"
-					},
-					"summary": "Return the last day of a year quarter for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setQuarter",
-				"category": "Quarter Helpers",
-				"title": "setQuarter",
-				"description": "Set the year quarter to the given date.",
-				"content": {
-					"id": "setQuarter",
-					"longname": "setQuarter",
-					"name": "setQuarter",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the year quarter to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the quarter of the new date",
-							"name": "quarter"
-						}
-					],
-					"examples": [
-						"// Set the 2nd quarter to 2 July 2014:\nvar result = setQuarter(new Date(2014, 6, 2), 2)\n//=> Wed Apr 02 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the quarter setted"
-						}
-					],
-					"category": "Quarter Helpers",
-					"meta": {
-						"lineno": 20,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_quarter"
-					},
-					"summary": "Set the year quarter to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfQuarter",
-				"category": "Quarter Helpers",
-				"title": "startOfQuarter",
-				"description": "Return the start of a year quarter for the given date.",
-				"content": {
-					"id": "startOfQuarter",
-					"longname": "startOfQuarter",
-					"name": "startOfQuarter",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of a year quarter for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The start of a quarter for 2 September 2014 11:55:00:\nvar result = startOfQuarter(new Date(2014, 8, 2, 11, 55, 0))\n//=> Tue Jul 01 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of a quarter"
-						}
-					],
-					"category": "Quarter Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_quarter"
-					},
-					"summary": "Return the start of a year quarter for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "subQuarters",
-				"category": "Quarter Helpers",
-				"title": "subQuarters",
-				"description": "Subtract the specified number of year quarters from the given date.",
-				"content": {
-					"id": "subQuarters",
-					"longname": "subQuarters",
-					"name": "subQuarters",
-					"scope": "global",
-					"kind": "function",
-					"description": "Subtract the specified number of year quarters from the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of quarters to be subtracted",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Subtract 3 quarters from 1 September 2014:\nvar result = subQuarters(new Date(2014, 8, 1), 3)\n//=> Sun Dec 01 2013 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the quarters subtracted"
-						}
-					],
-					"category": "Quarter Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/sub_quarters"
-					},
-					"summary": "Subtract the specified number of year quarters from the given date.",
-					"order": 0
-				}
-			}
-		],
-		"Year Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "addYears",
-				"category": "Year Helpers",
-				"title": "addYears",
-				"description": "Add the specified number of years to the given date.",
-				"content": {
-					"id": "addYears",
-					"longname": "addYears",
-					"name": "addYears",
-					"scope": "global",
-					"kind": "function",
-					"description": "Add the specified number of years to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of years to be added",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Add 5 years to 1 September 2014:\nvar result = addYears(new Date(2014, 8, 1), 5)\n//=> Sun Sep 01 2019 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the years added"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/add_years"
-					},
-					"summary": "Add the specified number of years to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInCalendarYears",
-				"category": "Year Helpers",
-				"title": "differenceInCalendarYears",
-				"description": "Get the number of calendar years between the given dates.",
-				"content": {
-					"id": "differenceInCalendarYears",
-					"longname": "differenceInCalendarYears",
-					"name": "differenceInCalendarYears",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of calendar years between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many calendar years are between 31 December 2013 and 11 February 2015?\nvar result = differenceInCalendarYears(\n  new Date(2015, 1, 11),\n  new Date(2013, 11, 31)\n)\n//=> 2"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of calendar years"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_calendar_years"
-					},
-					"summary": "Get the number of calendar years between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInYears",
-				"category": "Year Helpers",
-				"title": "differenceInYears",
-				"description": "Get the number of full years between the given dates.",
-				"content": {
-					"id": "differenceInYears",
-					"longname": "differenceInYears",
-					"name": "differenceInYears",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of full years between the given dates.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many full years are between 31 December 2013 and 11 February 2015?\nvar result = differenceInYears(\n  new Date(2015, 1, 11),\n  new Date(2013, 11, 31)\n)\n//=> 1"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of full years"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 24,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_years"
-					},
-					"summary": "Get the number of full years between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfYear",
-				"category": "Year Helpers",
-				"title": "endOfYear",
-				"description": "Return the end of a year for the given date.",
-				"content": {
-					"id": "endOfYear",
-					"longname": "endOfYear",
-					"name": "endOfYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of a year for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The end of a year for 2 September 2014 11:55:00:\nvar result = endOfYear(new Date(2014, 8, 2, 11, 55, 00))\n//=> Wed Dec 31 2014 23:59:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of a year"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_year"
-					},
-					"summary": "Return the end of a year for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getDaysInYear",
-				"category": "Year Helpers",
-				"title": "getDaysInYear",
-				"description": "Get the number of days in a year of the given date.",
-				"content": {
-					"id": "getDaysInYear",
-					"longname": "getDaysInYear",
-					"name": "getDaysInYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of days in a year of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// How many days are in 2012?\nvar result = getDaysInYear(new Date(2012, 0, 1))\n//=> 366"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of days in a year"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_days_in_year"
-					},
-					"summary": "Get the number of days in a year of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getYear",
-				"category": "Year Helpers",
-				"title": "getYear",
-				"description": "Get the year of the given date.",
-				"content": {
-					"id": "getYear",
-					"longname": "getYear",
-					"name": "getYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the year of the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Which year is 2 July 2014?\nvar result = getYear(new Date(2014, 6, 2))\n//=> 2014"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the year"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_year"
-					},
-					"summary": "Get the year of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isLeapYear",
-				"category": "Year Helpers",
-				"title": "isLeapYear",
-				"description": "Is the given date in the leap year?",
-				"content": {
-					"id": "isLeapYear",
-					"longname": "isLeapYear",
-					"name": "isLeapYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the leap year?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Is 1 September 2012 in the leap year?\nvar result = isLeapYear(new Date(2012, 8, 1))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in the leap year"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_leap_year"
-					},
-					"summary": "Is the given date in the leap year?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSameYear",
-				"category": "Year Helpers",
-				"title": "isSameYear",
-				"description": "Are the given dates in the same year?",
-				"content": {
-					"id": "isSameYear",
-					"longname": "isSameYear",
-					"name": "isSameYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Are the given dates in the same year?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to check",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to check",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Are 2 September 2014 and 25 September 2014 in the same year?\nvar result = isSameYear(\n  new Date(2014, 8, 2),\n  new Date(2014, 8, 25)\n)\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the dates are in the same year"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_same_year"
-					},
-					"summary": "Are the given dates in the same year?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isThisYear",
-				"category": "Year Helpers",
-				"title": "isThisYear",
-				"description": "Is the given date in the same year as the current date?",
-				"content": {
-					"id": "isThisYear",
-					"longname": "isThisYear",
-					"name": "isThisYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the same year as the current date?",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If today is 25 September 2014, is 2 July 2014 in this year?\nvar result = isThisYear(new Date(2014, 6, 2))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in this year"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 18,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_this_year"
-					},
-					"summary": "Is the given date in the same year as the current date?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "lastDayOfYear",
-				"category": "Year Helpers",
-				"title": "lastDayOfYear",
-				"description": "Return the last day of a year for the given date.",
-				"content": {
-					"id": "lastDayOfYear",
-					"longname": "lastDayOfYear",
-					"name": "lastDayOfYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the last day of a year for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The last day of a year for 2 September 2014 11:55:00:\nvar result = lastDayOfYear(new Date(2014, 8, 2, 11, 55, 00))\n//=> Wed Dec 31 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the last day of a year"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/last_day_of_year"
-					},
-					"summary": "Return the last day of a year for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setYear",
-				"category": "Year Helpers",
-				"title": "setYear",
-				"description": "Set the year to the given date.",
-				"content": {
-					"id": "setYear",
-					"longname": "setYear",
-					"name": "setYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the year to the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the year of the new date",
-							"name": "year"
-						}
-					],
-					"examples": [
-						"// Set year 2013 to 1 September 2014:\nvar result = setYear(new Date(2014, 8, 1), 2013)\n//=> Sun Sep 01 2013 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the year setted"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_year"
-					},
-					"summary": "Set the year to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfYear",
-				"category": "Year Helpers",
-				"title": "startOfYear",
-				"description": "Return the start of a year for the given date.",
-				"content": {
-					"id": "startOfYear",
-					"longname": "startOfYear",
-					"name": "startOfYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of a year for the given date.\nThe result will be in the local timezone.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The start of a year for 2 September 2014 11:55:00:\nvar result = startOfYear(new Date(2014, 8, 2, 11, 55, 00))\n//=> Wed Jan 01 2014 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of a year"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_year"
-					},
-					"summary": "Return the start of a year for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "subYears",
-				"category": "Year Helpers",
-				"title": "subYears",
-				"description": "Subtract the specified number of years from the given date.",
-				"content": {
-					"id": "subYears",
-					"longname": "subYears",
-					"name": "subYears",
-					"scope": "global",
-					"kind": "function",
-					"description": "Subtract the specified number of years from the given date.",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of years to be subtracted",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Subtract 5 years from 1 September 2014:\nvar result = subYears(new Date(2014, 8, 1), 5)\n//=> Tue Sep 01 2009 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the years subtracted"
-						}
-					],
-					"category": "Year Helpers",
-					"meta": {
-						"lineno": 19,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/sub_years"
-					},
-					"summary": "Subtract the specified number of years from the given date.",
-					"order": 0
-				}
-			}
-		],
-		"ISO Week-Numbering Year Helpers": [
-			{
-				"type": "jsdoc",
-				"urlId": "addISOYears",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "addISOYears",
-				"description": "Add the specified number of ISO week-numbering years to the given date.",
-				"content": {
-					"id": "addISOYears",
-					"longname": "addISOYears",
-					"name": "addISOYears",
-					"scope": "global",
-					"kind": "function",
-					"description": "Add the specified number of ISO week-numbering years to the given date.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of ISO week-numbering years to be added",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Add 5 ISO week-numbering years to 2 July 2010:\nvar result = addISOYears(new Date(2010, 6, 2), 5)\n//=> Fri Jun 26 2015 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the ISO week-numbering years added"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/add_iso_years"
-					},
-					"summary": "Add the specified number of ISO week-numbering years to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInCalendarISOYears",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "differenceInCalendarISOYears",
-				"description": "Get the number of calendar ISO week-numbering years between the given dates.",
-				"content": {
-					"id": "differenceInCalendarISOYears",
-					"longname": "differenceInCalendarISOYears",
-					"name": "differenceInCalendarISOYears",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of calendar ISO week-numbering years between the given dates.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many calendar ISO week-numbering years are 1 January 2010 and 1 January 2012?\nvar result = differenceInCalendarISOYears(\n  new Date(2012, 0, 1),\n  new Date(2010, 0, 1)\n)\n//=> 2"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of calendar ISO week-numbering years"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 24,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_calendar_iso_years"
-					},
-					"summary": "Get the number of calendar ISO week-numbering years between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "differenceInISOYears",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "differenceInISOYears",
-				"description": "Get the number of full ISO week-numbering years between the given dates.",
-				"content": {
-					"id": "differenceInISOYears",
-					"longname": "differenceInISOYears",
-					"name": "differenceInISOYears",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of full ISO week-numbering years between the given dates.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the later date",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the earlier date",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// How many full ISO week-numbering years are between 1 January 2010 and 1 January 2012?\nvar result = differenceInISOYears(\n  new Date(2012, 0, 1),\n  new Date(2010, 0, 1)\n)\n//=> 1"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of full ISO week-numbering years"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 27,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/difference_in_iso_years"
-					},
-					"summary": "Get the number of full ISO week-numbering years between the given dates.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "endOfISOYear",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "endOfISOYear",
-				"description": "Return the end of an ISO week-numbering year for the given date.",
-				"content": {
-					"id": "endOfISOYear",
-					"longname": "endOfISOYear",
-					"name": "endOfISOYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the end of an ISO week-numbering year,\nwhich always starts 3 days before the year's first Thursday.\nThe result will be in the local timezone.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The end of an ISO week-numbering year for 2 July 2005:\nvar result = endOfISOYear(new Date(2005, 6, 2))\n//=> Sun Jan 01 2006 23:59:59.999"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of an ISO week-numbering year"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/end_of_iso_year"
-					},
-					"summary": "Return the end of an ISO week-numbering year for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getISOWeeksInYear",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "getISOWeeksInYear",
-				"description": "Get the number of weeks in an ISO week-numbering year of the given date.",
-				"content": {
-					"id": "getISOWeeksInYear",
-					"longname": "getISOWeeksInYear",
-					"name": "getISOWeeksInYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the number of weeks in an ISO week-numbering year of the given date.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// How many weeks are in ISO week-numbering year 2015?\nvar result = getISOWeeksInYear(new Date(2015, 1, 11))\n//=> 53"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the number of ISO weeks in a year"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_iso_weeks_in_year"
-					},
-					"summary": "Get the number of weeks in an ISO week-numbering year of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "getISOYear",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "getISOYear",
-				"description": "Get the ISO week-numbering year of the given date.",
-				"content": {
-					"id": "getISOYear",
-					"longname": "getISOYear",
-					"name": "getISOYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Get the ISO week-numbering year of the given date,\nwhich always starts 3 days before the year's first Thursday.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the given date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// Which ISO-week numbering year is 2 January 2005?\nvar result = getISOYear(new Date(2005, 0, 2))\n//=> 2004"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the ISO week-numbering year"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 22,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/get_iso_year"
-					},
-					"summary": "Get the ISO week-numbering year of the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isSameISOYear",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "isSameISOYear",
-				"description": "Are the given dates in the same ISO week-numbering year?",
-				"content": {
-					"id": "isSameISOYear",
-					"longname": "isSameISOYear",
-					"name": "isSameISOYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Are the given dates in the same ISO week-numbering year?\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the first date to check",
-							"name": "dateLeft"
-						},
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the second date to check",
-							"name": "dateRight"
-						}
-					],
-					"examples": [
-						"// Are 29 December 2003 and 2 January 2005 in the same ISO week-numbering year?\nvar result = isSameISOYear(\n  new Date(2003, 11, 29),\n  new Date(2005, 0, 2)\n)\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the dates are in the same ISO week-numbering year"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 24,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_same_iso_year"
-					},
-					"summary": "Are the given dates in the same ISO week-numbering year?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "isThisISOYear",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "isThisISOYear",
-				"description": "Is the given date in the same ISO week-numbering year as the current date?",
-				"content": {
-					"id": "isThisISOYear",
-					"longname": "isThisISOYear",
-					"name": "isThisISOYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Is the given date in the same ISO week-numbering year as the current date?\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to check",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// If today is 25 September 2014,\n// is 30 December 2013 in this ISO week-numbering year?\nvar result = isThisISOYear(new Date(2013, 11, 30))\n//=> true"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Boolean"
-								]
-							},
-							"description": "the date is in this ISO week-numbering year"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 21,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/is_this_iso_year"
-					},
-					"summary": "Is the given date in the same ISO week-numbering year as the current date?",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "lastDayOfISOYear",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "lastDayOfISOYear",
-				"description": "Return the last day of an ISO week-numbering year for the given date.",
-				"content": {
-					"id": "lastDayOfISOYear",
-					"longname": "lastDayOfISOYear",
-					"name": "lastDayOfISOYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the last day of an ISO week-numbering year,\nwhich always starts 3 days before the year's first Thursday.\nThe result will be in the local timezone.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The last day of an ISO week-numbering year for 2 July 2005:\nvar result = lastDayOfISOYear(new Date(2005, 6, 2))\n//=> Sun Jan 01 2006 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the end of an ISO week-numbering year"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/last_day_of_iso_year"
-					},
-					"summary": "Return the last day of an ISO week-numbering year for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "setISOYear",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "setISOYear",
-				"description": "Set the ISO week-numbering year to the given date.",
-				"content": {
-					"id": "setISOYear",
-					"longname": "setISOYear",
-					"name": "setISOYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Set the ISO week-numbering year to the given date,\nsaving the week number and the weekday number.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the ISO week-numbering year of the new date",
-							"name": "isoYear"
-						}
-					],
-					"examples": [
-						"// Set ISO week-numbering year 2007 to 29 December 2008:\nvar result = setISOYear(new Date(2008, 11, 29), 2007)\n//=> Mon Jan 01 2007 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the ISO week-numbering year setted"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 24,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/set_iso_year"
-					},
-					"summary": "Set the ISO week-numbering year to the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "startOfISOYear",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "startOfISOYear",
-				"description": "Return the start of an ISO week-numbering year for the given date.",
-				"content": {
-					"id": "startOfISOYear",
-					"longname": "startOfISOYear",
-					"name": "startOfISOYear",
-					"scope": "global",
-					"kind": "function",
-					"description": "Return the start of an ISO week-numbering year,\nwhich always starts 3 days before the year's first Thursday.\nThe result will be in the local timezone.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the original date",
-							"name": "date"
-						}
-					],
-					"examples": [
-						"// The start of an ISO week-numbering year for 2 July 2005:\nvar result = startOfISOYear(new Date(2005, 6, 2))\n//=> Mon Jan 03 2005 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the start of an ISO year"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 23,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/start_of_iso_year"
-					},
-					"summary": "Return the start of an ISO week-numbering year for the given date.",
-					"order": 0
-				}
-			},
-			{
-				"type": "jsdoc",
-				"urlId": "subISOYears",
-				"category": "ISO Week-Numbering Year Helpers",
-				"title": "subISOYears",
-				"description": "Subtract the specified number of ISO week-numbering years from the given date.",
-				"content": {
-					"id": "subISOYears",
-					"longname": "subISOYears",
-					"name": "subISOYears",
-					"scope": "global",
-					"kind": "function",
-					"description": "Subtract the specified number of ISO week-numbering years from the given date.\n\nISO week-numbering year: http://en.wikipedia.org/wiki/ISO_week_date",
-					"params": [
-						{
-							"type": {
-								"names": [
-									"Date",
-									"String",
-									"Number"
-								]
-							},
-							"description": "the date to be changed",
-							"name": "date"
-						},
-						{
-							"type": {
-								"names": [
-									"Number"
-								]
-							},
-							"description": "the amount of ISO week-numbering years to be subtracted",
-							"name": "amount"
-						}
-					],
-					"examples": [
-						"// Subtract 5 ISO week-numbering years from 1 September 2014:\nvar result = subISOYears(new Date(2014, 8, 1), 5)\n//=> Mon Aug 31 2009 00:00:00"
-					],
-					"returns": [
-						{
-							"type": {
-								"names": [
-									"Date"
-								]
-							},
-							"description": "the new date with the ISO week-numbering years subtracted"
-						}
-					],
-					"category": "ISO Week-Numbering Year Helpers",
-					"meta": {
-						"lineno": 21,
-						"filename": "index.js",
-						"path": "/Users/lesha/Work/date-fns/src/sub_iso_years"
-					},
-					"summary": "Subtract the specified number of ISO week-numbering years from the given date.",
-					"order": 0
-				}
-			}
-		]
-	};
-
-/***/ },
-/* 551 */
-/***/ function(module, exports, __webpack_require__) {
-
 	var isObject = __webpack_require__(459),
-	    now = __webpack_require__(552);
+	    now = __webpack_require__(550);
 	
 	/** Used as the `TypeError` message for "Functions" methods. */
 	var FUNC_ERROR_TEXT = 'Expected a function';
@@ -50982,7 +42439,7 @@
 
 
 /***/ },
-/* 552 */
+/* 550 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var getNative = __webpack_require__(475);
@@ -51012,13 +42469,13 @@
 
 
 /***/ },
-/* 553 */
+/* 551 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(554);
+	var content = __webpack_require__(552);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(525)(content, {});
@@ -51038,7 +42495,7 @@
 	}
 
 /***/ },
-/* 554 */
+/* 552 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(524)();
@@ -51046,31 +42503,31 @@
 	
 	
 	// module
-	exports.push([module.id, ".docs {\n  background: #fffbf5;\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n\n.docs-logo_image {\n  cursor: pointer;\n  height: 30px;\n  margin-right: 10px;\n}\n\n.docs-header {\n  color: #770C56;\n  font-weight: 600;\n  font-size: 20px;\n  padding: 0 30px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  height: 80px;\n  background-color: #FAF6F0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  border-bottom: 1px solid #E6E0E6;\n}\n\n.docs-header_title_wrapper {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n\n.docs-search {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n}\n\n.docs-search_field {\n  padding: 5px 30px 5px 10px;\n  border: 1px solid #E6E0E6;\n  border-radius: 8px;\n  width: 200px;\n}\n\n.docs-search_cancel {\n  height: 16px;\n  width: 16px;\n  top: 50%;\n  right: 9px;\n  margin-top: -9px;\n  cursor: pointer;\n  background-image: url(" + __webpack_require__(555) + ");\n  background-size: 16px;\n  position: absolute;\n}\n\n.docs-categories {\n  overflow-y: auto;\n  overflow-x: hidden;\n}\n\n.docs-category:first-child {\n  margin-top: 0;\n}\n\n.docs-category_header {\n  font-weight: 600;\n  font-size: 17px;\n  color: #4A3142;\n  padding: 15px 30px;\n  border-bottom: 1px solid #E6E0E6;\n}\n\n.docs-item {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: rgba(255, 255, 255, 0.65);\n  padding: 10px 30px;\n  border-bottom: 1px solid #E6E0E6;\n  cursor: pointer;\n}\n\n.docs-item.is-current,\n.docs-item.is-current:hover {\n  background-color: #FFF0F3;\n}\n\n.docs-item:hover {\n  background: #FDF6F9;\n}\n\n.docs-item.is-jsdoc .docs-item_header {\n  font-family: monospace;\n}\n\n.docs-item_header {\n  font-size: 18px;\n  margin-bottom: 5px;\n  color: #4C193C;\n}\n\n.docs-item_text {\n  font-weight: 400;\n  font-size: 15px;\n  line-height: 18px;\n  color: #7B6D77;\n}\n\n.docs-item_icon {\n  background-image: url(" + __webpack_require__(556) + ");\n  background-size: 16px;\n  width: 16px;\n  height: 16px;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  margin-left: 10px;\n}\n\n.docs-no_results {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.docs-no_results_text {\n  font-weight: 400;\n  font-size: 15px;\n  line-height: 18px;\n  color: #7B6D77;\n}\n", ""]);
+	exports.push([module.id, ".docs {\n  background: #fffbf5;\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n}\n\n.docs-logo_image {\n  cursor: pointer;\n  height: 30px;\n  margin-right: 10px;\n}\n\n.docs-header {\n  color: #770C56;\n  font-weight: 600;\n  font-size: 20px;\n  padding: 0 30px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  height: 80px;\n  background-color: #FAF6F0;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  border-bottom: 1px solid #E6E0E6;\n}\n\n.docs-header_title_wrapper {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n\n.docs-search {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  position: relative;\n}\n\n.docs-search_field {\n  padding: 5px 30px 5px 10px;\n  border: 1px solid #E6E0E6;\n  border-radius: 8px;\n  width: 200px;\n}\n\n.docs-search_cancel {\n  height: 16px;\n  width: 16px;\n  top: 50%;\n  right: 9px;\n  margin-top: -9px;\n  cursor: pointer;\n  background-image: url(" + __webpack_require__(553) + ");\n  background-size: 16px;\n  position: absolute;\n}\n\n.docs-categories {\n  overflow-y: auto;\n  overflow-x: hidden;\n}\n\n.docs-category:first-child {\n  margin-top: 0;\n}\n\n.docs-category_header {\n  font-weight: 600;\n  font-size: 17px;\n  color: #4A3142;\n  padding: 15px 30px;\n  border-bottom: 1px solid #E6E0E6;\n}\n\n.docs-item {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  background-color: rgba(255, 255, 255, 0.65);\n  padding: 10px 30px;\n  border-bottom: 1px solid #E6E0E6;\n  cursor: pointer;\n}\n\n.docs-item.is-current,\n.docs-item.is-current:hover {\n  background-color: #FFF0F3;\n}\n\n.docs-item:hover {\n  background: #FDF6F9;\n}\n\n.docs-item.is-jsdoc .docs-item_header {\n  font-family: monospace;\n}\n\n.docs-item_header {\n  font-size: 18px;\n  margin-bottom: 5px;\n  color: #4C193C;\n}\n\n.docs-item_text {\n  font-weight: 400;\n  font-size: 15px;\n  line-height: 18px;\n  color: #7B6D77;\n}\n\n.docs-item_icon {\n  background-image: url(" + __webpack_require__(554) + ");\n  background-size: 16px;\n  width: 16px;\n  height: 16px;\n  -ms-flex-negative: 0;\n      flex-shrink: 0;\n  margin-left: 10px;\n}\n\n.docs-no_results {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n\n.docs-no_results_text {\n  font-weight: 400;\n  font-size: 15px;\n  line-height: 18px;\n  color: #7B6D77;\n}\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 555 */
+/* 553 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "98e5b1014405d8424ae7952a4201df94.svg";
 
 /***/ },
-/* 556 */
+/* 554 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "264e7da94a6952d1c143a204191bc179.svg";
 
 /***/ },
-/* 557 */
+/* 555 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "b34f08ae97502696217841e4bae605fc.svg";
 
 /***/ },
-/* 558 */
+/* 556 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51085,15 +42542,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _jsdoc = __webpack_require__(559);
+	var _jsdoc = __webpack_require__(557);
 	
 	var _jsdoc2 = _interopRequireDefault(_jsdoc);
 	
-	var _markdown_doc = __webpack_require__(634);
+	var _markdown_doc = __webpack_require__(632);
 	
 	var _markdown_doc2 = _interopRequireDefault(_markdown_doc);
 	
-	var _docs = __webpack_require__(549);
+	var _docs = __webpack_require__(548);
 	
 	var _docs2 = _interopRequireDefault(_docs);
 	
@@ -51106,7 +42563,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	/* injects from baggage-loader */
-	__webpack_require__(635);
+	__webpack_require__(633);
 	
 	var Doc = function (_React$Component) {
 	  _inherits(Doc, _React$Component);
@@ -51170,7 +42627,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 559 */
+/* 557 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51189,19 +42646,19 @@
 	
 	var _code2 = _interopRequireDefault(_code);
 	
-	var _markdown = __webpack_require__(560);
+	var _markdown = __webpack_require__(558);
 	
 	var _markdown2 = _interopRequireDefault(_markdown);
 	
-	var _usage = __webpack_require__(625);
+	var _usage = __webpack_require__(623);
 	
 	var _usage2 = _interopRequireDefault(_usage);
 	
-	var _syntax = __webpack_require__(628);
+	var _syntax = __webpack_require__(626);
 	
 	var _syntax2 = _interopRequireDefault(_syntax);
 	
-	var _arguments = __webpack_require__(629);
+	var _arguments = __webpack_require__(627);
 	
 	var _arguments2 = _interopRequireDefault(_arguments);
 	
@@ -51214,7 +42671,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	/* injects from baggage-loader */
-	__webpack_require__(632);
+	__webpack_require__(630);
 	
 	var JSDoc = function (_React$Component) {
 	  _inherits(JSDoc, _React$Component);
@@ -51478,7 +42935,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 560 */
+/* 558 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51493,15 +42950,15 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _remarkable = __webpack_require__(561);
+	var _remarkable = __webpack_require__(559);
 	
 	var _remarkable2 = _interopRequireDefault(_remarkable);
 	
-	var _remarkable_tree = __webpack_require__(622);
+	var _remarkable_tree = __webpack_require__(620);
 	
 	var _remarkable_tree2 = _interopRequireDefault(_remarkable_tree);
 	
-	var _markdown_code = __webpack_require__(624);
+	var _markdown_code = __webpack_require__(622);
 	
 	var _markdown_code2 = _interopRequireDefault(_markdown_code);
 	
@@ -51622,16 +43079,16 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 561 */
+/* 559 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	module.exports = __webpack_require__(562);
+	module.exports = __webpack_require__(560);
 
 
 /***/ },
-/* 562 */
+/* 560 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51640,21 +43097,21 @@
 	 * Local dependencies
 	 */
 	
-	var assign       = __webpack_require__(563).assign;
-	var Renderer     = __webpack_require__(565);
-	var ParserCore   = __webpack_require__(567);
-	var ParserBlock  = __webpack_require__(585);
-	var ParserInline = __webpack_require__(600);
-	var Ruler        = __webpack_require__(568);
+	var assign       = __webpack_require__(561).assign;
+	var Renderer     = __webpack_require__(563);
+	var ParserCore   = __webpack_require__(565);
+	var ParserBlock  = __webpack_require__(583);
+	var ParserInline = __webpack_require__(598);
+	var Ruler        = __webpack_require__(566);
 	
 	/**
 	 * Preset configs
 	 */
 	
 	var config = {
-	  'default':    __webpack_require__(619),
-	  'full':       __webpack_require__(620),
-	  'commonmark': __webpack_require__(621)
+	  'default':    __webpack_require__(617),
+	  'full':       __webpack_require__(618),
+	  'commonmark': __webpack_require__(619)
 	};
 	
 	/**
@@ -51828,11 +43285,11 @@
 	 * rendering.
 	 */
 	
-	module.exports.utils = __webpack_require__(563);
+	module.exports.utils = __webpack_require__(561);
 
 
 /***/ },
-/* 563 */
+/* 561 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -51919,7 +43376,7 @@
 	
 	var NAMED_ENTITY_RE   = /&([a-z#][a-z0-9]{1,31});/gi;
 	var DIGITAL_ENTITY_TEST_RE = /^#((?:x[a-f0-9]{1,8}|[0-9]{1,8}))/i;
-	var entities = __webpack_require__(564);
+	var entities = __webpack_require__(562);
 	
 	function replaceEntityPattern(match, name) {
 	  var code = 0;
@@ -51979,7 +43436,7 @@
 
 
 /***/ },
-/* 564 */
+/* 562 */
 /***/ function(module, exports) {
 
 	// List of valid entities
@@ -54119,7 +45576,7 @@
 
 
 /***/ },
-/* 565 */
+/* 563 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54128,8 +45585,8 @@
 	 * Local dependencies
 	 */
 	
-	var utils = __webpack_require__(563);
-	var rules = __webpack_require__(566);
+	var utils = __webpack_require__(561);
+	var rules = __webpack_require__(564);
 	
 	/**
 	 * Expose `Renderer`
@@ -54200,7 +45657,7 @@
 
 
 /***/ },
-/* 566 */
+/* 564 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54209,10 +45666,10 @@
 	 * Local dependencies
 	 */
 	
-	var has             = __webpack_require__(563).has;
-	var unescapeMd      = __webpack_require__(563).unescapeMd;
-	var replaceEntities = __webpack_require__(563).replaceEntities;
-	var escapeHtml      = __webpack_require__(563).escapeHtml;
+	var has             = __webpack_require__(561).has;
+	var unescapeMd      = __webpack_require__(561).unescapeMd;
+	var replaceEntities = __webpack_require__(561).replaceEntities;
+	var escapeHtml      = __webpack_require__(561).escapeHtml;
 	
 	/**
 	 * Renderer rules cache
@@ -54635,7 +46092,7 @@
 
 
 /***/ },
-/* 567 */
+/* 565 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -54644,22 +46101,22 @@
 	 * Local dependencies
 	 */
 	
-	var Ruler = __webpack_require__(568);
+	var Ruler = __webpack_require__(566);
 	
 	/**
 	 * Core parser `rules`
 	 */
 	
 	var _rules = [
-	  [ 'block',          __webpack_require__(569)          ],
-	  [ 'abbr',           __webpack_require__(570)           ],
-	  [ 'references',     __webpack_require__(573)     ],
-	  [ 'inline',         __webpack_require__(578)         ],
-	  [ 'footnote_tail',  __webpack_require__(579)  ],
-	  [ 'abbr2',          __webpack_require__(580)          ],
-	  [ 'replacements',   __webpack_require__(581)   ],
-	  [ 'smartquotes',    __webpack_require__(582)    ],
-	  [ 'linkify',        __webpack_require__(583)        ]
+	  [ 'block',          __webpack_require__(567)          ],
+	  [ 'abbr',           __webpack_require__(568)           ],
+	  [ 'references',     __webpack_require__(571)     ],
+	  [ 'inline',         __webpack_require__(576)         ],
+	  [ 'footnote_tail',  __webpack_require__(577)  ],
+	  [ 'abbr2',          __webpack_require__(578)          ],
+	  [ 'replacements',   __webpack_require__(579)   ],
+	  [ 'smartquotes',    __webpack_require__(580)    ],
+	  [ 'linkify',        __webpack_require__(581)        ]
 	];
 	
 	/**
@@ -54699,7 +46156,7 @@
 
 
 /***/ },
-/* 568 */
+/* 566 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -54978,7 +46435,7 @@
 
 
 /***/ },
-/* 569 */
+/* 567 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55001,7 +46458,7 @@
 
 
 /***/ },
-/* 570 */
+/* 568 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Parse abbreviation definitions, i.e. `*[abbr]: description`
@@ -55010,8 +46467,8 @@
 	'use strict';
 	
 	
-	var StateInline    = __webpack_require__(571);
-	var parseLinkLabel = __webpack_require__(572);
+	var StateInline    = __webpack_require__(569);
+	var parseLinkLabel = __webpack_require__(570);
 	
 	
 	function parseAbbr(str, parserInline, options, env) {
@@ -55077,7 +46534,7 @@
 
 
 /***/ },
-/* 571 */
+/* 569 */
 /***/ function(module, exports) {
 
 	// Inline parser state
@@ -55159,7 +46616,7 @@
 
 
 /***/ },
-/* 572 */
+/* 570 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55224,17 +46681,17 @@
 
 
 /***/ },
-/* 573 */
+/* 571 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	
-	var StateInline          = __webpack_require__(571);
-	var parseLinkLabel       = __webpack_require__(572);
-	var parseLinkDestination = __webpack_require__(574);
-	var parseLinkTitle       = __webpack_require__(576);
-	var normalizeReference   = __webpack_require__(577);
+	var StateInline          = __webpack_require__(569);
+	var parseLinkLabel       = __webpack_require__(570);
+	var parseLinkDestination = __webpack_require__(572);
+	var parseLinkTitle       = __webpack_require__(574);
+	var normalizeReference   = __webpack_require__(575);
 	
 	
 	function parseReference(str, parser, options, env) {
@@ -55328,14 +46785,14 @@
 
 
 /***/ },
-/* 574 */
+/* 572 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	
-	var normalizeLink = __webpack_require__(575);
-	var unescapeMd    = __webpack_require__(563).unescapeMd;
+	var normalizeLink = __webpack_require__(573);
+	var unescapeMd    = __webpack_require__(561).unescapeMd;
 	
 	/**
 	 * Parse link destination
@@ -55417,12 +46874,12 @@
 
 
 /***/ },
-/* 575 */
+/* 573 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var replaceEntities = __webpack_require__(563).replaceEntities;
+	var replaceEntities = __webpack_require__(561).replaceEntities;
 	
 	module.exports = function normalizeLink(url) {
 	  var normalized = replaceEntities(url);
@@ -55436,13 +46893,13 @@
 
 
 /***/ },
-/* 576 */
+/* 574 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
 	
-	var unescapeMd = __webpack_require__(563).unescapeMd;
+	var unescapeMd = __webpack_require__(561).unescapeMd;
 	
 	/**
 	 * Parse link title
@@ -55488,7 +46945,7 @@
 
 
 /***/ },
-/* 577 */
+/* 575 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55502,7 +46959,7 @@
 
 
 /***/ },
-/* 578 */
+/* 576 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55521,7 +46978,7 @@
 
 
 /***/ },
-/* 579 */
+/* 577 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -55622,7 +47079,7 @@
 
 
 /***/ },
-/* 580 */
+/* 578 */
 /***/ function(module, exports) {
 
 	// Enclose abbreviations in <abbr> tags
@@ -55716,7 +47173,7 @@
 
 
 /***/ },
-/* 581 */
+/* 579 */
 /***/ function(module, exports) {
 
 	// Simple typographical replacements
@@ -55786,7 +47243,7 @@
 
 
 /***/ },
-/* 582 */
+/* 580 */
 /***/ function(module, exports) {
 
 	// Convert straight quotation marks to typographic ones
@@ -55905,7 +47362,7 @@
 
 
 /***/ },
-/* 583 */
+/* 581 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Replace link-like texts with link nodes.
@@ -55915,7 +47372,7 @@
 	'use strict';
 	
 	
-	var Autolinker = __webpack_require__(584);
+	var Autolinker = __webpack_require__(582);
 	
 	
 	var LINK_SCAN_RE = /www|@|\:\/\//;
@@ -56072,7 +47529,7 @@
 
 
 /***/ },
-/* 584 */
+/* 582 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (root, factory) {
@@ -58401,7 +49858,7 @@
 
 
 /***/ },
-/* 585 */
+/* 583 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -58410,26 +49867,26 @@
 	 * Local dependencies
 	 */
 	
-	var Ruler      = __webpack_require__(568);
-	var StateBlock = __webpack_require__(586);
+	var Ruler      = __webpack_require__(566);
+	var StateBlock = __webpack_require__(584);
 	
 	/**
 	 * Parser rules
 	 */
 	
 	var _rules = [
-	  [ 'code',       __webpack_require__(587) ],
-	  [ 'fences',     __webpack_require__(588),     [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'blockquote', __webpack_require__(589), [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'hr',         __webpack_require__(590),         [ 'paragraph', 'blockquote', 'list' ] ],
-	  [ 'list',       __webpack_require__(591),       [ 'paragraph', 'blockquote' ] ],
-	  [ 'footnote',   __webpack_require__(592),   [ 'paragraph' ] ],
-	  [ 'heading',    __webpack_require__(593),    [ 'paragraph', 'blockquote' ] ],
-	  [ 'lheading',   __webpack_require__(594) ],
-	  [ 'htmlblock',  __webpack_require__(595),  [ 'paragraph', 'blockquote' ] ],
-	  [ 'table',      __webpack_require__(597),      [ 'paragraph' ] ],
-	  [ 'deflist',    __webpack_require__(598),    [ 'paragraph' ] ],
-	  [ 'paragraph',  __webpack_require__(599) ]
+	  [ 'code',       __webpack_require__(585) ],
+	  [ 'fences',     __webpack_require__(586),     [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'blockquote', __webpack_require__(587), [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'hr',         __webpack_require__(588),         [ 'paragraph', 'blockquote', 'list' ] ],
+	  [ 'list',       __webpack_require__(589),       [ 'paragraph', 'blockquote' ] ],
+	  [ 'footnote',   __webpack_require__(590),   [ 'paragraph' ] ],
+	  [ 'heading',    __webpack_require__(591),    [ 'paragraph', 'blockquote' ] ],
+	  [ 'lheading',   __webpack_require__(592) ],
+	  [ 'htmlblock',  __webpack_require__(593),  [ 'paragraph', 'blockquote' ] ],
+	  [ 'table',      __webpack_require__(595),      [ 'paragraph' ] ],
+	  [ 'deflist',    __webpack_require__(596),    [ 'paragraph' ] ],
+	  [ 'paragraph',  __webpack_require__(597) ]
 	];
 	
 	/**
@@ -58562,7 +50019,7 @@
 
 
 /***/ },
-/* 586 */
+/* 584 */
 /***/ function(module, exports) {
 
 	// Parser state class
@@ -58726,7 +50183,7 @@
 
 
 /***/ },
-/* 587 */
+/* 585 */
 /***/ function(module, exports) {
 
 	// Code block (4 spaces padded)
@@ -58768,7 +50225,7 @@
 
 
 /***/ },
-/* 588 */
+/* 586 */
 /***/ function(module, exports) {
 
 	// fences (``` lang, ~~~ lang)
@@ -58865,7 +50322,7 @@
 
 
 /***/ },
-/* 589 */
+/* 587 */
 /***/ function(module, exports) {
 
 	// Block quotes
@@ -59004,7 +50461,7 @@
 
 
 /***/ },
-/* 590 */
+/* 588 */
 /***/ function(module, exports) {
 
 	// Horizontal rule
@@ -59055,7 +50512,7 @@
 
 
 /***/ },
-/* 591 */
+/* 589 */
 /***/ function(module, exports) {
 
 	// Lists
@@ -59327,7 +50784,7 @@
 
 
 /***/ },
-/* 592 */
+/* 590 */
 /***/ function(module, exports) {
 
 	// Process footnote reference list
@@ -59400,7 +50857,7 @@
 
 
 /***/ },
-/* 593 */
+/* 591 */
 /***/ function(module, exports) {
 
 	// heading (#, ##, ...)
@@ -59464,7 +50921,7 @@
 
 
 /***/ },
-/* 594 */
+/* 592 */
 /***/ function(module, exports) {
 
 	// lheading (---, ===)
@@ -59525,7 +50982,7 @@
 
 
 /***/ },
-/* 595 */
+/* 593 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// HTML block
@@ -59533,7 +50990,7 @@
 	'use strict';
 	
 	
-	var block_names = __webpack_require__(596);
+	var block_names = __webpack_require__(594);
 	
 	
 	var HTML_TAG_OPEN_RE = /^<([a-zA-Z]{1,15})[\s\/>]/;
@@ -59605,7 +51062,7 @@
 
 
 /***/ },
-/* 596 */
+/* 594 */
 /***/ function(module, exports) {
 
 	// List of valid html blocks names, accorting to commonmark spec
@@ -59673,7 +51130,7 @@
 
 
 /***/ },
-/* 597 */
+/* 595 */
 /***/ function(module, exports) {
 
 	// GFM table, non-standard
@@ -59817,7 +51274,7 @@
 
 
 /***/ },
-/* 598 */
+/* 596 */
 /***/ function(module, exports) {
 
 	// Definition lists
@@ -60030,7 +51487,7 @@
 
 
 /***/ },
-/* 599 */
+/* 597 */
 /***/ function(module, exports) {
 
 	// Paragraph
@@ -60095,7 +51552,7 @@
 
 
 /***/ },
-/* 600 */
+/* 598 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -60104,31 +51561,31 @@
 	 * Local dependencies
 	 */
 	
-	var Ruler       = __webpack_require__(568);
-	var StateInline = __webpack_require__(571);
-	var utils       = __webpack_require__(563);
+	var Ruler       = __webpack_require__(566);
+	var StateInline = __webpack_require__(569);
+	var utils       = __webpack_require__(561);
 	
 	/**
 	 * Inline Parser `rules`
 	 */
 	
 	var _rules = [
-	  [ 'text',            __webpack_require__(601) ],
-	  [ 'newline',         __webpack_require__(602) ],
-	  [ 'escape',          __webpack_require__(603) ],
-	  [ 'backticks',       __webpack_require__(604) ],
-	  [ 'del',             __webpack_require__(605) ],
-	  [ 'ins',             __webpack_require__(606) ],
-	  [ 'mark',            __webpack_require__(607) ],
-	  [ 'emphasis',        __webpack_require__(608) ],
-	  [ 'sub',             __webpack_require__(609) ],
-	  [ 'sup',             __webpack_require__(610) ],
-	  [ 'links',           __webpack_require__(611) ],
-	  [ 'footnote_inline', __webpack_require__(612) ],
-	  [ 'footnote_ref',    __webpack_require__(613) ],
-	  [ 'autolink',        __webpack_require__(614) ],
-	  [ 'htmltag',         __webpack_require__(616) ],
-	  [ 'entity',          __webpack_require__(618) ]
+	  [ 'text',            __webpack_require__(599) ],
+	  [ 'newline',         __webpack_require__(600) ],
+	  [ 'escape',          __webpack_require__(601) ],
+	  [ 'backticks',       __webpack_require__(602) ],
+	  [ 'del',             __webpack_require__(603) ],
+	  [ 'ins',             __webpack_require__(604) ],
+	  [ 'mark',            __webpack_require__(605) ],
+	  [ 'emphasis',        __webpack_require__(606) ],
+	  [ 'sub',             __webpack_require__(607) ],
+	  [ 'sup',             __webpack_require__(608) ],
+	  [ 'links',           __webpack_require__(609) ],
+	  [ 'footnote_inline', __webpack_require__(610) ],
+	  [ 'footnote_ref',    __webpack_require__(611) ],
+	  [ 'autolink',        __webpack_require__(612) ],
+	  [ 'htmltag',         __webpack_require__(614) ],
+	  [ 'entity',          __webpack_require__(616) ]
 	];
 	
 	/**
@@ -60262,7 +51719,7 @@
 
 
 /***/ },
-/* 601 */
+/* 599 */
 /***/ function(module, exports) {
 
 	// Skip text characters for text token, place those to pending buffer
@@ -60320,7 +51777,7 @@
 
 
 /***/ },
-/* 602 */
+/* 600 */
 /***/ function(module, exports) {
 
 	// Proceess '\n'
@@ -60380,7 +51837,7 @@
 
 
 /***/ },
-/* 603 */
+/* 601 */
 /***/ function(module, exports) {
 
 	// Proceess escaped chars and hardbreaks
@@ -60435,7 +51892,7 @@
 
 
 /***/ },
-/* 604 */
+/* 602 */
 /***/ function(module, exports) {
 
 	// Parse backticks
@@ -60487,7 +51944,7 @@
 
 
 /***/ },
-/* 605 */
+/* 603 */
 /***/ function(module, exports) {
 
 	// Process ~~deleted text~~
@@ -60577,7 +52034,7 @@
 
 
 /***/ },
-/* 606 */
+/* 604 */
 /***/ function(module, exports) {
 
 	// Process ++inserted text++
@@ -60667,7 +52124,7 @@
 
 
 /***/ },
-/* 607 */
+/* 605 */
 /***/ function(module, exports) {
 
 	// Process ==highlighted text==
@@ -60757,7 +52214,7 @@
 
 
 /***/ },
-/* 608 */
+/* 606 */
 /***/ function(module, exports) {
 
 	// Process *this* and _that_
@@ -60912,7 +52369,7 @@
 
 
 /***/ },
-/* 609 */
+/* 607 */
 /***/ function(module, exports) {
 
 	// Process ~subscript~
@@ -60976,7 +52433,7 @@
 
 
 /***/ },
-/* 610 */
+/* 608 */
 /***/ function(module, exports) {
 
 	// Process ^superscript^
@@ -61040,17 +52497,17 @@
 
 
 /***/ },
-/* 611 */
+/* 609 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process [links](<to> "stuff")
 	
 	'use strict';
 	
-	var parseLinkLabel       = __webpack_require__(572);
-	var parseLinkDestination = __webpack_require__(574);
-	var parseLinkTitle       = __webpack_require__(576);
-	var normalizeReference   = __webpack_require__(577);
+	var parseLinkLabel       = __webpack_require__(570);
+	var parseLinkDestination = __webpack_require__(572);
+	var parseLinkTitle       = __webpack_require__(574);
+	var normalizeReference   = __webpack_require__(575);
 	
 	
 	module.exports = function links(state, silent) {
@@ -61216,14 +52673,14 @@
 
 
 /***/ },
-/* 612 */
+/* 610 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process inline footnotes (^[...])
 	
 	'use strict';
 	
-	var parseLinkLabel = __webpack_require__(572);
+	var parseLinkLabel = __webpack_require__(570);
 	
 	
 	module.exports = function footnote_inline(state, silent) {
@@ -61275,7 +52732,7 @@
 
 
 /***/ },
-/* 613 */
+/* 611 */
 /***/ function(module, exports) {
 
 	// Process footnote references ([^...])
@@ -61343,15 +52800,15 @@
 
 
 /***/ },
-/* 614 */
+/* 612 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process autolinks '<protocol:...>'
 	
 	'use strict';
 	
-	var url_schemas   = __webpack_require__(615);
-	var normalizeLink = __webpack_require__(575);
+	var url_schemas   = __webpack_require__(613);
+	var normalizeLink = __webpack_require__(573);
 	
 	
 	/*eslint max-len:0*/
@@ -61427,7 +52884,7 @@
 
 
 /***/ },
-/* 615 */
+/* 613 */
 /***/ function(module, exports) {
 
 	// List of valid url schemas, accorting to commonmark spec
@@ -61605,7 +53062,7 @@
 
 
 /***/ },
-/* 616 */
+/* 614 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html tags
@@ -61613,7 +53070,7 @@
 	'use strict';
 	
 	
-	var HTML_TAG_RE = __webpack_require__(617).HTML_TAG_RE;
+	var HTML_TAG_RE = __webpack_require__(615).HTML_TAG_RE;
 	
 	
 	function isLetter(ch) {
@@ -61660,7 +53117,7 @@
 
 
 /***/ },
-/* 617 */
+/* 615 */
 /***/ function(module, exports) {
 
 	// Regexps to match html elements
@@ -61725,17 +53182,17 @@
 
 
 /***/ },
-/* 618 */
+/* 616 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Process html entity - &#123;, &#xAF;, &quot;, ...
 	
 	'use strict';
 	
-	var entities          = __webpack_require__(564);
-	var has               = __webpack_require__(563).has;
-	var isValidEntityCode = __webpack_require__(563).isValidEntityCode;
-	var fromCodePoint     = __webpack_require__(563).fromCodePoint;
+	var entities          = __webpack_require__(562);
+	var has               = __webpack_require__(561).has;
+	var isValidEntityCode = __webpack_require__(561).isValidEntityCode;
+	var fromCodePoint     = __webpack_require__(561).fromCodePoint;
 	
 	
 	var DIGITAL_RE = /^&#((?:x[a-f0-9]{1,8}|[0-9]{1,8}));/i;
@@ -61779,7 +53236,7 @@
 
 
 /***/ },
-/* 619 */
+/* 617 */
 /***/ function(module, exports) {
 
 	// Remarkable default options
@@ -61865,7 +53322,7 @@
 
 
 /***/ },
-/* 620 */
+/* 618 */
 /***/ function(module, exports) {
 
 	// Remarkable default options
@@ -61909,7 +53366,7 @@
 
 
 /***/ },
-/* 621 */
+/* 619 */
 /***/ function(module, exports) {
 
 	// Commonmark default options
@@ -61986,7 +53443,7 @@
 
 
 /***/ },
-/* 622 */
+/* 620 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62023,7 +53480,7 @@
 	
 	exports.default = remarkableTree;
 	
-	var _utils = __webpack_require__(623);
+	var _utils = __webpack_require__(621);
 	
 	function remarkableTree(tokens) {
 	  var tree = [];
@@ -62113,7 +53570,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 623 */
+/* 621 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -62207,7 +53664,7 @@
 	}
 
 /***/ },
-/* 624 */
+/* 622 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62271,7 +53728,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 625 */
+/* 623 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62294,8 +53751,6 @@
 	
 	var _code2 = _interopRequireDefault(_code);
 	
-	var _tracking_acts = __webpack_require__(528);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -62305,7 +53760,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	/* injects from baggage-loader */
-	__webpack_require__(626);
+	__webpack_require__(624);
 	
 	var JSDocUsage = function (_React$Component) {
 	  _inherits(JSDocUsage, _React$Component);
@@ -62443,7 +53898,6 @@
 	  }, {
 	    key: '_changeSource',
 	    value: function _changeSource(source, e) {
-	      (0, _tracking_acts.trackAction)('Changed Usage Source', { source: source });
 	      e.preventDefault();
 	      this.setState({ source: source });
 	      window.localStorage.setItem('usageSource', source);
@@ -62467,13 +53921,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 626 */
+/* 624 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(627);
+	var content = __webpack_require__(625);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(525)(content, {});
@@ -62493,7 +53947,7 @@
 	}
 
 /***/ },
-/* 627 */
+/* 625 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(524)();
@@ -62507,7 +53961,7 @@
 
 
 /***/ },
-/* 628 */
+/* 626 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62640,7 +54094,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 629 */
+/* 627 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62664,7 +54118,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	/* injects from baggage-loader */
-	__webpack_require__(630);
+	__webpack_require__(628);
 	
 	var JSDocArguments = function (_React$Component) {
 	  _inherits(JSDocArguments, _React$Component);
@@ -62834,13 +54288,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 630 */
+/* 628 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(631);
+	var content = __webpack_require__(629);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(525)(content, {});
@@ -62860,7 +54314,7 @@
 	}
 
 /***/ },
-/* 631 */
+/* 629 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(524)();
@@ -62874,13 +54328,13 @@
 
 
 /***/ },
-/* 632 */
+/* 630 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(633);
+	var content = __webpack_require__(631);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(525)(content, {});
@@ -62900,7 +54354,7 @@
 	}
 
 /***/ },
-/* 633 */
+/* 631 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(524)();
@@ -62914,7 +54368,7 @@
 
 
 /***/ },
-/* 634 */
+/* 632 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62929,7 +54383,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _markdown = __webpack_require__(560);
+	var _markdown = __webpack_require__(558);
 	
 	var _markdown2 = _interopRequireDefault(_markdown);
 	
@@ -62968,13 +54422,13 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 635 */
+/* 633 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(636);
+	var content = __webpack_require__(634);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(525)(content, {});
@@ -62994,7 +54448,7 @@
 	}
 
 /***/ },
-/* 636 */
+/* 634 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(524)();
@@ -63008,13 +54462,13 @@
 
 
 /***/ },
-/* 637 */
+/* 635 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(638);
+	var content = __webpack_require__(636);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(525)(content, {});
@@ -63034,7 +54488,7 @@
 	}
 
 /***/ },
-/* 638 */
+/* 636 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(524)();
@@ -63048,11 +54502,11 @@
 
 
 /***/ },
-/* 639 */
+/* 637 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./img/favicon.png": 640
+		"./img/favicon.png": 638
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -63065,179 +54519,179 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 639;
+	webpackContext.id = 637;
+
+
+/***/ },
+/* 638 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__.p + "f96948239183774d03de5e39e3017ee6.png";
+
+/***/ },
+/* 639 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = {
+	  addDays: __webpack_require__(640),
+	  addHours: __webpack_require__(643),
+	  addISOYears: __webpack_require__(644),
+	  addMilliseconds: __webpack_require__(652),
+	  addMinutes: __webpack_require__(653),
+	  addMonths: __webpack_require__(654),
+	  addQuarters: __webpack_require__(656),
+	  addSeconds: __webpack_require__(657),
+	  addWeeks: __webpack_require__(658),
+	  addYears: __webpack_require__(659),
+	  closestIndexTo: __webpack_require__(660),
+	  closestTo: __webpack_require__(661),
+	  compareAsc: __webpack_require__(662),
+	  compareDesc: __webpack_require__(663),
+	  differenceInCalendarDays: __webpack_require__(650),
+	  differenceInCalendarISOWeeks: __webpack_require__(664),
+	  differenceInCalendarISOYears: __webpack_require__(665),
+	  differenceInCalendarMonths: __webpack_require__(666),
+	  differenceInCalendarQuarters: __webpack_require__(667),
+	  differenceInCalendarWeeks: __webpack_require__(669),
+	  differenceInCalendarYears: __webpack_require__(670),
+	  differenceInDays: __webpack_require__(671),
+	  differenceInHours: __webpack_require__(672),
+	  differenceInISOYears: __webpack_require__(674),
+	  differenceInMilliseconds: __webpack_require__(673),
+	  differenceInMinutes: __webpack_require__(676),
+	  differenceInMonths: __webpack_require__(677),
+	  differenceInQuarters: __webpack_require__(678),
+	  differenceInSeconds: __webpack_require__(679),
+	  differenceInWeeks: __webpack_require__(680),
+	  differenceInYears: __webpack_require__(681),
+	  distanceInWords: __webpack_require__(682),
+	  distanceInWordsStrict: __webpack_require__(687),
+	  distanceInWordsToNow: __webpack_require__(688),
+	  eachDay: __webpack_require__(689),
+	  endOfDay: __webpack_require__(690),
+	  endOfHour: __webpack_require__(691),
+	  endOfISOWeek: __webpack_require__(692),
+	  endOfISOYear: __webpack_require__(694),
+	  endOfMinute: __webpack_require__(695),
+	  endOfMonth: __webpack_require__(696),
+	  endOfQuarter: __webpack_require__(697),
+	  endOfSecond: __webpack_require__(698),
+	  endOfToday: __webpack_require__(699),
+	  endOfTomorrow: __webpack_require__(700),
+	  endOfWeek: __webpack_require__(693),
+	  endOfYear: __webpack_require__(701),
+	  endOfYesterday: __webpack_require__(702),
+	  format: __webpack_require__(703),
+	  getDate: __webpack_require__(707),
+	  getDay: __webpack_require__(708),
+	  getDayOfYear: __webpack_require__(704),
+	  getDaysInMonth: __webpack_require__(655),
+	  getDaysInYear: __webpack_require__(709),
+	  getHours: __webpack_require__(711),
+	  getISODay: __webpack_require__(712),
+	  getISOWeek: __webpack_require__(706),
+	  getISOWeeksInYear: __webpack_require__(713),
+	  getISOYear: __webpack_require__(645),
+	  getMilliseconds: __webpack_require__(714),
+	  getMinutes: __webpack_require__(715),
+	  getMonth: __webpack_require__(716),
+	  getQuarter: __webpack_require__(668),
+	  getSeconds: __webpack_require__(717),
+	  getYear: __webpack_require__(718),
+	  isAfter: __webpack_require__(719),
+	  isBefore: __webpack_require__(720),
+	  isDate: __webpack_require__(642),
+	  isEqual: __webpack_require__(721),
+	  isFirstDayOfMonth: __webpack_require__(722),
+	  isFriday: __webpack_require__(723),
+	  isFuture: __webpack_require__(724),
+	  isLastDayOfMonth: __webpack_require__(725),
+	  isLeapYear: __webpack_require__(710),
+	  isMonday: __webpack_require__(726),
+	  isPast: __webpack_require__(727),
+	  isSameDay: __webpack_require__(728),
+	  isSameHour: __webpack_require__(729),
+	  isSameISOWeek: __webpack_require__(731),
+	  isSameISOYear: __webpack_require__(733),
+	  isSameMinute: __webpack_require__(734),
+	  isSameMonth: __webpack_require__(736),
+	  isSameQuarter: __webpack_require__(737),
+	  isSameSecond: __webpack_require__(739),
+	  isSameWeek: __webpack_require__(732),
+	  isSameYear: __webpack_require__(741),
+	  isSaturday: __webpack_require__(742),
+	  isSunday: __webpack_require__(743),
+	  isThisHour: __webpack_require__(744),
+	  isThisISOWeek: __webpack_require__(745),
+	  isThisISOYear: __webpack_require__(746),
+	  isThisMinute: __webpack_require__(747),
+	  isThisMonth: __webpack_require__(748),
+	  isThisQuarter: __webpack_require__(749),
+	  isThisSecond: __webpack_require__(750),
+	  isThisWeek: __webpack_require__(751),
+	  isThisYear: __webpack_require__(752),
+	  isThursday: __webpack_require__(753),
+	  isToday: __webpack_require__(754),
+	  isTomorrow: __webpack_require__(755),
+	  isTuesday: __webpack_require__(756),
+	  isValid: __webpack_require__(757),
+	  isWednesday: __webpack_require__(758),
+	  isWeekend: __webpack_require__(759),
+	  isWithinRange: __webpack_require__(760),
+	  isYesterday: __webpack_require__(761),
+	  lastDayOfISOWeek: __webpack_require__(762),
+	  lastDayOfISOYear: __webpack_require__(764),
+	  lastDayOfMonth: __webpack_require__(765),
+	  lastDayOfQuarter: __webpack_require__(766),
+	  lastDayOfWeek: __webpack_require__(763),
+	  lastDayOfYear: __webpack_require__(767),
+	  max: __webpack_require__(768),
+	  min: __webpack_require__(769),
+	  parse: __webpack_require__(641),
+	  setDate: __webpack_require__(770),
+	  setDay: __webpack_require__(771),
+	  setDayOfYear: __webpack_require__(772),
+	  setHours: __webpack_require__(773),
+	  setISODay: __webpack_require__(774),
+	  setISOWeek: __webpack_require__(775),
+	  setISOYear: __webpack_require__(648),
+	  setMilliseconds: __webpack_require__(776),
+	  setMinutes: __webpack_require__(777),
+	  setMonth: __webpack_require__(778),
+	  setQuarter: __webpack_require__(779),
+	  setSeconds: __webpack_require__(780),
+	  setYear: __webpack_require__(781),
+	  startOfDay: __webpack_require__(651),
+	  startOfHour: __webpack_require__(730),
+	  startOfISOWeek: __webpack_require__(646),
+	  startOfISOYear: __webpack_require__(649),
+	  startOfMinute: __webpack_require__(735),
+	  startOfMonth: __webpack_require__(782),
+	  startOfQuarter: __webpack_require__(738),
+	  startOfSecond: __webpack_require__(740),
+	  startOfToday: __webpack_require__(783),
+	  startOfTomorrow: __webpack_require__(784),
+	  startOfWeek: __webpack_require__(647),
+	  startOfYear: __webpack_require__(705),
+	  startOfYesterday: __webpack_require__(785),
+	  subDays: __webpack_require__(786),
+	  subHours: __webpack_require__(787),
+	  subISOYears: __webpack_require__(675),
+	  subMilliseconds: __webpack_require__(788),
+	  subMinutes: __webpack_require__(789),
+	  subMonths: __webpack_require__(790),
+	  subQuarters: __webpack_require__(791),
+	  subSeconds: __webpack_require__(792),
+	  subWeeks: __webpack_require__(793),
+	  subYears: __webpack_require__(794)
+	}
 
 
 /***/ },
 /* 640 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__.p + "f96948239183774d03de5e39e3017ee6.png";
-
-/***/ },
-/* 641 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = {
-	  addDays: __webpack_require__(642),
-	  addHours: __webpack_require__(645),
-	  addISOYears: __webpack_require__(646),
-	  addMilliseconds: __webpack_require__(654),
-	  addMinutes: __webpack_require__(655),
-	  addMonths: __webpack_require__(656),
-	  addQuarters: __webpack_require__(658),
-	  addSeconds: __webpack_require__(659),
-	  addWeeks: __webpack_require__(660),
-	  addYears: __webpack_require__(661),
-	  closestIndexTo: __webpack_require__(662),
-	  closestTo: __webpack_require__(663),
-	  compareAsc: __webpack_require__(664),
-	  compareDesc: __webpack_require__(665),
-	  differenceInCalendarDays: __webpack_require__(652),
-	  differenceInCalendarISOWeeks: __webpack_require__(666),
-	  differenceInCalendarISOYears: __webpack_require__(667),
-	  differenceInCalendarMonths: __webpack_require__(668),
-	  differenceInCalendarQuarters: __webpack_require__(669),
-	  differenceInCalendarWeeks: __webpack_require__(671),
-	  differenceInCalendarYears: __webpack_require__(672),
-	  differenceInDays: __webpack_require__(673),
-	  differenceInHours: __webpack_require__(674),
-	  differenceInISOYears: __webpack_require__(676),
-	  differenceInMilliseconds: __webpack_require__(675),
-	  differenceInMinutes: __webpack_require__(678),
-	  differenceInMonths: __webpack_require__(679),
-	  differenceInQuarters: __webpack_require__(680),
-	  differenceInSeconds: __webpack_require__(681),
-	  differenceInWeeks: __webpack_require__(682),
-	  differenceInYears: __webpack_require__(683),
-	  distanceInWords: __webpack_require__(684),
-	  distanceInWordsStrict: __webpack_require__(689),
-	  distanceInWordsToNow: __webpack_require__(690),
-	  eachDay: __webpack_require__(691),
-	  endOfDay: __webpack_require__(692),
-	  endOfHour: __webpack_require__(693),
-	  endOfISOWeek: __webpack_require__(694),
-	  endOfISOYear: __webpack_require__(696),
-	  endOfMinute: __webpack_require__(697),
-	  endOfMonth: __webpack_require__(698),
-	  endOfQuarter: __webpack_require__(699),
-	  endOfSecond: __webpack_require__(700),
-	  endOfToday: __webpack_require__(701),
-	  endOfTomorrow: __webpack_require__(702),
-	  endOfWeek: __webpack_require__(695),
-	  endOfYear: __webpack_require__(703),
-	  endOfYesterday: __webpack_require__(704),
-	  format: __webpack_require__(705),
-	  getDate: __webpack_require__(709),
-	  getDay: __webpack_require__(710),
-	  getDayOfYear: __webpack_require__(706),
-	  getDaysInMonth: __webpack_require__(657),
-	  getDaysInYear: __webpack_require__(711),
-	  getHours: __webpack_require__(713),
-	  getISODay: __webpack_require__(714),
-	  getISOWeek: __webpack_require__(708),
-	  getISOWeeksInYear: __webpack_require__(715),
-	  getISOYear: __webpack_require__(647),
-	  getMilliseconds: __webpack_require__(716),
-	  getMinutes: __webpack_require__(717),
-	  getMonth: __webpack_require__(718),
-	  getQuarter: __webpack_require__(670),
-	  getSeconds: __webpack_require__(719),
-	  getYear: __webpack_require__(720),
-	  isAfter: __webpack_require__(721),
-	  isBefore: __webpack_require__(722),
-	  isDate: __webpack_require__(644),
-	  isEqual: __webpack_require__(723),
-	  isFirstDayOfMonth: __webpack_require__(724),
-	  isFriday: __webpack_require__(725),
-	  isFuture: __webpack_require__(726),
-	  isLastDayOfMonth: __webpack_require__(727),
-	  isLeapYear: __webpack_require__(712),
-	  isMonday: __webpack_require__(728),
-	  isPast: __webpack_require__(729),
-	  isSameDay: __webpack_require__(730),
-	  isSameHour: __webpack_require__(731),
-	  isSameISOWeek: __webpack_require__(733),
-	  isSameISOYear: __webpack_require__(735),
-	  isSameMinute: __webpack_require__(736),
-	  isSameMonth: __webpack_require__(738),
-	  isSameQuarter: __webpack_require__(739),
-	  isSameSecond: __webpack_require__(741),
-	  isSameWeek: __webpack_require__(734),
-	  isSameYear: __webpack_require__(743),
-	  isSaturday: __webpack_require__(744),
-	  isSunday: __webpack_require__(745),
-	  isThisHour: __webpack_require__(746),
-	  isThisISOWeek: __webpack_require__(747),
-	  isThisISOYear: __webpack_require__(748),
-	  isThisMinute: __webpack_require__(749),
-	  isThisMonth: __webpack_require__(750),
-	  isThisQuarter: __webpack_require__(751),
-	  isThisSecond: __webpack_require__(752),
-	  isThisWeek: __webpack_require__(753),
-	  isThisYear: __webpack_require__(754),
-	  isThursday: __webpack_require__(755),
-	  isToday: __webpack_require__(756),
-	  isTomorrow: __webpack_require__(757),
-	  isTuesday: __webpack_require__(758),
-	  isValid: __webpack_require__(759),
-	  isWednesday: __webpack_require__(760),
-	  isWeekend: __webpack_require__(761),
-	  isWithinRange: __webpack_require__(762),
-	  isYesterday: __webpack_require__(763),
-	  lastDayOfISOWeek: __webpack_require__(764),
-	  lastDayOfISOYear: __webpack_require__(766),
-	  lastDayOfMonth: __webpack_require__(767),
-	  lastDayOfQuarter: __webpack_require__(768),
-	  lastDayOfWeek: __webpack_require__(765),
-	  lastDayOfYear: __webpack_require__(769),
-	  max: __webpack_require__(770),
-	  min: __webpack_require__(771),
-	  parse: __webpack_require__(643),
-	  setDate: __webpack_require__(772),
-	  setDay: __webpack_require__(773),
-	  setDayOfYear: __webpack_require__(774),
-	  setHours: __webpack_require__(775),
-	  setISODay: __webpack_require__(776),
-	  setISOWeek: __webpack_require__(777),
-	  setISOYear: __webpack_require__(650),
-	  setMilliseconds: __webpack_require__(778),
-	  setMinutes: __webpack_require__(779),
-	  setMonth: __webpack_require__(780),
-	  setQuarter: __webpack_require__(781),
-	  setSeconds: __webpack_require__(782),
-	  setYear: __webpack_require__(783),
-	  startOfDay: __webpack_require__(653),
-	  startOfHour: __webpack_require__(732),
-	  startOfISOWeek: __webpack_require__(648),
-	  startOfISOYear: __webpack_require__(651),
-	  startOfMinute: __webpack_require__(737),
-	  startOfMonth: __webpack_require__(784),
-	  startOfQuarter: __webpack_require__(740),
-	  startOfSecond: __webpack_require__(742),
-	  startOfToday: __webpack_require__(785),
-	  startOfTomorrow: __webpack_require__(786),
-	  startOfWeek: __webpack_require__(649),
-	  startOfYear: __webpack_require__(707),
-	  startOfYesterday: __webpack_require__(787),
-	  subDays: __webpack_require__(788),
-	  subHours: __webpack_require__(789),
-	  subISOYears: __webpack_require__(677),
-	  subMilliseconds: __webpack_require__(790),
-	  subMinutes: __webpack_require__(791),
-	  subMonths: __webpack_require__(792),
-	  subQuarters: __webpack_require__(793),
-	  subSeconds: __webpack_require__(794),
-	  subWeeks: __webpack_require__(795),
-	  subYears: __webpack_require__(796)
-	}
-
-
-/***/ },
-/* 642 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Day Helpers
@@ -63265,10 +54719,10 @@
 
 
 /***/ },
-/* 643 */
+/* 641 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isDate = __webpack_require__(644)
+	var isDate = __webpack_require__(642)
 	
 	var MILLISECONDS_IN_HOUR = 3600000
 	var MILLISECONDS_IN_MINUTE = 60000
@@ -63582,7 +55036,7 @@
 
 
 /***/ },
-/* 644 */
+/* 642 */
 /***/ function(module, exports) {
 
 	/**
@@ -63608,10 +55062,10 @@
 
 
 /***/ },
-/* 645 */
+/* 643 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Hour Helpers
@@ -63639,11 +55093,11 @@
 
 
 /***/ },
-/* 646 */
+/* 644 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getISOYear = __webpack_require__(647)
-	var setISOYear = __webpack_require__(650)
+	var getISOYear = __webpack_require__(645)
+	var setISOYear = __webpack_require__(648)
 	
 	/**
 	 * @category ISO Week-Numbering Year Helpers
@@ -63671,11 +55125,11 @@
 
 
 /***/ },
-/* 647 */
+/* 645 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var startOfISOWeek = __webpack_require__(648)
+	var parse = __webpack_require__(641)
+	var startOfISOWeek = __webpack_require__(646)
 	
 	/**
 	 * @category ISO Week-Numbering Year Helpers
@@ -63722,10 +55176,10 @@
 
 
 /***/ },
-/* 648 */
+/* 646 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfWeek = __webpack_require__(649)
+	var startOfWeek = __webpack_require__(647)
 	
 	/**
 	 * @category ISO Week Helpers
@@ -63753,10 +55207,10 @@
 
 
 /***/ },
-/* 649 */
+/* 647 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Week Helpers
@@ -63797,12 +55251,12 @@
 
 
 /***/ },
-/* 650 */
+/* 648 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var startOfISOYear = __webpack_require__(651)
-	var differenceInCalendarDays = __webpack_require__(652)
+	var parse = __webpack_require__(641)
+	var startOfISOYear = __webpack_require__(649)
+	var differenceInCalendarDays = __webpack_require__(650)
 	
 	/**
 	 * @category ISO Week-Numbering Year Helpers
@@ -63838,11 +55292,11 @@
 
 
 /***/ },
-/* 651 */
+/* 649 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getISOYear = __webpack_require__(647)
-	var startOfISOWeek = __webpack_require__(648)
+	var getISOYear = __webpack_require__(645)
+	var startOfISOWeek = __webpack_require__(646)
 	
 	/**
 	 * @category ISO Week-Numbering Year Helpers
@@ -63876,10 +55330,10 @@
 
 
 /***/ },
-/* 652 */
+/* 650 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfDay = __webpack_require__(653)
+	var startOfDay = __webpack_require__(651)
 	
 	var MILLISECONDS_IN_MINUTE = 60000
 	var MILLISECONDS_IN_DAY = 86400000
@@ -63923,10 +55377,10 @@
 
 
 /***/ },
-/* 653 */
+/* 651 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Day Helpers
@@ -63954,10 +55408,10 @@
 
 
 /***/ },
-/* 654 */
+/* 652 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Millisecond Helpers
@@ -63985,10 +55439,10 @@
 
 
 /***/ },
-/* 655 */
+/* 653 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Minute Helpers
@@ -64016,11 +55470,11 @@
 
 
 /***/ },
-/* 656 */
+/* 654 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var getDaysInMonth = __webpack_require__(657)
+	var parse = __webpack_require__(641)
+	var getDaysInMonth = __webpack_require__(655)
 	
 	/**
 	 * @category Month Helpers
@@ -64055,10 +55509,10 @@
 
 
 /***/ },
-/* 657 */
+/* 655 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Month Helpers
@@ -64089,10 +55543,10 @@
 
 
 /***/ },
-/* 658 */
+/* 656 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addMonths = __webpack_require__(656)
+	var addMonths = __webpack_require__(654)
 	
 	/**
 	 * @category Quarter Helpers
@@ -64119,10 +55573,10 @@
 
 
 /***/ },
-/* 659 */
+/* 657 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Second Helpers
@@ -64150,10 +55604,10 @@
 
 
 /***/ },
-/* 660 */
+/* 658 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addDays = __webpack_require__(642)
+	var addDays = __webpack_require__(640)
 	
 	/**
 	 * @category Week Helpers
@@ -64180,10 +55634,10 @@
 
 
 /***/ },
-/* 661 */
+/* 659 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addMonths = __webpack_require__(656)
+	var addMonths = __webpack_require__(654)
 	
 	/**
 	 * @category Year Helpers
@@ -64209,10 +55663,10 @@
 
 
 /***/ },
-/* 662 */
+/* 660 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Common Helpers
@@ -64264,10 +55718,10 @@
 
 
 /***/ },
-/* 663 */
+/* 661 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Common Helpers
@@ -64317,10 +55771,10 @@
 
 
 /***/ },
-/* 664 */
+/* 662 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Common Helpers
@@ -64374,10 +55828,10 @@
 
 
 /***/ },
-/* 665 */
+/* 663 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Common Helpers
@@ -64431,10 +55885,10 @@
 
 
 /***/ },
-/* 666 */
+/* 664 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfISOWeek = __webpack_require__(648)
+	var startOfISOWeek = __webpack_require__(646)
 	
 	var MILLISECONDS_IN_MINUTE = 60000
 	var MILLISECONDS_IN_WEEK = 604800000
@@ -64479,10 +55933,10 @@
 
 
 /***/ },
-/* 667 */
+/* 665 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getISOYear = __webpack_require__(647)
+	var getISOYear = __webpack_require__(645)
 	
 	/**
 	 * @category ISO Week-Numbering Year Helpers
@@ -64513,10 +55967,10 @@
 
 
 /***/ },
-/* 668 */
+/* 666 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Month Helpers
@@ -64551,11 +56005,11 @@
 
 
 /***/ },
-/* 669 */
+/* 667 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getQuarter = __webpack_require__(670)
-	var parse = __webpack_require__(643)
+	var getQuarter = __webpack_require__(668)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Quarter Helpers
@@ -64590,10 +56044,10 @@
 
 
 /***/ },
-/* 670 */
+/* 668 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Quarter Helpers
@@ -64620,10 +56074,10 @@
 
 
 /***/ },
-/* 671 */
+/* 669 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfWeek = __webpack_require__(649)
+	var startOfWeek = __webpack_require__(647)
 	
 	var MILLISECONDS_IN_MINUTE = 60000
 	var MILLISECONDS_IN_WEEK = 604800000
@@ -64678,10 +56132,10 @@
 
 
 /***/ },
-/* 672 */
+/* 670 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Year Helpers
@@ -64713,12 +56167,12 @@
 
 
 /***/ },
-/* 673 */
+/* 671 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var differenceInCalendarDays = __webpack_require__(652)
-	var compareAsc = __webpack_require__(664)
+	var parse = __webpack_require__(641)
+	var differenceInCalendarDays = __webpack_require__(650)
+	var compareAsc = __webpack_require__(662)
 	
 	/**
 	 * @category Day Helpers
@@ -64758,10 +56212,10 @@
 
 
 /***/ },
-/* 674 */
+/* 672 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var differenceInMilliseconds = __webpack_require__(675)
+	var differenceInMilliseconds = __webpack_require__(673)
 	
 	var MILLISECONDS_IN_HOUR = 3600000
 	
@@ -64793,10 +56247,10 @@
 
 
 /***/ },
-/* 675 */
+/* 673 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Millisecond Helpers
@@ -64828,13 +56282,13 @@
 
 
 /***/ },
-/* 676 */
+/* 674 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var differenceInCalendarISOYears = __webpack_require__(667)
-	var compareAsc = __webpack_require__(664)
-	var subISOYears = __webpack_require__(677)
+	var parse = __webpack_require__(641)
+	var differenceInCalendarISOYears = __webpack_require__(665)
+	var compareAsc = __webpack_require__(662)
+	var subISOYears = __webpack_require__(675)
 	
 	/**
 	 * @category ISO Week-Numbering Year Helpers
@@ -64876,10 +56330,10 @@
 
 
 /***/ },
-/* 677 */
+/* 675 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addISOYears = __webpack_require__(646)
+	var addISOYears = __webpack_require__(644)
 	
 	/**
 	 * @category ISO Week-Numbering Year Helpers
@@ -64907,10 +56361,10 @@
 
 
 /***/ },
-/* 678 */
+/* 676 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var differenceInMilliseconds = __webpack_require__(675)
+	var differenceInMilliseconds = __webpack_require__(673)
 	
 	var MILLISECONDS_IN_MINUTE = 60000
 	
@@ -64942,12 +56396,12 @@
 
 
 /***/ },
-/* 679 */
+/* 677 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var differenceInCalendarMonths = __webpack_require__(668)
-	var compareAsc = __webpack_require__(664)
+	var parse = __webpack_require__(641)
+	var differenceInCalendarMonths = __webpack_require__(666)
+	var compareAsc = __webpack_require__(662)
 	
 	/**
 	 * @category Month Helpers
@@ -64986,10 +56440,10 @@
 
 
 /***/ },
-/* 680 */
+/* 678 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var differenceInMonths = __webpack_require__(679)
+	var differenceInMonths = __webpack_require__(677)
 	
 	/**
 	 * @category Quarter Helpers
@@ -65019,10 +56473,10 @@
 
 
 /***/ },
-/* 681 */
+/* 679 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var differenceInMilliseconds = __webpack_require__(675)
+	var differenceInMilliseconds = __webpack_require__(673)
 	
 	/**
 	 * @category Second Helpers
@@ -65053,10 +56507,10 @@
 
 
 /***/ },
-/* 682 */
+/* 680 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var differenceInDays = __webpack_require__(673)
+	var differenceInDays = __webpack_require__(671)
 	
 	/**
 	 * @category Week Helpers
@@ -65086,12 +56540,12 @@
 
 
 /***/ },
-/* 683 */
+/* 681 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var differenceInCalendarYears = __webpack_require__(672)
-	var compareAsc = __webpack_require__(664)
+	var parse = __webpack_require__(641)
+	var differenceInCalendarYears = __webpack_require__(670)
+	var compareAsc = __webpack_require__(662)
 	
 	/**
 	 * @category Year Helpers
@@ -65130,14 +56584,14 @@
 
 
 /***/ },
-/* 684 */
+/* 682 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var compareDesc = __webpack_require__(665)
-	var parse = __webpack_require__(643)
-	var differenceInSeconds = __webpack_require__(681)
-	var differenceInMonths = __webpack_require__(679)
-	var enLocale = __webpack_require__(685)
+	var compareDesc = __webpack_require__(663)
+	var parse = __webpack_require__(641)
+	var differenceInSeconds = __webpack_require__(679)
+	var differenceInMonths = __webpack_require__(677)
+	var enLocale = __webpack_require__(683)
 	
 	var MINUTES_IN_DAY = 1440
 	var MINUTES_IN_ALMOST_TWO_DAYS = 2520
@@ -65336,11 +56790,11 @@
 
 
 /***/ },
-/* 685 */
+/* 683 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var buildDistanceInWordsLocale = __webpack_require__(686)
-	var buildFormatLocale = __webpack_require__(687)
+	var buildDistanceInWordsLocale = __webpack_require__(684)
+	var buildFormatLocale = __webpack_require__(685)
 	
 	// English
 	module.exports = {
@@ -65350,7 +56804,7 @@
 
 
 /***/ },
-/* 686 */
+/* 684 */
 /***/ function(module, exports) {
 
 	function buildDistanceInWordsLocale () {
@@ -65455,10 +56909,10 @@
 
 
 /***/ },
-/* 687 */
+/* 685 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var buildFormattingTokensRegExp = __webpack_require__(688)
+	var buildFormattingTokensRegExp = __webpack_require__(686)
 	
 	function buildFormatLocale () {
 	  // Note: in English, the names of days of the week and months are capitalized.
@@ -65549,7 +57003,7 @@
 
 
 /***/ },
-/* 688 */
+/* 686 */
 /***/ function(module, exports) {
 
 	var commonFormatterKeys = [
@@ -65576,13 +57030,13 @@
 
 
 /***/ },
-/* 689 */
+/* 687 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var compareDesc = __webpack_require__(665)
-	var parse = __webpack_require__(643)
-	var differenceInSeconds = __webpack_require__(681)
-	var enLocale = __webpack_require__(685)
+	var compareDesc = __webpack_require__(663)
+	var parse = __webpack_require__(641)
+	var differenceInSeconds = __webpack_require__(679)
+	var enLocale = __webpack_require__(683)
 	
 	var MINUTES_IN_DAY = 1440
 	var MINUTES_IN_MONTH = 43200
@@ -65753,10 +57207,10 @@
 
 
 /***/ },
-/* 690 */
+/* 688 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var distanceInWords = __webpack_require__(684)
+	var distanceInWords = __webpack_require__(682)
 	
 	/**
 	 * @category Common Helpers
@@ -65844,10 +57298,10 @@
 
 
 /***/ },
-/* 691 */
+/* 689 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Day Helpers
@@ -65902,10 +57356,10 @@
 
 
 /***/ },
-/* 692 */
+/* 690 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Day Helpers
@@ -65933,10 +57387,10 @@
 
 
 /***/ },
-/* 693 */
+/* 691 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Hour Helpers
@@ -65964,10 +57418,10 @@
 
 
 /***/ },
-/* 694 */
+/* 692 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var endOfWeek = __webpack_require__(695)
+	var endOfWeek = __webpack_require__(693)
 	
 	/**
 	 * @category ISO Week Helpers
@@ -65995,10 +57449,10 @@
 
 
 /***/ },
-/* 695 */
+/* 693 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Week Helpers
@@ -66039,11 +57493,11 @@
 
 
 /***/ },
-/* 696 */
+/* 694 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getISOYear = __webpack_require__(647)
-	var startOfISOWeek = __webpack_require__(648)
+	var getISOYear = __webpack_require__(645)
+	var startOfISOWeek = __webpack_require__(646)
 	
 	/**
 	 * @category ISO Week-Numbering Year Helpers
@@ -66078,10 +57532,10 @@
 
 
 /***/ },
-/* 697 */
+/* 695 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Minute Helpers
@@ -66109,10 +57563,10 @@
 
 
 /***/ },
-/* 698 */
+/* 696 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Month Helpers
@@ -66142,10 +57596,10 @@
 
 
 /***/ },
-/* 699 */
+/* 697 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Quarter Helpers
@@ -66176,10 +57630,10 @@
 
 
 /***/ },
-/* 700 */
+/* 698 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Second Helpers
@@ -66207,10 +57661,10 @@
 
 
 /***/ },
-/* 701 */
+/* 699 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var endOfDay = __webpack_require__(692)
+	var endOfDay = __webpack_require__(690)
 	
 	/**
 	 * @category Day Helpers
@@ -66234,7 +57688,7 @@
 
 
 /***/ },
-/* 702 */
+/* 700 */
 /***/ function(module, exports) {
 
 	/**
@@ -66267,10 +57721,10 @@
 
 
 /***/ },
-/* 703 */
+/* 701 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Year Helpers
@@ -66300,7 +57754,7 @@
 
 
 /***/ },
-/* 704 */
+/* 702 */
 /***/ function(module, exports) {
 
 	/**
@@ -66333,14 +57787,14 @@
 
 
 /***/ },
-/* 705 */
+/* 703 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getDayOfYear = __webpack_require__(706)
-	var getISOWeek = __webpack_require__(708)
-	var getISOYear = __webpack_require__(647)
-	var parse = __webpack_require__(643)
-	var enLocale = __webpack_require__(685)
+	var getDayOfYear = __webpack_require__(704)
+	var getISOWeek = __webpack_require__(706)
+	var getISOYear = __webpack_require__(645)
+	var parse = __webpack_require__(641)
+	var enLocale = __webpack_require__(683)
 	
 	/**
 	 * @category Common Helpers
@@ -66653,12 +58107,12 @@
 
 
 /***/ },
-/* 706 */
+/* 704 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var startOfYear = __webpack_require__(707)
-	var differenceInCalendarDays = __webpack_require__(652)
+	var parse = __webpack_require__(641)
+	var startOfYear = __webpack_require__(705)
+	var differenceInCalendarDays = __webpack_require__(650)
 	
 	/**
 	 * @category Day Helpers
@@ -66686,10 +58140,10 @@
 
 
 /***/ },
-/* 707 */
+/* 705 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Year Helpers
@@ -66719,12 +58173,12 @@
 
 
 /***/ },
-/* 708 */
+/* 706 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var startOfISOWeek = __webpack_require__(648)
-	var startOfISOYear = __webpack_require__(651)
+	var parse = __webpack_require__(641)
+	var startOfISOWeek = __webpack_require__(646)
+	var startOfISOYear = __webpack_require__(649)
 	
 	var MILLISECONDS_IN_WEEK = 604800000
 	
@@ -66759,10 +58213,10 @@
 
 
 /***/ },
-/* 709 */
+/* 707 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Day Helpers
@@ -66789,10 +58243,10 @@
 
 
 /***/ },
-/* 710 */
+/* 708 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Weekday Helpers
@@ -66819,10 +58273,10 @@
 
 
 /***/ },
-/* 711 */
+/* 709 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isLeapYear = __webpack_require__(712)
+	var isLeapYear = __webpack_require__(710)
 	
 	/**
 	 * @category Year Helpers
@@ -66847,10 +58301,10 @@
 
 
 /***/ },
-/* 712 */
+/* 710 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Year Helpers
@@ -66877,10 +58331,10 @@
 
 
 /***/ },
-/* 713 */
+/* 711 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Hour Helpers
@@ -66907,10 +58361,10 @@
 
 
 /***/ },
-/* 714 */
+/* 712 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Weekday Helpers
@@ -66945,11 +58399,11 @@
 
 
 /***/ },
-/* 715 */
+/* 713 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfISOYear = __webpack_require__(651)
-	var addWeeks = __webpack_require__(660)
+	var startOfISOYear = __webpack_require__(649)
+	var addWeeks = __webpack_require__(658)
 	
 	var MILLISECONDS_IN_WEEK = 604800000
 	
@@ -66984,10 +58438,10 @@
 
 
 /***/ },
-/* 716 */
+/* 714 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Millisecond Helpers
@@ -67014,10 +58468,10 @@
 
 
 /***/ },
-/* 717 */
+/* 715 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Minute Helpers
@@ -67044,10 +58498,10 @@
 
 
 /***/ },
-/* 718 */
+/* 716 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Month Helpers
@@ -67074,10 +58528,10 @@
 
 
 /***/ },
-/* 719 */
+/* 717 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Second Helpers
@@ -67104,10 +58558,10 @@
 
 
 /***/ },
-/* 720 */
+/* 718 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Year Helpers
@@ -67134,10 +58588,10 @@
 
 
 /***/ },
-/* 721 */
+/* 719 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Common Helpers
@@ -67165,10 +58619,10 @@
 
 
 /***/ },
-/* 722 */
+/* 720 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Common Helpers
@@ -67196,10 +58650,10 @@
 
 
 /***/ },
-/* 723 */
+/* 721 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Common Helpers
@@ -67230,10 +58684,10 @@
 
 
 /***/ },
-/* 724 */
+/* 722 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Month Helpers
@@ -67258,10 +58712,10 @@
 
 
 /***/ },
-/* 725 */
+/* 723 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Weekday Helpers
@@ -67286,10 +58740,10 @@
 
 
 /***/ },
-/* 726 */
+/* 724 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Common Helpers
@@ -67314,12 +58768,12 @@
 
 
 /***/ },
-/* 727 */
+/* 725 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var endOfDay = __webpack_require__(692)
-	var endOfMonth = __webpack_require__(698)
+	var parse = __webpack_require__(641)
+	var endOfDay = __webpack_require__(690)
+	var endOfMonth = __webpack_require__(696)
 	
 	/**
 	 * @category Month Helpers
@@ -67345,10 +58799,10 @@
 
 
 /***/ },
-/* 728 */
+/* 726 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Weekday Helpers
@@ -67373,10 +58827,10 @@
 
 
 /***/ },
-/* 729 */
+/* 727 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Common Helpers
@@ -67401,10 +58855,10 @@
 
 
 /***/ },
-/* 730 */
+/* 728 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfDay = __webpack_require__(653)
+	var startOfDay = __webpack_require__(651)
 	
 	/**
 	 * @category Day Helpers
@@ -67436,10 +58890,10 @@
 
 
 /***/ },
-/* 731 */
+/* 729 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfHour = __webpack_require__(732)
+	var startOfHour = __webpack_require__(730)
 	
 	/**
 	 * @category Hour Helpers
@@ -67471,10 +58925,10 @@
 
 
 /***/ },
-/* 732 */
+/* 730 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Hour Helpers
@@ -67502,10 +58956,10 @@
 
 
 /***/ },
-/* 733 */
+/* 731 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isSameWeek = __webpack_require__(734)
+	var isSameWeek = __webpack_require__(732)
 	
 	/**
 	 * @category ISO Week Helpers
@@ -67536,10 +58990,10 @@
 
 
 /***/ },
-/* 734 */
+/* 732 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfWeek = __webpack_require__(649)
+	var startOfWeek = __webpack_require__(647)
 	
 	/**
 	 * @category Week Helpers
@@ -67583,10 +59037,10 @@
 
 
 /***/ },
-/* 735 */
+/* 733 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfISOYear = __webpack_require__(651)
+	var startOfISOYear = __webpack_require__(649)
 	
 	/**
 	 * @category ISO Week-Numbering Year Helpers
@@ -67620,10 +59074,10 @@
 
 
 /***/ },
-/* 736 */
+/* 734 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfMinute = __webpack_require__(737)
+	var startOfMinute = __webpack_require__(735)
 	
 	/**
 	 * @category Minute Helpers
@@ -67656,10 +59110,10 @@
 
 
 /***/ },
-/* 737 */
+/* 735 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Minute Helpers
@@ -67687,10 +59141,10 @@
 
 
 /***/ },
-/* 738 */
+/* 736 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Month Helpers
@@ -67722,10 +59176,10 @@
 
 
 /***/ },
-/* 739 */
+/* 737 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfQuarter = __webpack_require__(740)
+	var startOfQuarter = __webpack_require__(738)
 	
 	/**
 	 * @category Quarter Helpers
@@ -67757,10 +59211,10 @@
 
 
 /***/ },
-/* 740 */
+/* 738 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Quarter Helpers
@@ -67791,10 +59245,10 @@
 
 
 /***/ },
-/* 741 */
+/* 739 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfSecond = __webpack_require__(742)
+	var startOfSecond = __webpack_require__(740)
 	
 	/**
 	 * @category Second Helpers
@@ -67827,10 +59281,10 @@
 
 
 /***/ },
-/* 742 */
+/* 740 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Second Helpers
@@ -67858,10 +59312,10 @@
 
 
 /***/ },
-/* 743 */
+/* 741 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Year Helpers
@@ -67892,10 +59346,10 @@
 
 
 /***/ },
-/* 744 */
+/* 742 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Weekday Helpers
@@ -67920,10 +59374,10 @@
 
 
 /***/ },
-/* 745 */
+/* 743 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Weekday Helpers
@@ -67948,10 +59402,10 @@
 
 
 /***/ },
-/* 746 */
+/* 744 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isSameHour = __webpack_require__(731)
+	var isSameHour = __webpack_require__(729)
 	
 	/**
 	 * @category Hour Helpers
@@ -67977,10 +59431,10 @@
 
 
 /***/ },
-/* 747 */
+/* 745 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isSameISOWeek = __webpack_require__(733)
+	var isSameISOWeek = __webpack_require__(731)
 	
 	/**
 	 * @category ISO Week Helpers
@@ -68007,10 +59461,10 @@
 
 
 /***/ },
-/* 748 */
+/* 746 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isSameISOYear = __webpack_require__(735)
+	var isSameISOYear = __webpack_require__(733)
 	
 	/**
 	 * @category ISO Week-Numbering Year Helpers
@@ -68038,10 +59492,10 @@
 
 
 /***/ },
-/* 749 */
+/* 747 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isSameMinute = __webpack_require__(736)
+	var isSameMinute = __webpack_require__(734)
 	
 	/**
 	 * @category Minute Helpers
@@ -68067,10 +59521,10 @@
 
 
 /***/ },
-/* 750 */
+/* 748 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isSameMonth = __webpack_require__(738)
+	var isSameMonth = __webpack_require__(736)
 	
 	/**
 	 * @category Month Helpers
@@ -68095,10 +59549,10 @@
 
 
 /***/ },
-/* 751 */
+/* 749 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isSameQuarter = __webpack_require__(739)
+	var isSameQuarter = __webpack_require__(737)
 	
 	/**
 	 * @category Quarter Helpers
@@ -68123,10 +59577,10 @@
 
 
 /***/ },
-/* 752 */
+/* 750 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isSameSecond = __webpack_require__(741)
+	var isSameSecond = __webpack_require__(739)
 	
 	/**
 	 * @category Second Helpers
@@ -68152,10 +59606,10 @@
 
 
 /***/ },
-/* 753 */
+/* 751 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isSameWeek = __webpack_require__(734)
+	var isSameWeek = __webpack_require__(732)
 	
 	/**
 	 * @category Week Helpers
@@ -68188,10 +59642,10 @@
 
 
 /***/ },
-/* 754 */
+/* 752 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isSameYear = __webpack_require__(743)
+	var isSameYear = __webpack_require__(741)
 	
 	/**
 	 * @category Year Helpers
@@ -68216,10 +59670,10 @@
 
 
 /***/ },
-/* 755 */
+/* 753 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Weekday Helpers
@@ -68244,10 +59698,10 @@
 
 
 /***/ },
-/* 756 */
+/* 754 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfDay = __webpack_require__(653)
+	var startOfDay = __webpack_require__(651)
 	
 	/**
 	 * @category Day Helpers
@@ -68272,10 +59726,10 @@
 
 
 /***/ },
-/* 757 */
+/* 755 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfDay = __webpack_require__(653)
+	var startOfDay = __webpack_require__(651)
 	
 	/**
 	 * @category Day Helpers
@@ -68302,10 +59756,10 @@
 
 
 /***/ },
-/* 758 */
+/* 756 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Weekday Helpers
@@ -68330,10 +59784,10 @@
 
 
 /***/ },
-/* 759 */
+/* 757 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isDate = __webpack_require__(644)
+	var isDate = __webpack_require__(642)
 	
 	/**
 	 * @category Common Helpers
@@ -68371,10 +59825,10 @@
 
 
 /***/ },
-/* 760 */
+/* 758 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Weekday Helpers
@@ -68399,10 +59853,10 @@
 
 
 /***/ },
-/* 761 */
+/* 759 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Weekday Helpers
@@ -68429,10 +59883,10 @@
 
 
 /***/ },
-/* 762 */
+/* 760 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Range Helpers
@@ -68477,10 +59931,10 @@
 
 
 /***/ },
-/* 763 */
+/* 761 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfDay = __webpack_require__(653)
+	var startOfDay = __webpack_require__(651)
 	
 	/**
 	 * @category Day Helpers
@@ -68507,10 +59961,10 @@
 
 
 /***/ },
-/* 764 */
+/* 762 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var lastDayOfWeek = __webpack_require__(765)
+	var lastDayOfWeek = __webpack_require__(763)
 	
 	/**
 	 * @category ISO Week Helpers
@@ -68538,10 +59992,10 @@
 
 
 /***/ },
-/* 765 */
+/* 763 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Week Helpers
@@ -68582,11 +60036,11 @@
 
 
 /***/ },
-/* 766 */
+/* 764 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var getISOYear = __webpack_require__(647)
-	var startOfISOWeek = __webpack_require__(648)
+	var getISOYear = __webpack_require__(645)
+	var startOfISOWeek = __webpack_require__(646)
 	
 	/**
 	 * @category ISO Week-Numbering Year Helpers
@@ -68621,10 +60075,10 @@
 
 
 /***/ },
-/* 767 */
+/* 765 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Month Helpers
@@ -68654,10 +60108,10 @@
 
 
 /***/ },
-/* 768 */
+/* 766 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Quarter Helpers
@@ -68688,10 +60142,10 @@
 
 
 /***/ },
-/* 769 */
+/* 767 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Year Helpers
@@ -68721,10 +60175,10 @@
 
 
 /***/ },
-/* 770 */
+/* 768 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Common Helpers
@@ -68759,10 +60213,10 @@
 
 
 /***/ },
-/* 771 */
+/* 769 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Common Helpers
@@ -68797,10 +60251,10 @@
 
 
 /***/ },
-/* 772 */
+/* 770 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Day Helpers
@@ -68828,11 +60282,11 @@
 
 
 /***/ },
-/* 773 */
+/* 771 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var addDays = __webpack_require__(642)
+	var parse = __webpack_require__(641)
+	var addDays = __webpack_require__(640)
 	
 	/**
 	 * @category Weekday Helpers
@@ -68873,10 +60327,10 @@
 
 
 /***/ },
-/* 774 */
+/* 772 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Day Helpers
@@ -68905,10 +60359,10 @@
 
 
 /***/ },
-/* 775 */
+/* 773 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Hour Helpers
@@ -68936,12 +60390,12 @@
 
 
 /***/ },
-/* 776 */
+/* 774 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var addDays = __webpack_require__(642)
-	var getISODay = __webpack_require__(714)
+	var parse = __webpack_require__(641)
+	var addDays = __webpack_require__(640)
+	var getISODay = __webpack_require__(712)
 	
 	/**
 	 * @category Weekday Helpers
@@ -68972,11 +60426,11 @@
 
 
 /***/ },
-/* 777 */
+/* 775 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var getISOWeek = __webpack_require__(708)
+	var parse = __webpack_require__(641)
+	var getISOWeek = __webpack_require__(706)
 	
 	/**
 	 * @category ISO Week Helpers
@@ -69007,10 +60461,10 @@
 
 
 /***/ },
-/* 778 */
+/* 776 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Millisecond Helpers
@@ -69038,10 +60492,10 @@
 
 
 /***/ },
-/* 779 */
+/* 777 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Minute Helpers
@@ -69069,11 +60523,11 @@
 
 
 /***/ },
-/* 780 */
+/* 778 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var getDaysInMonth = __webpack_require__(657)
+	var parse = __webpack_require__(641)
+	var getDaysInMonth = __webpack_require__(655)
 	
 	/**
 	 * @category Month Helpers
@@ -69110,11 +60564,11 @@
 
 
 /***/ },
-/* 781 */
+/* 779 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
-	var setMonth = __webpack_require__(780)
+	var parse = __webpack_require__(641)
+	var setMonth = __webpack_require__(778)
 	
 	/**
 	 * @category Quarter Helpers
@@ -69143,10 +60597,10 @@
 
 
 /***/ },
-/* 782 */
+/* 780 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Second Helpers
@@ -69174,10 +60628,10 @@
 
 
 /***/ },
-/* 783 */
+/* 781 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Year Helpers
@@ -69205,10 +60659,10 @@
 
 
 /***/ },
-/* 784 */
+/* 782 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var parse = __webpack_require__(643)
+	var parse = __webpack_require__(641)
 	
 	/**
 	 * @category Month Helpers
@@ -69237,10 +60691,10 @@
 
 
 /***/ },
-/* 785 */
+/* 783 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var startOfDay = __webpack_require__(653)
+	var startOfDay = __webpack_require__(651)
 	
 	/**
 	 * @category Day Helpers
@@ -69264,7 +60718,7 @@
 
 
 /***/ },
-/* 786 */
+/* 784 */
 /***/ function(module, exports) {
 
 	/**
@@ -69297,7 +60751,7 @@
 
 
 /***/ },
-/* 787 */
+/* 785 */
 /***/ function(module, exports) {
 
 	/**
@@ -69330,10 +60784,10 @@
 
 
 /***/ },
-/* 788 */
+/* 786 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addDays = __webpack_require__(642)
+	var addDays = __webpack_require__(640)
 	
 	/**
 	 * @category Day Helpers
@@ -69359,10 +60813,10 @@
 
 
 /***/ },
-/* 789 */
+/* 787 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addHours = __webpack_require__(645)
+	var addHours = __webpack_require__(643)
 	
 	/**
 	 * @category Hour Helpers
@@ -69388,10 +60842,10 @@
 
 
 /***/ },
-/* 790 */
+/* 788 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addMilliseconds = __webpack_require__(654)
+	var addMilliseconds = __webpack_require__(652)
 	
 	/**
 	 * @category Millisecond Helpers
@@ -69417,10 +60871,10 @@
 
 
 /***/ },
-/* 791 */
+/* 789 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addMinutes = __webpack_require__(655)
+	var addMinutes = __webpack_require__(653)
 	
 	/**
 	 * @category Minute Helpers
@@ -69446,10 +60900,10 @@
 
 
 /***/ },
-/* 792 */
+/* 790 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addMonths = __webpack_require__(656)
+	var addMonths = __webpack_require__(654)
 	
 	/**
 	 * @category Month Helpers
@@ -69475,10 +60929,10 @@
 
 
 /***/ },
-/* 793 */
+/* 791 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addQuarters = __webpack_require__(658)
+	var addQuarters = __webpack_require__(656)
 	
 	/**
 	 * @category Quarter Helpers
@@ -69504,10 +60958,10 @@
 
 
 /***/ },
-/* 794 */
+/* 792 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addSeconds = __webpack_require__(659)
+	var addSeconds = __webpack_require__(657)
 	
 	/**
 	 * @category Second Helpers
@@ -69533,10 +60987,10 @@
 
 
 /***/ },
-/* 795 */
+/* 793 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addWeeks = __webpack_require__(660)
+	var addWeeks = __webpack_require__(658)
 	
 	/**
 	 * @category Week Helpers
@@ -69562,10 +61016,10 @@
 
 
 /***/ },
-/* 796 */
+/* 794 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var addYears = __webpack_require__(661)
+	var addYears = __webpack_require__(659)
 	
 	/**
 	 * @category Year Helpers
@@ -69592,4 +61046,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=app-8ee218bac7ea2294fb95.js.map
+//# sourceMappingURL=app-5eee5c949db9239caabd.js.map
