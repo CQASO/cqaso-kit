@@ -27752,15 +27752,15 @@
 	}
 	
 	exports.default = new _router2.default([{
-	  path: '/',
+	  path: '/cqaso-kit/',
 	  name: 'home',
 	
 	  routes: [{
-	    path: '/docs',
+	    path: '/cqaso-kit/docs',
 	    name: 'docs',
 	
 	    routes: [{
-	      path: '/:docId',
+	      path: '/cqaso-kit/:docId',
 	      name: 'doc'
 	    }]
 	  }]
@@ -61046,4 +61046,4 @@
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=app-5eee5c949db9239caabd.js.map
+//# sourceMappingURL=app-110f87a703e56da8c393.js.map
