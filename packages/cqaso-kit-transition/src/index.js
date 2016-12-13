@@ -5,9 +5,13 @@
  * @flow
  */
 
-/* ------------------------------------
+/**
+ * @module cqaso-kit-transition
+ *
+ * @description
+ * 渐变动画, 包括导出的函数:
  * transition
- * ------------------------------------ */
+ */
 
 import { getPrefix } from 'cqaso-kit-autoprefixer';
 import { addCss } from 'cqaso-kit-css';
@@ -25,6 +29,7 @@ const defaults = {
 
 /**
  * Class Transition
+ * @extends Transition
  */
 class Transition extends Queue {
     constructor(element) {
@@ -66,15 +71,10 @@ class Transition extends Queue {
     }
 }
 
-export function transition(element) {
-    return new Transition(element);
-}
-
 /**
  * 保证transitionend触发
  * @param  {Object} element  element
  * @param  {number} duration 毫秒
- * @return
  */
 function verifyTransitionEnd (element, duration) {
   let called = false;
@@ -99,8 +99,26 @@ function verifyTransitionEnd (element, duration) {
  * transitiionend事件绑定
  * @param  {Object}   element  元素
  * @param  {function} callback 回调函数
- * @return
  */
 function transitionEnd(element, callback) {
     event.one(element, transitionend_name, callback);
+}
+
+/**
+ * @description transition函数
+ * @category cqaso-kit-transition
+ *
+ * @param {Object} element - 目标元素
+ * @return {Object} Tansition实例
+ *
+ * @example
+ * const transition = require('cqaso-kit-transition');
+ * transition(element)
+ *    .delay(600)
+ *      .to({rotateY: '180deg'})
+ *      .delay(600)
+ *      .to({rotateY: '0deg'});
+ */
+export function transition(element) {
+    return new Transition(element);
 }
