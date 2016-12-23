@@ -1,6 +1,6 @@
 {
   "name": "cqaso-kit-transition",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/transition.js",
   "minified:main": "dist/transition.min.js",
   "amdName": "css.js",
@@ -9,13 +9,12 @@
     "clean": "rm -rf dist/",
     "minify": "uglifyjs $npm_package_main -cm -o $npm_package_minified_main",
     "transpile": "rollup -c rollup.config.js -n $npm_package_amdName -o $npm_package_main",
-    "test": "karma start",
     "start": "webpack -w"
   },
   "dependencies": {
     "lodash.assign": "^4.2.0",
     "cqaso-kit-autoprefixer": "^0.0.4",
-    "cqaso-kit-css": "^0.0.4"
+    "cqaso-kit-css": "^0.0.5"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0"

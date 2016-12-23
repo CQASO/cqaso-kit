@@ -1,6 +1,6 @@
 {
   "name": "cqaso-kit-css",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "dist/css.js",
   "minified:main": "dist/css.min.js",
   "amdName": "css.js",
@@ -8,8 +8,7 @@
     "build": "npm-run-all clean transpile minify",
     "clean": "rm -rf dist/",
     "minify": "uglifyjs $npm_package_main -cm -o $npm_package_minified_main",
-    "transpile": "rollup -c rollup.config.js -n $npm_package_amdName -o $npm_package_main",
-    "test": "karma start"
+    "transpile": "rollup -c rollup.config.js -n $npm_package_amdName -o $npm_package_main"
   },
   "dependencies": {
     "cqaso-kit-autoprefixer": "^0.0.4"
