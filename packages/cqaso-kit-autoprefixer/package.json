@@ -1,6 +1,6 @@
 {
   "name": "cqaso-kit-autoprefixer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/autoprefixer.js",
   "minified:main": "dist/autoprefixer.min.js",
   "amdName": "autoprefixer.js",
