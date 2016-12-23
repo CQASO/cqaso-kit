@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-cqaso-kit",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "ESLint configuration used by rainie",
   "files": [
     "index.js"
