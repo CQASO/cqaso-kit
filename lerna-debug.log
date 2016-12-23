@@ -1,0 +1,123 @@
+lerna(info)    Lerna v2.0.0-beta.30
+lerna(debug)   Attempting running RunCommand.initialize
+lerna(debug)   Successfully ran RunCommand.initialize
+lerna(debug)   Attempting running RunCommand.execute
+lerna(info)    
+> cqaso-kit-autoprefixer@0.0.3 test /Users/chenyutian0510/Documents/dev-js/chuangqi/cqaso-kit/packages/cqaso-kit-autoprefixer
+> karma start
+
+[33m16 12 2016 15:27:06.639:WARN [watcher]: [39mPattern "/Users/chenyutian0510/Documents/dev-js/chuangqi/cqaso-kit/packages/cqaso-kit-autoprefixer/node_modules/babel-polyfill/dist/polyfill.js" does not match any file.
+[32m16 12 2016 15:27:08.241:INFO [karma]: [39mKarma v1.3.0 server started at http://localhost:9876/
+[32m16 12 2016 15:27:08.241:INFO [launcher]: [39mLaunching browsers PhantomJS, Firefox, Chrome with unlimited concurrency
+[32m16 12 2016 15:27:08.248:INFO [launcher]: [39mStarting browser PhantomJS
+[32m16 12 2016 15:27:08.259:INFO [launcher]: [39mStarting browser Firefox
+[32m16 12 2016 15:27:08.328:INFO [launcher]: [39mStarting browser Chrome
+[32m16 12 2016 15:27:10.945:INFO [PhantomJS 2.1.1 (Mac OS X 0.0.0)]: [39mConnected on socket /#zzK6pTh5xGx3jRZmAAAA with id 88006939
+
+  autoprefixer
+    [32m✓ [39m测试 export: function => camelCase
+[32m16 12 2016 15:27:11.974:INFO [Chrome 55.0.2883 (Mac OS X 10.11.3)]: [39mConnected on socket /#SDPrOp4-OS5ESF6uAAAB with id 71871431
+    [32m✓ [39m测试 export: function => camelCase
+[32m16 12 2016 15:27:15.697:INFO [Firefox 49.0.0 (Mac OS X 10.11.0)]: [39mConnected on socket /#1THq1PNjOdCdFDGHAAAC with id 65012008
+    [32m✓ [39m测试 export: function => camelCase
+
+PhantomJS 2.1.1 (Mac OS X 0.0.0): Executed 1 of 1[32m SUCCESS[39m (0.024 secs / 0.001 secs)
+Chrome 55.0.2883 (Mac OS X 10.11.3): Executed 1 of 1[32m SUCCESS[39m (0.809 secs / 0.003 secs)
+Firefox 49.0.0 (Mac OS X 10.11.0): Executed 1 of 1[32m SUCCESS[39m (0.002 secs / 0 secs)
+[32mTOTAL: 3 SUCCESS[39m
+
+
+=============================== Coverage summary ===============================
+Statements   : 64.15% ( 34/53 )
+Branches     : 50% ( 11/22 )
+Functions    : 44.44% ( 4/9 )
+Lines        : 62.22% ( 28/45 )
+================================================================================
+
+=============================== Coverage summary ===============================
+Statements   : 64.15% ( 34/53 )
+Branches     : 50% ( 11/22 )
+Functions    : 44.44% ( 4/9 )
+Lines        : 62.22% ( 28/45 )
+================================================================================
+
+=============================== Coverage summary ===============================
+Statements   : 64.15% ( 34/53 )
+Branches     : 50% ( 11/22 )
+Functions    : 44.44% ( 4/9 )
+Lines        : 62.22% ( 28/45 )
+================================================================================
+
+lerna(info)    
+> cqaso-kit-css@0.0.3 test /Users/chenyutian0510/Documents/dev-js/chuangqi/cqaso-kit/packages/cqaso-kit-css
+> karma start
+
+[33m16 12 2016 15:27:18.566:WARN [watcher]: [39mPattern "/Users/chenyutian0510/Documents/dev-js/chuangqi/cqaso-kit/packages/cqaso-kit-css/node_modules/babel-polyfill/dist/polyfill.js" does not match any file.
+[33m16 12 2016 15:27:18.569:WARN [watcher]: [39mPattern "/Users/chenyutian0510/Documents/dev-js/chuangqi/cqaso-kit/packages/cqaso-kit-css/test/**/*.js" does not match any file.
+[32m16 12 2016 15:27:18.591:INFO [karma]: [39mKarma v1.3.0 server started at http://localhost:9876/
+[32m16 12 2016 15:27:18.591:INFO [launcher]: [39mLaunching browsers PhantomJS, Firefox, Chrome with unlimited concurrency
+[32m16 12 2016 15:27:18.601:INFO [launcher]: [39mStarting browser PhantomJS
+[32m16 12 2016 15:27:18.611:INFO [launcher]: [39mStarting browser Firefox
+[32m16 12 2016 15:27:18.615:INFO [launcher]: [39mStarting browser Chrome
+[32m16 12 2016 15:27:20.250:INFO [PhantomJS 2.1.1 (Mac OS X 0.0.0)]: [39mConnected on socket /#EkFwOp7WXcU_0QI1AAAA with id 77298034
+[32m16 12 2016 15:27:20.964:INFO [Chrome 55.0.2883 (Mac OS X 10.11.3)]: [39mConnected on socket /#Gvelw3xpncdr6f-JAAAB with id 72058888
+[32m16 12 2016 15:27:23.781:INFO [Firefox 49.0.0 (Mac OS X 10.11.0)]: [39mConnected on socket /#VppL9TcGiPlEwA3nAAAC with id 71910234
+
+PhantomJS 2.1.1 (Mac OS X 0.0.0): Executed 0 of 0[31m ERROR[39m (0.002 secs / 0 secs)
+Chrome 55.0.2883 (Mac OS X 10.11.3): Executed 0 of 0[31m ERROR[39m (0.005 secs / 0 secs)
+Firefox 49.0.0 (Mac OS X 10.11.0): Executed 0 of 0[31m ERROR[39m (0.002 secs / 0 secs)
+
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 0/0 )
+Branches     : 100% ( 0/0 )
+Functions    : 100% ( 0/0 )
+Lines        : 100% ( 0/0 )
+================================================================================
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 0/0 )
+Branches     : 100% ( 0/0 )
+Functions    : 100% ( 0/0 )
+Lines        : 100% ( 0/0 )
+================================================================================
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 0/0 )
+Branches     : 100% ( 0/0 )
+Functions    : 100% ( 0/0 )
+Lines        : 100% ( 0/0 )
+================================================================================
+
+lerna(error)   Errored while running npm script 'test' in 'cqaso-kit-css'
+    Error: Command failed: npm run test 
+    
+    npm ERR! Darwin 15.3.0
+    npm ERR! argv "/Users/chenyutian0510/.nvm/versions/node/v7.0.0/bin/node" "/Users/chenyutian0510/.nvm/versions/node/v7.0.0/bin/npm" "run" "test"
+    npm ERR! node v7.0.0
+    npm ERR! npm  v4.0.3
+    npm ERR! code ELIFECYCLE
+    npm ERR! cqaso-kit-css@0.0.3 test: `karma start`
+    npm ERR! Exit status 1
+    npm ERR! 
+    npm ERR! Failed at the cqaso-kit-css@0.0.3 test script 'karma start'.
+    npm ERR! Make sure you have the latest version of node.js and npm installed.
+    npm ERR! If you do, this is most likely a problem with the cqaso-kit-css package,
+    npm ERR! not with npm itself.
+    npm ERR! Tell the author that this fails on your system:
+    npm ERR!     karma start
+    npm ERR! You can get information on how to open an issue for this project with:
+    npm ERR!     npm bugs cqaso-kit-css
+    npm ERR! Or if that isn't available, you can get their info via:
+    npm ERR!     npm owner ls cqaso-kit-css
+    npm ERR! There is likely additional logging output above.
+    
+    npm ERR! Please include the following file with any support request:
+    npm ERR!     /Users/chenyutian0510/Documents/dev-js/chuangqi/cqaso-kit/packages/cqaso-kit-css/npm-debug.log
+    
+        at ChildProcess.exithandler (child_process.js:211:12)
+        at emitTwo (events.js:106:13)
+        at ChildProcess.emit (events.js:191:7)
+        at maybeClose (internal/child_process.js:877:16)
+        at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+lerna(error)   Errored while running RunCommand.execute
