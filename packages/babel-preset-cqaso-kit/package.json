@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-cqaso-kit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Babel preset used by rainie",
   "license": "MIT",
   "files": [
