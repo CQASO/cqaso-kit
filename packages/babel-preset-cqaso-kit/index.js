@@ -69,7 +69,7 @@ if (env === 'test') {
         presets: [
             // Latest stable ECMAScript features
             [
-                require('babel-preset-latest').default, {
+                require('babel-preset-latest'), {
                     'es2015': {
                       'modules': false
                     }
