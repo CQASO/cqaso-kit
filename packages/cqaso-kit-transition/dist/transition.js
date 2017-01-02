@@ -206,9 +206,13 @@ var event = {
  * @flow
  */
 
-/* ------------------------------------
+/**
+ * @module cqaso-kit-transition
+ *
+ * @description
+ * 渐变动画, 包括导出的函数:
  * transition
- * ------------------------------------ */
+ */
 
 var prefix = cqasoKitAutoprefixer.getPrefix();
 var transitionend_name = prefix ? prefix + 'TransitionEnd' : 'transitionend';
@@ -220,6 +224,7 @@ var defaults$$1 = {
 
 /**
  * Class Transition
+ * @extends Transition
  */
 
 var Transition = function (_Queue) {
@@ -276,16 +281,13 @@ var Transition = function (_Queue) {
     return Transition;
 }(TransitionQueue);
 
-function transition(element) {
-    return new Transition(element);
-}
-
 /**
  * 保证transitionend触发
  * @param  {Object} element  element
  * @param  {number} duration 毫秒
- * @return
  */
+
+
 function verifyTransitionEnd(element, duration) {
     var called = false;
     element.addEventListener(transitionend_name, function () {
@@ -309,10 +311,28 @@ function verifyTransitionEnd(element, duration) {
  * transitiionend事件绑定
  * @param  {Object}   element  元素
  * @param  {function} callback 回调函数
- * @return
  */
 function transitionEnd(element, callback) {
     event.one(element, transitionend_name, callback);
+}
+
+/**
+ * @description transition函数
+ * @category cqaso-kit-transition
+ *
+ * @param {Object} element - 目标元素
+ * @return {Object} Tansition实例
+ *
+ * @example
+ * const transition = require('cqaso-kit-transition');
+ * transition(element)
+ *    .delay(600)
+ *      .to({rotateY: '180deg'})
+ *      .delay(600)
+ *      .to({rotateY: '0deg'});
+ */
+function transition(element) {
+    return new Transition(element);
 }
 
 exports.transition = transition;
