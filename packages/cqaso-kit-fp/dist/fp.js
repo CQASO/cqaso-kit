@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-    typeof define === 'function' && define.amd ? define(['exports'], factory) :
-    (factory((global.fp = global.fp || {})));
-}(this, (function (exports) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+    typeof define === 'function' && define.amd ? define(factory) :
+    (global.fp = factory());
+}(this, (function () { 'use strict';
 
 function curry(fn) {
     return function () {
@@ -22,9 +22,46 @@ var filter = curry(function (fn, arr) {
   return arr.filter(fn);
 });
 
-exports.map = map;
-exports.filter = filter;
+var sort = curry(function (fn, arr) {
+  return arr.sort(fn);
+});
 
-Object.defineProperty(exports, '__esModule', { value: true });
+var compose = function () {
+  for (var _len = arguments.length, fns = Array(_len), _key = 0; _key < _len; _key++) {
+    fns[_key] = arguments[_key];
+  }
+
+  return function (x) {
+    return fns.reduce(function (v, f) {
+      return f(v);
+    }, x);
+  };
+};
+
+var slice = curry(function (params, arr) {
+  return arr.slice.apply(arr, params);
+});
+
+function unique(arr) {
+  var n = []; //一个新的临时数组
+  //遍历当前数组
+  for (var i = 0; i < arr.length; i++) {
+    //如果当前数组的第i已经保存进了临时数组，那么跳过，
+    //否则把当前项push到临时数组里面
+    if (n.indexOf(arr[i]) == -1) n.push(arr[i]);
+  }
+  return n;
+}
+
+var fp = {
+    map: map,
+    filter: filter,
+    sort: sort,
+    compose: compose,
+    slice: slice,
+    unique: unique
+};
+
+return fp;
 
 })));
