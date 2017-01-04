@@ -1,6 +1,6 @@
 {
   "name": "cqaso-kit-fp",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/fp.js",
   "minified:main": "dist/fp.min.js",
   "amdName": "fp.js",
