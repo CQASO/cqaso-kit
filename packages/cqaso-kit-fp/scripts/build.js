@@ -53,7 +53,7 @@ function getOption(entry) {
         );
      } else {
          // 过滤__test__.js文件
-         if (/^((?!__test__).)*(\.js)$/.test(_path)) {
+         if (/^((?!__test__|__snapshots__).)*(\.js)$/.test(_path)) {
              return [_path];
          }
 

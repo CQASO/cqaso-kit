@@ -1,0 +1,22 @@
+exports[`test should format list when a number list 1`] = `
+Array [
+  1,
+  2,
+]
+`;
+
+exports[`test should format list when a string list 1`] = `
+Array [
+  "a",
+  "b",
+]
+`;
+
+exports[`test should format list when a undefined, null, NaN list 1`] = `
+Array [
+  "a",
+  undefined,
+  null,
+  NaN,
+]
+`;

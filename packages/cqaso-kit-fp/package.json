@@ -9,13 +9,19 @@
     "clean": "rm -rf dist/",
     "minify": "babel-node ./scripts/minify.js",
     "transpile": "babel-node ./scripts/build.js",
-    "start": "webpack -w"
+    "start": "webpack -w",
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
+    "jest": "^18.1.0",
     "npm-run-all": "^4.0.0",
     "webpack": "^1.14.0"
+  },
+  "jest": {
+      "testRegex": "(\\.|/)(__test__|spec)\\.jsx?$"
   }
 }
