@@ -14,6 +14,13 @@ function curry(fn) {
     };
 }
 
+/**
+ * Copyright (c) 2016-present, rainie, Inc.
+ * All rights reserved.
+ *
+ * 
+ */
+
 var sort = curry(function (fn, arr) {
   return arr.sort(fn);
 });

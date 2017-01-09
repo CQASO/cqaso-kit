@@ -1,5 +1,11 @@
+/**
+ * Copyright (c) 2016-present, rainie, Inc.
+ * All rights reserved.
+ *
+ * @flow
+ */
 
-function unique(arr) {
+function unique(arr: Array<mixed>): Array<mixed> {
     const n = []; //一个新的临时数组
     //遍历当前数组
     for(let i = 0; i < arr.length; i++){

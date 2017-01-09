@@ -1,3 +1,4 @@
+
 import unique from './unique.js';
 
 test('should format list when a number list', () => {

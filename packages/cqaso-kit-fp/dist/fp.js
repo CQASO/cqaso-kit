@@ -22,6 +22,13 @@ var filter = curry(function (fn, arr) {
   return arr.filter(fn);
 });
 
+/**
+ * Copyright (c) 2016-present, rainie, Inc.
+ * All rights reserved.
+ *
+ * 
+ */
+
 var sort = curry(function (fn, arr) {
   return arr.sort(fn);
 });
@@ -42,15 +49,28 @@ var slice = curry(function (params, arr) {
   return arr.slice.apply(arr, params);
 });
 
+/**
+ * Copyright (c) 2016-present, rainie, Inc.
+ * All rights reserved.
+ *
+ * 
+ */
+
 function unique(arr) {
-  var n = []; //一个新的临时数组
-  //遍历当前数组
-  for (var i = 0; i < arr.length; i++) {
-    //如果当前数组的第i已经保存进了临时数组，那么跳过，
-    //否则把当前项push到临时数组里面
-    if (n.indexOf(arr[i]) == -1) n.push(arr[i]);
-  }
-  return n;
+    var n = []; //一个新的临时数组
+    //遍历当前数组
+    for (var i = 0; i < arr.length; i++) {
+        //如果当前数组的第i已经保存进了临时数组，那么跳过，
+        //否则把当前项push到临时数组里面
+        if (!_contains(n, arr[i])) n.push(arr[i]);
+    }
+    return n;
+}
+
+function _contains(arr, element) {
+    return arr.some(function (val) {
+        return val === element || val !== val && element !== element;
+    });
 }
 
 var fp = {

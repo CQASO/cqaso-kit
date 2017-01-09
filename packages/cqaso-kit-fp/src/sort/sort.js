@@ -1,3 +1,9 @@
+/**
+ * Copyright (c) 2016-present, rainie, Inc.
+ * All rights reserved.
+ *
+ * @flow
+ */
 
 import curry from '../_helper/curry.js';
 
