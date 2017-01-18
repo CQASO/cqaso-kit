@@ -4,7 +4,7 @@
   "title": "",
   "description": "为了快速构建CQASO网站,以及快速搭建CQASO相关网站，框架。作为底层工具输出。",
   "logo_icon": "",
-  "entry_path": "./packages/*/src/index.js",
+  "entry_path": "./packages/*/src/*.js",
   "categories": [
   	"cqaso-kit-css",
   	"cqaso-kit-autoprefixer",

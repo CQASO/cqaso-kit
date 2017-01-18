@@ -23,6 +23,7 @@ function getBoundingClientRect(el) {
  * @description 判断元素是否在viewport中
  * @category cqaso-kit-dom
  * @param  {Object} el 目标元素
+ * @param  {Object} parent 父元素
  * @return {Boolean}   是否在viewport中
  *
  * @example
