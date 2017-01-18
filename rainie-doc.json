@@ -8,7 +8,8 @@
   "categories": [
   	"cqaso-kit-css",
   	"cqaso-kit-autoprefixer",
-  	"cqaso-kit-css"
+  	"cqaso-kit-css",
+    "cqaso-kit-dom"
   ],
   "feature": "./docs/feature.md",
   "usage": "./docs/usage.js"
