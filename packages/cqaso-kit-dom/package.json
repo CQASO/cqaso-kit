@@ -1,0 +1,22 @@
+{
+  "name": "cqaso-kit-dom",
+  "version": "0.0.0",
+  "main": "dist/dom.js",
+  "minified:main": "dist/dom.min.js",
+  "amdName": "dom.js",
+  "scripts": {
+    "start": "webpack -w",
+    "build": "npm-run-all clean transpile minify",
+    "clean": "rm -rf dist/",
+    "minify": "babel-node ./scripts/minify.js",
+    "transpile": "babel-node ./scripts/build.js",
+    "test": "karma start",
+    "coverage": "open ./coverage/lcov-report/index.html"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "karma": "^1.4.0",
+    "npm-run-all": "^4.0.0",
+    "webpack": "^1.14.0"
+  }
+}
