@@ -1,6 +1,6 @@
 {
-  "name": "cqaso-kit-dom",
-  "version": "0.0.2",
+  "name": "cq-kit-dom",
+  "version": "0.0.3",
   "main": "dist/dom.js",
   "minified:main": "dist/dom.min.js",
   "amdName": "dom.js",
