@@ -77,22 +77,22 @@ class Transition extends Queue {
  * @param  {number} duration 毫秒
  */
 function verifyTransitionEnd (element, duration) {
-  let called = false;
-  element.addEventListener(transitionend_name, () => {
-      called = true;
-  });
+    let called = false;
+    element.addEventListener(transitionend_name, () => {
+        called = true;
+    });
 
-  setTimeout(() => {
-      if (!called) {
-          var event = new MouseEvent(transitionend_name, {
-            'view': window,
-            'bubbles': true,
-            'cancelable': true
-          });
+    setTimeout(() => {
+        if (!called) {
+            var event = new MouseEvent(transitionend_name, {
+                'view': window,
+                'bubbles': true,
+                'cancelable': true
+            });
 
-          element.dispatchEvent(event);
-      }
-  }, duration + 50);
+            element.dispatchEvent(event);
+        }
+    }, duration + 50);
 }
 
 /**
